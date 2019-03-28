@@ -1,0 +1,13 @@
+{
+   "pages": [
+      "pages/index/index",
+      "pages/login/login"
+   ],
+   "window": {
+
+   },
+   "networkTimeout": {
+      "request": 10000,
+      "downloadFile": 10000
+   }
+}
