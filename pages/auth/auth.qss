@@ -1,0 +1,17 @@
+.logo {
+  width:200rpx;
+  margin-top: 250rpx;
+}
+
+.title {
+  text-align: center;
+  margin-top: 30rpx;
+}
+
+.profile {
+  text-align: center;
+  font-size: 14px;
+  color:#888;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+}
