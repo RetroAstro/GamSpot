@@ -2,8 +2,8 @@ const { setFreshJWT } = require('./api/index')
 
 App({
    onLaunch () {
-      var time_stamp = new Date().getTime()
       var { exp } = qq.getStorageSync('jwt') || {}
+      var time_stamp = new Date().getTime()
       
       if (!exp) {
          qq.redirectTo({ url: '/pages/auth/auth' })
