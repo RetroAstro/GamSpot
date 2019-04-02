@@ -1,5 +1,4 @@
 module.exports = {
-   CHECK_JWT: 'xxx',
-   CREATE_SESSION_KEY: 'xxx',
-   SEND_ENCRYPTED_DATA: 'xxx'
+   GET_FRESH_JWT: 'http://u9fsm3.natappfree.cc/login',
+   SEND_BIND_DATA: 'http://u9fsm3.natappfree.cc/binding'
 }

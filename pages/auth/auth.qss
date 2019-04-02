@@ -15,3 +15,9 @@
   margin-top: 30rpx;
   margin-bottom: 50rpx;
 }
+
+.mini-btn {
+  width: 200rpx;
+  height: 80rpx;
+  font-size: 16px;
+}

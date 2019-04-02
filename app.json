@@ -1,7 +1,18 @@
 {
    "pages": [
+      "pages/index/index",
       "pages/auth/auth",
-      "pages/bind/bind"
+      "pages/bind/bind",
+      "pages/circle/detail/detail",
+      "pages/circle/reply/reply",
+      "pages/circle/upon/upon",
+      "pages/avatar/avatar",
+      "pages/mine/index/index",
+      "pages/mine/collect/collect",
+      "pages/mine/joined/joined",
+      "pages/mine/like/like",
+      "pages/notify/notify",
+      "pages/publish/publish"
    ],
    "window": {
 

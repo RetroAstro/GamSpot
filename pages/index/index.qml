@@ -1,3 +1,3 @@
 <view class="container">
-   Hello World
+   Index Page
 </view>

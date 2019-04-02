@@ -1,41 +1,52 @@
-const { Form } = require('../utils')
-
 const {
-   CHECK_JWT,
-   CREATE_SESSION_KEY,
-   SEND_ENCRYPTED_DATA,
+   GET_FRESH_JWT,
+   SEND_BIND_DATA
 } = require('./config')
 
-const isStaleJWT = () => {
+const getToken = () => qq.getStorageSync('jwt').token
+
+const setFreshJWT = () => {
    return new Promise(resolve => {
-      qq.request({
-         url: CHECK_JWT,
-         method: 'GET',
-         success({ stale }) {
-            stale ? resolve(true) : resolve(false)
+      qq.login({
+         success({ code }) {
+            qq.request({
+               url: GET_FRESH_JWT,
+               method: 'POST',
+               data: { code },
+               success(res) {
+                  var { exp } = atob(res.data.data.split('.')[1])
+                  qq.setStorageSync('jwt', { exp, token: res.data.data })
+                  resolve()
+               }
+            })
          }
       })
    })
 }
 
-const getFreshJWT = code => {
+const sendBindData = () => {
    return new Promise(resolve => {
-      qq.request({
-         url: CREATE_SESSION_KEY,
-         method: 'POST',
-         data: Form({ code }),
-         success() {
-            qq.getUserInfo({
-               withCredentials: true,
-               success({ iv, encryptedData }) {
-                  qq.request({
-                     url: SEND_ENCRYPTED_DATA,
-                     method: 'POST',
-                     data: Form({ iv, encryptedData }),
-                     success (res) {
-                        resolve(res)
-                     }
-                  })
+      qq.getUserInfo({
+         withCredentials: true,
+         success({ iv, encryptedData, signauture }) {
+            qq.request({
+               url: SEND_BIND_DATA,
+               method: 'POST',
+               header: {
+                  'Authorization': 'Bearer ' + getToken()
+               },
+               data: {
+                  iv,
+                  encryptedData,
+                  signauture,
+                  student: {
+                     stuid: '2017212786',
+                     nickname: 'RetroAstro',
+                     identification: '080410'
+                  }
+               },
+               success (res) {
+                  resolve(res)
                }
             })
          }
@@ -44,6 +55,6 @@ const getFreshJWT = code => {
 }
 
 module.exports = {
-   isStaleJWT,
-   getFreshJWT
+   setFreshJWT,
+   sendBindData
 }

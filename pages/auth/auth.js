@@ -1,16 +1,10 @@
-const { getFreshJWT } = require('../../api')
+const { setFreshJWT } = require('../../api/index')
 
 Page({
    getUserInfo(e) {
       if (e.detail.userInfo) {
-         qq.login({
-            success({ code }) {
-               getFreshJWT(code)
-               .then(({ jwt }) => {
-                  qq.setStorageSync('jwt', jwt)
-               })
-            }
-         })
+         setFreshJWT()
+         .then(() => qq.redirectTo({ url: '/pages/bind/bind' }))
       } else {
          console.log('获取用户信息失败！')
       }
