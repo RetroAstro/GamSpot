@@ -1,7 +1,7 @@
 const {
    GET_FRESH_JWT,
    SEND_BIND_DATA
-} = require('./config')
+} = require('./urls')
 
 const getToken = () => qq.getStorageSync('jwt').token
 

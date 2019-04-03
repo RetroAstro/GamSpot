@@ -1,0 +1,55 @@
+.banner-box {
+   width: 100%;
+   height: 560rpx;
+}
+
+.banner-box .banner {
+   width: 100%;
+   height: 100%;
+}
+
+.binding-box {
+   width: 590rpx;
+   height: 100%;
+   padding-top: 32rpx;
+}
+
+.binding-box view {
+   width: 100%;
+   height: 120rpx;
+   border-bottom: 1px solid #e5e5e5;
+   padding-top: 25rpx;
+}
+
+.binding-box input {
+   width: 500rpx;
+   height: 20rpx;
+   font-size:18px;
+   color: #000;
+}
+
+.binding-box .nickname {
+   width: 50rpx;
+   height: 49rpx;
+   transform: translateY(-3rpx);
+}
+
+.binding-box .stuid {
+   width: 50rpx;
+   height: 40rpx;
+}
+
+.binding-box .identity {
+   width: 50rpx;
+   height: 40rpx;
+   transform: translateY(-2rpx);
+}
+
+.binding-btn {
+   background: #6a9ef8;
+   border: none;
+   color: #fff;
+   height: 80rpx;
+   letter-spacing: 10rpx;
+   margin-top: 90rpx;
+}
