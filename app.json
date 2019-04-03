@@ -1,8 +1,9 @@
 {
    "pages": [
-      "pages/index/index",
+      "pages/loading/loading",
       "pages/auth/auth",
       "pages/bind/bind",
+      "pages/circle/index/index",
       "pages/circle/detail/detail",
       "pages/circle/reply/reply",
       "pages/circle/upon/upon",

@@ -6,6 +6,8 @@ const {
 const getToken = () => qq.getStorageSync('jwt').token
 
 const setFreshJWT = () => {
+   qq.showLoading({ title: '加载中' })
+   
    return new Promise(resolve => {
       qq.login({
          success({ code }) {
@@ -14,8 +16,9 @@ const setFreshJWT = () => {
                method: 'POST',
                data: { code },
                success(res) {
-                  var { exp } = atob(res.data.data.split('.')[1])
-                  qq.setStorageSync('jwt', { exp, token: res.data.data })
+                  var { exp, sub } = JSON.parse(atob(res.data.data.split('.')[1]))
+                  qq.setStorageSync('jwt', { exp, sub, token: res.data.data })
+                  qq.hideLoading()
                   resolve()
                }
             })
@@ -24,11 +27,11 @@ const setFreshJWT = () => {
    })
 }
 
-const sendBindData = () => {
+const sendBindData = data => {
    return new Promise(resolve => {
       qq.getUserInfo({
          withCredentials: true,
-         success({ iv, encryptedData, signauture }) {
+         success({ iv, encryptedData, signature }) {
             qq.request({
                url: SEND_BIND_DATA,
                method: 'POST',
@@ -38,15 +41,11 @@ const sendBindData = () => {
                data: {
                   iv,
                   encryptedData,
-                  signauture,
-                  student: {
-                     stuid: '2017212786',
-                     nickname: 'RetroAstro',
-                     identification: '080410'
-                  }
+                  signature,
+                  student: data
                },
                success (res) {
-                  resolve(res)
+                  resolve(res.data)
                }
             })
          }

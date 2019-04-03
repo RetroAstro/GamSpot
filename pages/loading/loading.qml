@@ -1,3 +1,3 @@
 <view class="container">
-   Binding Page
+   Loading Page
 </view>
