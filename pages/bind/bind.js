@@ -8,7 +8,7 @@ Page({
          this.sendData(data)
       } else {
          qq.showToast({
-            title: '请将信息输入完整!',
+            title: '请输入完整信息！',
             icon: 'none',
             duration: 2000
          })
@@ -25,7 +25,11 @@ Page({
             qq.setStorageSync('jwt', { exp, sub, token: data })
             qq.redirectTo({ url: '/pages/circle/index/index' })
          } else {
-            console.log('绑定信息有误！')
+            qq.showToast({
+               title: '输入信息有误！',
+               icon: 'none',
+               duration: 2000
+            })
          }
       })
    }

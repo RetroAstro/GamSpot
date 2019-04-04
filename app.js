@@ -3,15 +3,18 @@ const { getTimeStamp } = require('./utils/index')
 
 App({
    onLaunch () {
-      var { exp } = qq.getStorageSync('jwt') || {}
-      
+      var { exp, sub } = qq.getStorageSync('jwt') || {}
+
       if (!exp) {
          qq.redirectTo({ url: '/pages/auth/auth' })
+      }
+      else if (sub === 'guest') {
+         qq.redirectTo({ url: '/pages/bind/bind' })
       }
       else if (exp < getTimeStamp()) {
          setFreshJWT()
          .then(() => qq.redirectTo({ url: '/pages/circle/index/index' }))
-      } 
+      }
       else {
          qq.redirectTo({ url: '/pages/circle/index/index' })
       }
