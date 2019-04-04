@@ -7,8 +7,11 @@ Page({
          .then(() => {
             var { sub } = qq.getStorageSync('jwt')
 
-            sub === 'student' ?
-               qq.redirectTo({ url: '/pages/circle/index/index' }) : qq.redirectTo({ url: '/pages/bind/bind' })
+            if (sub === 'student') {
+               qq.redirectTo({ url: '/pages/circle/index/index' })
+            } else {
+               qq.redirectTo({ url: '/pages/bind/bind' })
+            }
          })
       } else {
          qq.showToast({
