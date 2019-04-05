@@ -17,4 +17,10 @@
          </view>
       </view>
    </view>
+   <view class="main">
+      <scroll-view class="scroll-box" scroll-y>
+         <view class="bar"></view>
+         <post></post>
+      </scroll-view>
+   </view>
 </view>

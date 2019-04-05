@@ -10,10 +10,17 @@
 // 引用 import、include
 // 模版 template
 
+/**
+ * 用户头像、昵称、发布时间
+ * 圈话内容、图片
+ * 点赞、评论、收藏
+ */
+
 Component({
    externalClasses: [],
    options: {
-      multipleSlots: true
+      multipleSlots: true,
+      addGlobalClass: true
    },
    properties: {
       myProperty: {
@@ -40,7 +47,12 @@ Component({
       }
    },
    data: {
-
+      photos: [
+         {
+            ratio: .8,
+            url: '../../images/column.jpg'
+         }
+      ]
    },
    methods: {
       

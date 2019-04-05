@@ -10,7 +10,7 @@
 
 .profile {
   text-align: center;
-  font-size: 14px;
+  font-size: 28rpx;
   color:#888;
   margin-top: 30rpx;
   margin-bottom: 50rpx;
@@ -19,5 +19,5 @@
 .mini-btn {
   width: 200rpx;
   height: 80rpx;
-  font-size: 16px;
+  font-size: 32rpx;
 }

@@ -3,8 +3,11 @@ const { getTimeStamp } = require('./utils/index')
 
 App({
    onLaunch () {
-      var { exp, sub } = qq.getStorageSync('jwt') || {}
+      var jwt = qq.getStorageSync('jwt') || {}
 
+      // this.routeSwitch(jwt)
+   },
+   routeSwitch({ exp, sub }) {
       if (!exp) {
          qq.redirectTo({ url: '/pages/auth/auth' })
       }

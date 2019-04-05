@@ -13,7 +13,8 @@
 Component({
    externalClasses: [],
    options: {
-      multipleSlots: true
+      multipleSlots: true,
+      addGlobalClass: true
    },
    properties: {
       myProperty: {
