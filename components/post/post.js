@@ -49,8 +49,8 @@ Component({
    data: {
       photos: [
          {
-            ratio: .8,
-            url: '../../images/column.jpg'
+            ratio: 1,
+            url: '../../images/row.jpg'
          }
       ]
    },

@@ -1,6 +1,9 @@
+.container {
+   background: #f6f6f6;
+}
+
 .header {
    width: 100%;
-   height: 241.2rpx;
    background: #6a9ef8;
    padding: 0 30rpx;
    position: relative;
@@ -44,19 +47,24 @@
    font-weight: bold;
 }
 
-.header .message {
+.header .sticky {
+   width: 100%;
+   height: 80rpx;
+   position: relative;
+}
+
+.header .sticky .message {
    width: 81rpx;
    height: 105rpx;
    position: absolute;
-   right: 120rpx;
-   bottom: 90rpx;
+   top: -102rpx;
+   right: 95rpx;
 }
 
-.header .upon-box {
+.header .sticky .upon-box {
    position: absolute;
+   left: 0rpx;
    bottom: -45rpx;
-   left: 50%;
-   transform: translateX(-50%);
    width: 690rpx;
    height: 90rpx;
 	box-shadow: 0px 7px 16px 0px rgba(0, 0, 0, 0.03);
@@ -65,35 +73,28 @@
    padding: 0 30rpx;
 }
 
-.header .upon-box .upon {
+.header .sticky .upon-box .upon {
    width: 100%;
    height: 40rpx;
 }
 
-.header .upon-box .upon .title {
+.header .sticky .upon-box .upon .title {
    font-size: 30rpx;
 	color: #f44d4d;
 }
 
-.header .upon-box .upon .content {
+.header .sticky .upon-box .upon .content {
    width: 540rpx;
    font-size: 30rpx;
    color: #585858;
    margin-left: 30rpx;
 }
 
-.main {
-   width: 100%;
-   background: #f6f6f6;
-   height: 964.8rpx;
+.main .post-box {
+   position: relative;
 }
 
-.main .scroll-box {
-   width: 100%;
-   height: 964.8rpx;
-}
-
-.main .scroll-box .bar {
+.main .post-box .top-bar {
    width: 100%;
    height: 50rpx;
    background: #fff;

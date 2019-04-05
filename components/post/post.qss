@@ -2,6 +2,7 @@
    width: 100%;
    padding: 35rpx 30rpx 40rpx 30rpx;
    background: #fff;
+   margin-bottom: 20rpx;
 }
 
 .post .user-box {
@@ -35,14 +36,54 @@
   color:#585858;
 }
 
-.layout-one .row {
-   width: 100%;
+.post .photo-box {
+   margin-bottom: 30rpx;
+}
+
+.post .photo-box image {
    border-radius: 6rpx;
    border: 1px solid #fff;
 }
 
-.layout-one .column {
+.post .photo-box .layout-one .row {
+   width: 100%;
+}
+
+.post .photo-box .layout-one .column {
    width: 50%;
-   border-radius: 6rpx;
-   border: 1px solid #fff;
+}
+
+.post .photo-box .layout-two image {
+   width: 340rpx;
+   height: 340rpx;
+}
+
+.post .photo-box .layout-three image {
+   width: 226rpx;
+   height: 226rpx;
+}
+
+.post .interact-box {
+   width: 100%;
+   height: 40rpx;
+}
+
+.post .interact-box > view {
+   margin-left: 45rpx;
+}
+
+.post .interact-box .number {
+   margin-left: 12rpx;
+   font-size: 26rpx;
+   color: #8d8d8d;
+}
+
+.post .interact-box image {
+   width: 38rpx;
+   height: 38rpx;
+}
+
+.post .interact-box .comment image {
+   width: 40rpx;
+   height: 40rpx;
 }

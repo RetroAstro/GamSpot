@@ -16,17 +16,46 @@
       <block qq:if="{{photos.length === 1}}">
          <template is="one" data="{{...photos[0]}}" />
       </block>
+      <block qq:elif="{{photos.length >= 2 && photos.length <= 4}}">
+         <template is="two" data="{{photos, type: 'layout-two'}}" />
+      </block>
+      <block qq:else>
+         <template is="two" data="{{photos, type: 'layout-three'}}" />
+      </block>
    </view>
-   <view class="interact-box"></view>
+   <view class="interact-box flex-end">
+      <view class="like flex-start">
+         <image mode="scaleToFill" src="../../images/active-like.png"></image>
+         <view class="number">752</view>
+      </view>
+      <view class="comment flex-start">
+         <image mode="scaleToFill" src="../../images/comment.png"></image>
+         <view class="number">389</view>
+      </view>
+      <view class="collect flex-start">
+         <image mode="scaleToFill" src="../../images/active-collect.png"></image>
+         <view class="number">879</view>
+      </view>
+   </view>
 </view>
 
 <template name="one">
-   <view class="layout-one">
+   <view class="layout-one flex-center">
       <block qq:if="{{ratio >= 1}}">
          <image class="row" mode="widthFix" src="{{url}}"></image>
       </block>
       <block qq:else>
          <image class="column" mode="widthFix" src="{{url}}"></image>
       </block>
+   </view>
+</template>
+
+<template name="two">
+   <view class="{{type}}">
+      <view class="flex-box">
+         <block qq:for="{{photos}}" qq:key="index">
+            <image mode="scaleToFill" src="{{item.url}}"></image>
+         </block>
+      </view>
    </view>
 </template>
