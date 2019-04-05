@@ -24,7 +24,7 @@
 .binding-box input {
    width: 500rpx;
    height: 20rpx;
-   font-size:18px;
+   font-size: 18px;
    color: #000;
 }
 
