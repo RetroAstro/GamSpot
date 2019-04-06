@@ -22,8 +22,8 @@
    <view class="main">
       <view class="post-box">
          <view class="top-bar"></view>
-         <post></post>
-         <post></post>
+         <post photos="{{photos}}"></post>
+         <post photos="{{photos}}"></post>
       </view>
    </view>
 </view>

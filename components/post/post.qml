@@ -6,12 +6,7 @@
          <view class="time">16:30</view>
       </view>
    </view>
-   <view class="content-box">
-      拥有交互思维的视觉设计师，拥有了在产品层面讨论问
-      题的能力，更多的交流能弥补信息不对称，帮助视觉设
-      计更贴合需求，这个良性的促进，使设计师拥有更大的
-      话语权。毕竟符合需求的设计才是好设计。
-   </view>
+   <view class="content-box">拥有交互思维的视觉设计师，拥有了在产品层面讨论问题的能力，更多的交流能弥补信息不对称，帮助视觉设计更贴合需求，这个良性的促进，使设计师拥有更大的话语权。毕竟符合需求的设计才是好设计。</view>
    <view class="photo-box">
       <block qq:if="{{photos.length === 1}}">
          <template is="one" data="{{...photos[0]}}" />

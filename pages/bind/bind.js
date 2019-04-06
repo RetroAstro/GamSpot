@@ -1,6 +1,14 @@
 const { sendBindData } = require('../../api/index')
 
 Page({
+   data: {
+      mark: ''
+   },
+   onFocus(e) {
+      this.setData({
+         mark: e.currentTarget.dataset.mark
+      })
+   },
    formSubmit(e) {
       var data = e.detail.value
 

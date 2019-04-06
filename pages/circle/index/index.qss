@@ -90,8 +90,13 @@
    margin-left: 30rpx;
 }
 
-.main .post-box {
+.main {
+   width: 100%;
    position: relative;
+}
+
+.main .post-box {
+   width: 100%;
 }
 
 .main .post-box .top-bar {

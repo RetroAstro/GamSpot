@@ -23,11 +23,11 @@ Component({
       addGlobalClass: true
    },
    properties: {
-      myProperty: {
-         type: String,
-         value: '',
+      photos: {
+         type: Array,
+         value: [],
          observer(newVal, oldVal) {
-            
+
          }
       },
    },
@@ -45,14 +45,6 @@ Component({
       hide() {
 
       }
-   },
-   data: {
-      photos: [
-         {
-            ratio: 1,
-            url: '../../images/row.jpg'
-         }
-      ]
    },
    methods: {
       

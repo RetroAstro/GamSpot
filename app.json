@@ -1,11 +1,10 @@
 {
    "pages": [
-      "pages/circle/index/index",
+      "pages/bind/bind",
       "pages/loading/loading",
       "pages/auth/auth",
-      "pages/bind/bind",
+      "pages/circle/index/index",
       "pages/circle/detail/detail",
-      "pages/circle/reply/reply",
       "pages/circle/upon/upon",
       "pages/avatar/avatar",
       "pages/mine/index/index",
