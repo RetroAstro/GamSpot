@@ -1,20 +1,52 @@
 {
    "pages": [
-      "pages/home/home",
-      "pages/loading/loading",
-      "pages/bind/bind",
-      "pages/auth/auth",
       "pages/circle/index/index",
+      "pages/loading/loading",
+      "pages/auth/auth",
+      "pages/bind/bind",
+      "pages/avatar/avatar",
+      "pages/popular/popular",
+      "pages/circle/single/single",
       "pages/circle/detail/detail",
       "pages/circle/upon/upon",
-      "pages/avatar/avatar",
+      "pages/notice/notice",
+      "pages/publish/publish",
       "pages/mine/index/index",
       "pages/mine/collect/collect",
       "pages/mine/joined/joined",
-      "pages/mine/like/like",
-      "pages/notify/notify",
-      "pages/publish/publish"
+      "pages/mine/like/like"
    ],
+   "tabBar": {
+      "borderStyle": "black",
+      "backgroundColor": "#fff",
+      "selectedColor": "#6a9ef8",
+      "list": [
+         {
+            "pagePath": "pages/popular/popular",
+            "text": "热门",
+            "iconPath": "/images/popular.png",
+            "selectedIconPath": "/images/active-popular.png"
+          },
+          {
+            "pagePath": "pages/circle/index/index",
+            "text": "圈子",
+            "iconPath": "/images/circle.png",
+            "selectedIconPath": "/images/active-circle.png"
+          },
+          {
+           "pagePath": "pages/notice/notice",
+           "text": "通知",
+           "iconPath": "/images/notice.png",
+           "selectedIconPath": "/images/active-notice.png"
+         },
+         {
+           "pagePath": "pages/mine/index/index",
+           "text": "我的",
+           "iconPath": "/images/mine.png",
+           "selectedIconPath": "/images/active-mine.png"
+         }
+      ]
+   },
    "window": {
       "navigationBarBackgroundColor": "#fff"
    },

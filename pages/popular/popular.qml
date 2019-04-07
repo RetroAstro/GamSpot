@@ -1,3 +1,3 @@
 <view class="container">
-   Publish Page
+   Popular Page
 </view>
