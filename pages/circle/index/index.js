@@ -1,5 +1,6 @@
 Page({
    data: {
+      mark: 'join',
       photos: [
          {
             ratio: 1,
@@ -7,7 +8,9 @@ Page({
          }
       ]
    },
-   onLoad() {
-      
+   onTap() {
+      this.setData({
+         mark: 'publish'
+      })
    }
 })

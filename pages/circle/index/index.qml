@@ -26,4 +26,10 @@
          <post photos="{{photos}}"></post>
       </view>
    </view>
+   <view class="join-box {{mark === 'join' ? 'active' : ''}}" bindtap="onTap">
+      <image class="join" mode="scaleToFill" src="../../../images/join.png"></image>
+   </view>
+   <view class="publish-box {{mark === 'publish' ? 'active' : ''}}">
+      <image class="publish" mode="scaleToFill" src="../../../images/publish.png"></image>
+   </view>
 </view>
