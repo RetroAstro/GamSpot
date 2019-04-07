@@ -8,6 +8,7 @@
 .post .user-box {
    width: 100%;
    height: 70rpx;
+   position: relative;
 }
 
 .post .user-box .avatar {
@@ -18,16 +19,47 @@
 
 .post .user-box .info {
    margin-left: 20rpx;
+   height: 100%;
 }
 
 .post .user-box .info .name {
-   font-size: 30rpx;
+   font-size: 28rpx;
    color: #585858;
 }
 
 .post .user-box .info .time {
-   font-size: 24rpx;
+   font-size: 22rpx;
    color: #b8b8b8;
+}
+
+.post .user-box .upon-tag {
+   height: 100%;
+   margin-left: 20rpx;
+}
+
+.post .user-box .upon-tag .upon {
+   width: 70rpx;
+   height: 35rpx;
+   border-radius: 6rpx;
+   background-color: #6a9ef8;
+   color: #fff;
+   font-size: 24rpx;
+}
+
+.post .user-box .circle-tag {
+   position: absolute;
+   top: 0;
+   right: 0;
+   height: 100%;
+}
+
+.post .user-box .circle-tag .circle {
+   height: 35rpx;
+   padding: 5rpx 10rpx;
+   color: #fff;
+   font-size: 24rpx;
+   border-radius: 6rpx;
+   background-color: #6a9ef8;
 }
 
 .post .content-box {

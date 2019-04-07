@@ -2,8 +2,14 @@
    <view class="user-box flex-start">
       <image class="avatar" mode="scaleToFill" src="../../images/icon.png"></image>
       <view class="info flex-col-between">
-         <view class="name">疯狂的兔子🐰</view>
+         <view class="name">疯狂的兔子</view>
          <view class="time">16:30</view>
+      </view>
+      <!-- <view class="upon-tag">
+         <view class="upon flex-center">置顶</view>
+      </view> -->
+      <view class="circle-tag">
+         <view class="circle flex-center">#摄影#</view>
       </view>
    </view>
    <view class="content-box">拥有交互思维的视觉设计师，拥有了在产品层面讨论问题的能力，更多的交流能弥补信息不对称，帮助视觉设计更贴合需求，这个良性的促进，使设计师拥有更大的话语权。毕竟符合需求的设计才是好设计。</view>

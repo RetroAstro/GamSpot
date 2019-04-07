@@ -1,0 +1,12 @@
+.container {
+   background: #f6f6f6;
+}
+
+.post-box {
+   width: 100%;
+   position: relative;
+}
+
+.post-box post:last-child > view {
+   margin-bottom: 0rpx;
+}
