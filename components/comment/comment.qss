@@ -21,20 +21,22 @@
 
 .comment .header .left .info {
    margin-left: 20rpx;
+   height: 100%;
 }
 
 .comment .header .left .info .name {
-   font-size: 30rpx;
+   font-size: 28rpx;
    color: #585858;
 }
 
 .comment .header .left .info .time {
-   font-size: 24rpx;
+   font-size: 22rpx;
    color: #b8b8b8;
 }
 
 .comment .header .right {
    height: 70rpx;
+   align-items: flex-start;
 }
 
 .comment .header .right .like {

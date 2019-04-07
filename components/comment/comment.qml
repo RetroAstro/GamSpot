@@ -3,7 +3,7 @@
       <view class="left flex-start">
          <image class="avatar" mode="scaleToFill" src="../../images/icon.png"></image>
          <view class="info flex-col-between">
-            <view class="name">疯狂的兔子🐰</view>
+            <view class="name">疯狂的兔子</view>
             <view class="time">16:30</view>
          </view>
       </view>
