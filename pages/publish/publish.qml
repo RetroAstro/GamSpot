@@ -1,6 +1,6 @@
 <view class="container">
    <view class="tag-box flex-start">
-      <view class="circle-name flex-center">#摄影#</view>
+      <view class="circle-name flex-center">#失物招领#</view>
    </view>
    <view class="content-box">
       <textarea auto-height maxlength="300" placeholder="发布新动态... (最多300字)" placeholder-class="placeholder"></textarea>
