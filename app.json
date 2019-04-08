@@ -1,16 +1,16 @@
 {
    "pages": [
-      "pages/publish/publish",
+      "pages/circle/index/index",
       "pages/loading/loading",
       "pages/auth/auth",
       "pages/bind/bind",
       "pages/avatar/avatar",
       "pages/popular/popular",
-      "pages/circle/index/index",
       "pages/circle/single/single",
       "pages/circle/detail/detail",
       "pages/circle/upon/upon",
       "pages/notice/notice",
+      "pages/publish/publish",
       "pages/mine/index/index",
       "pages/mine/collect/collect",
       "pages/mine/joined/joined",
