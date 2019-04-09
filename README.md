@@ -27,10 +27,9 @@
 
 * 图片上传、图片预览
 
-**Data Fetching**
+**Data Fetching (Suspense)**
 
 * 动态请求
-
 * 加载状态
 * 错误处理
 * 竞态处理
