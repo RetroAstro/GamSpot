@@ -30,8 +30,9 @@ Page({
       .then(({ data }) => {
          if (data) {
             var { exp, sub } = JSON.parse(atob(data.split('.')[1]))
+            
             qq.setStorageSync('jwt', { exp, sub, token: data })
-            qq.redirectTo({ url: '/pages/circle/index/index' })
+            qq.switchTab({ url: '/pages/popular/popular' })
          } else {
             qq.showToast({
                title: '输入信息有误！',

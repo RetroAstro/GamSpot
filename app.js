@@ -5,7 +5,7 @@ App({
    onLaunch () {
       var jwt = qq.getStorageSync('jwt') || {}
 
-      // this.routeSwitch(jwt)
+      this.routeSwitch(jwt)
    },
    routeSwitch({ exp, sub }) {
       if (!exp) {
@@ -16,10 +16,10 @@ App({
       }
       else if (exp < getTimeStamp()) {
          setFreshJWT()
-         .then(() => qq.redirectTo({ url: '/pages/circle/index/index' }))
+         .then(() => qq.switchTab({ url: '/pages/popular/popular' }))
       }
       else {
-         qq.redirectTo({ url: '/pages/circle/index/index' })
+         qq.switchTab({ url: '/pages/popular/popular' })
       }
    }
 })

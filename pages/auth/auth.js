@@ -8,16 +8,15 @@ Page({
             var { sub } = qq.getStorageSync('jwt')
 
             if (sub === 'student') {
-               qq.redirectTo({ url: '/pages/circle/index/index' })
+               qq.switchTab({ url: '/pages/popular/popular' })
             } else {
                qq.redirectTo({ url: '/pages/bind/bind' })
             }
          })
       } else {
-         qq.showToast({
-            title: '用户信息获取失败！',
-            icon: 'none',
-            duration: 2000
+         qq.showModal({
+            title: '注意',
+            content: '您点击了拒绝授权，因而无法正常使用此款小程序的功能！若是因为手滑，请先删除小程序后再次进入。'
          })
       }
    }
