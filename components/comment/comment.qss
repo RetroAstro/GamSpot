@@ -51,13 +51,17 @@
 }
 
 .comment .content {
+   width: 100%;
    padding-top: 20rpx;
+   padding-left: 90rpx;
    font-size: 28rpx;
    color: #585858;
 }
 
 .comment .reply {
+   width: 100%;
    margin-top: 25rpx;
+   padding-left: 90rpx;
 }
 
 .comment .reply > view {
