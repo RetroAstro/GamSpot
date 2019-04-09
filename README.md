@@ -27,7 +27,7 @@
 
 * 图片上传、图片预览
 
-**Data Fetching (Suspense)**
+**Data Fetching ( Suspense )**
 
 * 动态请求
 * 加载状态
