@@ -1,14 +1,9 @@
-// props 可以是从外部传入的动态数据
-// slot 可以达到类似 render props 的效果
 
 /**
  * 页面与自定义组件通信
  * <component-tag-name bindmyevent="onMyEvent" />
  * this.triggerEvent('myevent', {})
  */
-
-// 引用 import、include
-// 模版 template
 
 Component({
    externalClasses: [],
@@ -17,13 +12,24 @@ Component({
       addGlobalClass: true
    },
    properties: {
-      myProperty: {
-         type: String,
-         value: '',
-         observer(newVal, oldVal) {
-            
+      item: {
+         type: Object,
+         value: {
+            gender: '',
+            nickname: '想那些阿布',
+            createdTime: '16:32',
+            content: '拥有交互思维的视觉设计师，拥有了在产品层面讨论问题的能力，更多的交流能弥补信息不对称话语权。',
+            agreeCount: 66,
+            isAgree: true,
+            comments: [
+               {
+                  sender: '闪电',
+                  recipient: '想那些阿布',
+                  content: '拥有交互思维的视觉设计师，拥有了在产品层面讨论问题的能力，更多的交流能弥补信息不对称话语权。'
+               }
+            ]
          }
-      },
+      }
    },
    lifetimes: {
       attached() {

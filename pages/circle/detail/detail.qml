@@ -1,6 +1,6 @@
 <view class="container">
    <view class="post-box">
-      <post photos="{{photos}}"></post>
+      <post></post>
    </view>
    <view class="comment-box">
       <comment></comment>

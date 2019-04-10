@@ -1,41 +1,45 @@
 <view class="post">
    <view class="user-box flex-start">
-      <image class="avatar" mode="scaleToFill" src="../../images/icon.png"></image>
+      <image class="avatar" mode="scaleToFill" src="{{item.gender ? '' : '../../images/icon.png'}}"></image>
       <view class="info flex-col-between">
-         <view class="name">疯狂的兔子</view>
-         <view class="time">16:30</view>
+         <view class="name">{{item.nickname}}</view>
+         <view class="time">{{item.createdTime}}</view>
       </view>
-      <!-- <view class="upon-tag">
-         <view class="upon flex-center">置顶</view>
-      </view> -->
-      <view class="circle-tag">
-         <view class="circle flex-center">#摄影#</view>
-      </view>
-   </view>
-   <view class="content-box">拥有交互思维的视觉设计师，拥有了在产品层面讨论问题的能力，更多的交流能弥补信息不对称，帮助视觉设计更贴合需求，这个良性的促进，使设计师拥有更大的话语权。毕竟符合需求的设计才是好设计。</view>
-   <view class="photo-box">
-      <block qq:if="{{photos.length === 1}}">
-         <template is="one" data="{{...photos[0]}}" />
+      <block qq:if="{{item.top}}">
+         <view class="upon-tag">
+            <view class="upon flex-center">置顶</view>
+         </view>
       </block>
-      <block qq:elif="{{photos.length >= 2 && photos.length <= 4}}">
-         <template is="two" data="{{photos, type: 'layout-two'}}" />
+      <block qq:if="{{item.circleName}}">
+         <view class="circle-tag">
+            <view class="circle flex-center">#{{item.circleName}}#</view>
+         </view>
+      </block>
+   </view>
+   <view class="content-box">{{item.content}}</view>
+   <view class="photo-box">
+      <block qq:if="{{item.images.length === 1}}">
+         <template is="one" data="{{...item.images[0]}}" />
+      </block>
+      <block qq:elif="{{item.images.length >= 2 && item.images.length <= 4}}">
+         <template is="two" data="{{images: item.images, type: 'layout-two'}}" />
       </block>
       <block qq:else>
-         <template is="two" data="{{photos, type: 'layout-three'}}" />
+         <template is="two" data="{{images: item.images, type: 'layout-three'}}" />
       </block>
    </view>
    <view class="interact-box flex-end">
       <view class="like flex-start">
-         <image mode="scaleToFill" src="../../images/active-like.png"></image>
-         <view class="number">752</view>
+         <image mode="scaleToFill" src="{{item.isAgree ? '../../images/active-like.png' : '../../images/like.png'}}"></image>
+         <view class="number">{{item.agreeCount}}</view>
       </view>
       <view class="comment flex-start">
          <image mode="scaleToFill" src="../../images/comment.png"></image>
-         <view class="number">389</view>
+         <view class="number">{{item.commitCount}}</view>
       </view>
       <view class="collect flex-start">
-         <image mode="scaleToFill" src="../../images/active-collect.png"></image>
-         <view class="number">879</view>
+         <image mode="scaleToFill" src="{{item.isCollection ? '../../images/active-collect.png' :'../../images/collect.png'}}"></image>
+         <view class="number">{{item.collectionCount}}</view>
       </view>
    </view>
 </view>
@@ -54,7 +58,7 @@
 <template name="two">
    <view class="{{type}}">
       <view class="flex-box">
-         <block qq:for="{{photos}}" qq:key="index">
+         <block qq:for="{{images}}" qq:key="index">
             <image mode="scaleToFill" src="{{item.url}}"></image>
          </block>
       </view>

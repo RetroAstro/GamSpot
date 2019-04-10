@@ -22,8 +22,8 @@
    <view class="main">
       <view class="post-box">
          <view class="top-bar"></view>
-         <post photos="{{photos}}"></post>
-         <post photos="{{photos}}"></post>
+         <post></post>
+         <post></post>
       </view>
    </view>
    <view class="join-box {{mark === 'join' ? 'active' : ''}}" bindtap="onTap">
