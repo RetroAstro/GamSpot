@@ -5,6 +5,7 @@ App({
    onLaunch () {
       var jwt = qq.getStorageSync('jwt') || {}
       
+      qq.showTabBarRedDot({ index: 2 })
       // this.routeSwitch(jwt)
    },
    routeSwitch({ exp, sub }) {

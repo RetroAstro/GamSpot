@@ -1,0 +1,62 @@
+.container {
+   min-height: 100vh;
+   background: #f6f6f6;
+   padding: 30rpx;
+}
+
+.checked-box {
+   width: 100%;
+   margin-bottom: 30rpx;
+}
+
+.checked-box .checked {
+   padding: 10rpx 20rpx;
+   font-size: 24rpx;
+   color: #6a9ef8;
+   background: #fff;
+   border-radius: 10rpx;
+}
+
+.notice-box {
+   width: 100%;
+   position: relative;
+}
+
+.notice-box .notice {
+   width: 100%;
+   height: 125rpx;
+   border-radius: 10rpx;
+   background: #fff;
+   padding: 0 30rpx;
+   margin-bottom: 20rpx;
+}
+
+.notice-box .notice image {
+   width: 70rpx;
+   height: 70rpx;
+}
+
+.notice-box .notice.checked {
+   opacity: .6;
+}
+
+.notice-box .notice .info {
+   height: 70rpx;
+   margin-left: 25rpx;
+}
+
+.notice-box .notice .info .message {
+   font-size: 28rpx;
+   color: #585858;
+}
+
+.notice-box .notice .info .message .user {
+   display: inline;
+   font-size: 28rpx;
+   color: #6a9ef8;
+}
+
+.notice-box .notice .info .time {
+   font-size: 22rpx;
+   color: #b8b8b8;
+}

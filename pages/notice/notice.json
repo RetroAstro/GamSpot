@@ -1,3 +1,4 @@
 {
-   "navigationBarTitleText": "邮秘"
+   "navigationBarTitleText": "邮秘",
+   "disableScroll": true
 }
