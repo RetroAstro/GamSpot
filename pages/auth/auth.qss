@@ -5,14 +5,14 @@
 
 .title {
   text-align: center;
-  margin-top: 30rpx;
+  color: #585858;
+  margin: 30rpx 0;
 }
 
 .profile {
   text-align: center;
   font-size: 28rpx;
   color:#888;
-  margin-top: 30rpx;
   margin-bottom: 50rpx;
 }
 
@@ -20,4 +20,6 @@
   width: 200rpx;
   height: 80rpx;
   font-size: 32rpx;
+  color: #585858;
+  background: #f6f6f6;
 }

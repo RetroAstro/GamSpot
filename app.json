@@ -56,7 +56,7 @@
       "downloadFile": 10000
    },
    "usingComponents": {
-      "post": "components/post/post",
-      "comment": "components/comment/comment"
+      "post": "/components/post/post",
+      "comment": "/components/comment/comment"
    }
 }
