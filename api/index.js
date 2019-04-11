@@ -6,7 +6,7 @@ const {
 const getToken = () => qq.getStorageSync('jwt').token
 
 const setFreshJWT = () => {
-   qq.showLoading({ title: '加载中' })
+   qq.showLoading()
    
    return new Promise(resolve => {
       qq.login({
