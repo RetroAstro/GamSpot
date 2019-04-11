@@ -63,7 +63,10 @@ Page({
          }
       ]
    },
-   onLoad() {
-      
+   onShow() {
+      qq.showTabBar()
+   },
+   onNavigate() {
+      qq.navigateTo({ url: '/pages/circle/single/single' })
    }
 })

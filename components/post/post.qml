@@ -1,4 +1,4 @@
-<view class="post">
+<view class="post" bindtap="navigate">
    <view class="user-box flex-start">
       <image class="avatar" mode="scaleToFill" src="{{item.gender ? '' : '../../images/icon.png'}}"></image>
       <view class="info flex-col-between">

@@ -9,7 +9,7 @@
 
 <template name="single">
    <view class="single-box">
-      <view class="flex-start">
+      <view class="flex-start" bindtap="onNavigate">
          <image class="avatar" mode="scaleToFill" src="{{avatar}}"></image>
          <view class="info flex-col-between">
             <view class="name">{{name}}</view>

@@ -1,6 +1,6 @@
 <view class="container">
    <view class="post-box">
-      <post></post>
-      <post></post>
+      <post item="{{value}}" bindnavigate="onNavigate"></post>
+      <post item="{{value}}" bindnavigate="onNavigate"></post>
    </view>
 </view>

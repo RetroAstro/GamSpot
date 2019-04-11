@@ -1,4 +1,4 @@
-view, scroll-view, post, comment {
+view, scroll-view, navigator, post, comment {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

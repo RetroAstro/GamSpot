@@ -1,9 +1,9 @@
 <view class="container">
    <view class="post-box">
-      <post></post>
+      <post item="{{postItem}}"></post>
    </view>
    <view class="comment-box">
-      <comment></comment>
-      <comment></comment>
+      <comment item="{{commentItem}}"></comment>
+      <comment item="{{commentItem}}"></comment>
    </view>
 </view>
