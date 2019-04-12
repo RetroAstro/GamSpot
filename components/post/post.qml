@@ -5,7 +5,7 @@
          <view class="name">{{item.nickname}}</view>
          <view class="time">{{item.createdTime}}</view>
       </view>
-      <block qq:if="{{item.top}}">
+      <block qq:if="{{item.isTop}}">
          <view class="upon-tag">
             <view class="upon flex-center">置顶</view>
          </view>

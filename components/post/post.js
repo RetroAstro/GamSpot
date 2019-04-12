@@ -11,7 +11,6 @@ Component({
             gender: '',
             nickname: '',
             createdTime: '',
-            top: '',
             circleName: '',
             content: '',
             images: [],
@@ -19,7 +18,8 @@ Component({
             commitCount: 0,
             collectionCount: 0,
             isAgree: false,
-            isCollection: false
+            isCollection: false,
+            isTop: false
          }
       }
    },

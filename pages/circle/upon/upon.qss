@@ -1,0 +1,16 @@
+.container {
+   background: #f6f6f6;
+}
+
+.post-box {
+   width: 100%;
+}
+
+.comment-box {
+   width: 100%;
+   position: relative;
+}
+
+.comment-box comment:last-child > view {
+   padding-bottom: 45rpx;
+}
