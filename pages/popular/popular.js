@@ -1,7 +1,7 @@
 Page({
    data: {
-      value: {
-         gender: '',
+      postItem: {
+         gender: 1,
          nickname: '想那些阿布',
          createdTime: '08:42',
          circleName: '摄影',

@@ -1,3 +1,5 @@
+const { sendGender } = require('../../api/index')
+
 Page({
    data: {
       gender: ''
@@ -8,8 +10,11 @@ Page({
       })
    },
    onNavigate() {
-      if (this.data.gender) {
-         qq.switchTab({ url: '/pages/popular/popular' })
+      let gender = this.data.gender
+      
+      if (gender) {
+         sendGender({ gender })
+         .then(({ status }) => status === 10000 ? qq.switchTab({ url: '/pages/popular/popular' }) : null)
       } else {
          qq.showModal({
             title: '您还未选择性别呢 ～',

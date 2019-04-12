@@ -2,7 +2,7 @@ Page({
    data: {
       mark: 'join',
       postItem: {
-         gender: '',
+         gender: 1,
          nickname: '想那些阿布',
          createdTime: '08:42',
          circleName: '',

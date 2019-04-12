@@ -8,7 +8,7 @@ Component({
       item: {
          type: Object,
          value: {
-            gender: '',
+            gender: 1,
             nickname: '',
             createdTime: '',
             content: '',

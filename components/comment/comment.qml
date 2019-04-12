@@ -1,7 +1,12 @@
 <view class="comment">
    <view class="header flex-between">
       <view class="left flex-start">
-         <image class="avatar" mode="scaleToFill" src="{{item.gender ? '' : '../../images/icon.png'}}"></image>
+         <block qq:if="{{item.gender === 1}}">
+            <image class="avatar" mode="scaleToFill" src="../../images/boy.png"></image>
+         </block>
+         <block qq:else>
+            <image class="avatar" mode="scaleToFill" src="../../images/girl.png"></image>
+         </block>
          <view class="info flex-col-between">
             <view class="name">{{item.nickname}}</view>
             <view class="time">{{item.createdTime}}</view>
