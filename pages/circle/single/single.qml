@@ -22,14 +22,14 @@
    <view class="main">
       <view class="post-box">
          <view class="top-bar"></view>
-         <post item="{{postItem}}"></post>
-         <post item="{{postItem}}"></post>
+         <post item="{{postItem}}" bindnavigate="onNavigate"></post>
+         <post item="{{postItem}}" bindnavigate="onNavigate"></post>
       </view>
    </view>
    <view class="join-box {{mark === 'join' ? 'active' : ''}}" bindtap="onTap">
       <image class="join" mode="scaleToFill" src="../../../images/join.png"></image>
    </view>
-   <view class="publish-box {{mark === 'publish' ? 'active' : ''}}">
+   <navigator class="publish-box {{mark === 'publish' ? 'active' : ''}}" open-type="navigateTo" url="/pages/publish/publish">
       <image class="publish" mode="scaleToFill" src="../../../images/publish.png"></image>
-   </view>
+   </navigator>
 </view>

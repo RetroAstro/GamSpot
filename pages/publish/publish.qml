@@ -6,9 +6,16 @@
       <textarea auto-height maxlength="300" placeholder="发布新动态... (最多300字)" placeholder-class="placeholder"></textarea>
    </view>
    <view class="upload-box">
-      <view class="image-picker">
-         <image mode="scaleToFill" src="../../images/increment.png"></image>
-      </view>
+      <block qq:for="{{imagePaths}}" qq:key="index">
+         <view>
+            <image mode="scaleToFill" src="{{item}}"></image>
+         </view>
+      </block>
+      <block qq:if="{{showImagePicker}}">
+         <view class="image-picker" bindtap="chooseImage">
+            <image mode="scaleToFill" src="../../images/increment.png"></image>
+         </view>
+      </block>
    </view>
    <view class="publish-box flex-center">发布</view>
 </view>

@@ -21,12 +21,15 @@ Page({
          isCollection: true
       }
    },
+   onLoad() {
+      qq.hideTabBar()
+   },
    onTap() {
       this.setData({
          mark: 'publish'
       })
    },
-   onLoad() {
-      qq.hideTabBar()
+   onNavigate() {
+      qq.navigateTo({ url: '/pages/circle/detail/detail' })
    }
 })

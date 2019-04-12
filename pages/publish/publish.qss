@@ -43,13 +43,15 @@
    flex-wrap: wrap;
 }
 
-.upload-box .image-picker {
+.upload-box > view {
    width: 230rpx;
    height: 230rpx;
    border: 1px solid #fff;
+   border-radius: 6rpx;
+   overflow: hidden;
 }
 
-.upload-box .image-picker image {
+.upload-box > view image {
    width: 100%;
    height: 100%;
 }
