@@ -1,9 +1,9 @@
 {
    "pages": [
+      "pages/avatar/avatar",
       "pages/loading/loading",
       "pages/auth/auth",
       "pages/bind/bind",
-      "pages/avatar/avatar",
       "pages/circle/index/index",
       "pages/circle/single/single",
       "pages/circle/detail/detail",

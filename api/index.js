@@ -53,7 +53,18 @@ const sendBindData = data => {
    })
 }
 
+const resetAllData = () => {
+   qq.request({
+      url: 'http://111.230.169.17:8080/miniapp/refreshDB',
+      method: 'POST',
+      success(res) {
+         console.log(res)
+      }
+   })
+}
+
 module.exports = {
    setFreshJWT,
-   sendBindData
+   sendBindData,
+   resetAllData
 }

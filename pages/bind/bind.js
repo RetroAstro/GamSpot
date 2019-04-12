@@ -36,7 +36,7 @@ Page({
             var { exp, sub } = JSON.parse(atob(data.split('.')[1]))
             
             qq.setStorageSync('jwt', { exp, sub, token: data })
-            qq.switchTab({ url: '/pages/popular/popular' })
+            qq.redirectTo({ url: '/pages/avatar/avatar' })
          } else {
             qq.showModal({
                title: '输入的信息有误 ～',
