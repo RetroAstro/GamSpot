@@ -1,10 +1,10 @@
-const { setFreshJWT } = require('./api/index')
+const { setFreshJWT, resetAllData } = require('./api/index')
 const { getTimeStamp } = require('./utils/index')
 
 App({
    onLaunch () {
       var jwt = qq.getStorageSync('jwt') || {}
-      
+
       this.routeSwitch(jwt)
    },
    routeSwitch({ exp, sub }) {

@@ -6,15 +6,16 @@ const {
    SELECT_GENDER
 } = require('./urls')
 
-const basic = {
+const basic = () => ({
    method: 'POST',
    header: {
       'Authorization': 'Bearer ' + qq.getStorageSync('jwt').token
    }
-}
+})
 
 const setFreshJWT = promisify(resolve => {
    qq.showLoading()
+   
    qq.login({
       success({ code }) {
          qq.request({
@@ -23,7 +24,7 @@ const setFreshJWT = promisify(resolve => {
             data: { code },
             success(res) {
                if (!res.data.data) return
-               
+
                var { exp, sub } = JSON.parse(atob(res.data.data.split('.')[1]))
                qq.setStorageSync('jwt', { exp, sub, token: res.data.data })
                qq.hideLoading()
@@ -39,7 +40,7 @@ const sendBindData = promisify((data, resolve) => {
       withCredentials: true,
       success({ iv, encryptedData, signature }) {
          qq.request({
-            ...basic,
+            ...basic(),
             url: SEND_BIND_DATA,
             data: {
                iv,
@@ -57,7 +58,7 @@ const sendBindData = promisify((data, resolve) => {
 
 const sendGender = promisify((gender, resolve) => {
    qq.request({
-      ...basic,
+      ...basic(),
       url: SELECT_GENDER,
       data: gender,
       success({ data }) {
@@ -68,8 +69,8 @@ const sendGender = promisify((gender, resolve) => {
 
 const resetAllData = () => {
    qq.request({
+      ...basic(),
       url: 'http://111.230.169.17:8080/miniapp/refreshDB',
-      method: 'POST',
       success(res) {
          console.log(res)
       }
