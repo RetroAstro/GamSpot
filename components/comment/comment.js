@@ -29,7 +29,7 @@ Component({
    data: {
       active: false,
       isAgree: false,
-      agreeCount: 66
+      agreeCount: 62
    },
    lifetimes: {
       attached() {

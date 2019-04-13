@@ -71,7 +71,7 @@ Component({
                'like.agreeCount': isAgree ? agreeCount - 1 : agreeCount + 1
             }, () => self.setData({ 'like.active': true }))
          }
-         else if (key === 'comment') {
+         else if (key === 'collect') {
             self.setData({
                'collect.active': false,
                'collect.isCollection': !isCollection,
