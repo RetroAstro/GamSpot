@@ -12,9 +12,13 @@
             <view class="time">{{item.createdTime}}</view>
          </view>
       </view>
-      <view class="right flex-end">
-         <image class="like" mode="scaleToFill" src="{{item.isAgree ? '../../images/active-like.png' : '../../images/like.png'}}"></image>
-         <view class="number">{{item.agreeCount}}</view>
+      <view class="right flex-end" bindtap="tapLike">
+         <image
+            class="like {{active ? 'active': ''}}"
+            mode="scaleToFill"
+            src="{{isAgree ? '../../images/active-like.png' : '../../images/like.png'}}"
+         ></image>
+         <view class="number">{{agreeCount}}</view>
       </view>
    </view>
    <view class="content">{{item.content}}</view>

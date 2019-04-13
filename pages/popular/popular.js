@@ -20,7 +20,7 @@ Page({
          isTop: false
       }
    },
-   onNavigate() {
-      qq.navigateTo({ url: '/pages/circle/detail/detail' })
+   onNavigate({ detail: { data } }) {
+      qq.navigateTo({ url: `/pages/circle/detail/detail?tag=${data}` })
    }
 })

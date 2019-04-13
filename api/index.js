@@ -25,7 +25,7 @@ const setFreshJWT = promisify(resolve => {
             success(res) {
                if (!res.data.data) return
 
-               var { exp, sub } = JSON.parse(atob(res.data.data.split('.')[1]))
+               let { exp, sub } = JSON.parse(atob(res.data.data.split('.')[1]))
                qq.setStorageSync('jwt', { exp, sub, token: res.data.data })
                qq.hideLoading()
                resolve()

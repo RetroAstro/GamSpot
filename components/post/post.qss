@@ -119,3 +119,11 @@
    width: 40rpx;
    height: 40rpx;
 }
+
+.post .interact-box .like image.active {
+   animation: 1s ease-in-out bounceIn;
+}
+
+.post .interact-box .collect image.active {
+   animation: 1s ease-in-out bounceIn;
+}

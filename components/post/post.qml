@@ -1,5 +1,5 @@
 <view class="post">
-   <view bindtap="navigate">
+   <view bindtap="tapPost">
       <view class="user-box flex-start">
          <block qq:if="{{item.gender === 1}}">
             <image class="avatar" mode="scaleToFill" src="../../images/boy.png"></image>
@@ -36,17 +36,25 @@
       </view>
    </view>
    <view class="interact-box flex-end">
-      <view class="like flex-start">
-         <image mode="scaleToFill" src="{{item.isAgree ? '../../images/active-like.png' : '../../images/like.png'}}"></image>
-         <view class="number">{{item.agreeCount}}</view>
+      <view class="like flex-start" bindtap="tapInteract" data-event="like">
+         <image
+            class="{{like.active ? 'active': ''}}"
+            mode="scaleToFill"
+            src="{{like.isAgree ? '../../images/active-like.png' : '../../images/like.png'}}"
+         ></image>
+         <view class="number">{{like.agreeCount}}</view>
       </view>
-      <view class="comment flex-start">
+      <view class="comment flex-start" bindtap="tapComment">
          <image mode="scaleToFill" src="../../images/comment.png"></image>
          <view class="number">{{item.commitCount}}</view>
       </view>
-      <view class="collect flex-start">
-         <image mode="scaleToFill" src="{{item.isCollection ? '../../images/active-collect.png' :'../../images/collect.png'}}"></image>
-         <view class="number">{{item.collectionCount}}</view>
+      <view class="collect flex-start" bindtap="tapInteract" data-event="collect">
+         <image
+            class="{{collect.active ? 'active' : ''}}"
+            mode="scaleToFill"
+            src="{{collect.isCollection ? '../../images/active-collect.png' : '../../images/collect.png'}}"
+         ></image>
+         <view class="number">{{collect.collectionCount}}</view>
       </view>
    </view>
 </view>

@@ -11,19 +11,19 @@
       </view>
       <view class="sticky">
          <image class="message" mode="scaleToFill" src="../../../images/message.png"></image>
-         <view class="upon-box flex-center" bindtap="onNavigate" data-url="/pages/circle/upon/upon">
+         <navigator class="upon-box flex-center" open-type="navigate" url="/pages/circle/upon/upon">
             <view class="upon flex-start">
                <view class="title">置顶</view>
                <view class="content ellipsis">这里由创建者编辑、创建</view>
             </view>
-         </view>
+         </navigator>
       </view>
    </view>
    <view class="main">
       <view class="post-box">
          <view class="top-bar"></view>
-         <post item="{{postItem}}" bindnavigate="onNavigate" data-url="/pages/circle/detail/detail"></post>
-         <post item="{{postItem}}" bindnavigate="onNavigate" data-url="/pages/circle/detail/detail"></post>
+         <post item="{{postItem}}" bindnavigate="onNavigate"></post>
+         <post item="{{postItem}}" bindnavigate="onNavigate"></post>
       </view>
    </view>
    <view class="join-box {{mark === 'join' ? 'active' : ''}}" bindtap="onTap">

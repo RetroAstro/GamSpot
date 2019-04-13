@@ -44,6 +44,10 @@
    height: 30rpx;
 }
 
+.comment .header .right .like.active {
+   animation: 1s ease-in-out bounceIn;
+}
+
 .comment .header .right .number {
    margin-left: 10rpx;
    font-size: 24rpx;

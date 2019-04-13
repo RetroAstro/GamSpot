@@ -29,8 +29,7 @@ Page({
          mark: 'publish'
       })
    },
-   onNavigate(e) {
-      let url = e.currentTarget.dataset.url
-      qq.navigateTo({ url })
+   onNavigate({ detail: { data } }) {
+      qq.navigateTo({ url: `/pages/circle/detail/detail?tag=${data}` })
    }
 })

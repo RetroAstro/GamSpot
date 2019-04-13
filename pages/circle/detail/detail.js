@@ -34,5 +34,21 @@ Page({
             }
          ]
       }
+   },
+   onLoad({ tag }) {
+      tag === 'comment' ? this.scrollToComment() : null
+   },
+   scrollToComment() {
+      let query = qq.createSelectorQuery()
+
+      query
+      .select('.post-box')
+      .boundingClientRect()
+      .exec(([{ height }]) => {
+         qq.pageScrollTo({
+            scrollTop: height,
+            duration: 500
+         })
+      })
    }
 })

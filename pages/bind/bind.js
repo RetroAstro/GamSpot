@@ -10,7 +10,7 @@ Page({
       })
    },
    formSubmit(e) {
-      var data = e.detail.value
+      let data = e.detail.value
 
       if (this.isComplete(data)) {
          this.sendData(data)
@@ -33,7 +33,7 @@ Page({
          qq.hideLoading()
          
          if (data) {
-            var { exp, sub } = JSON.parse(atob(data.split('.')[1]))
+            let { exp, sub } = JSON.parse(atob(data.split('.')[1]))
             
             qq.setStorageSync('jwt', { exp, sub, token: data })
             qq.redirectTo({ url: '/pages/avatar/avatar' })

@@ -114,14 +114,14 @@
    position: fixed;
    bottom: 40rpx;
    left: 50%;
-   transform: translateX(-50%) scale(0);
+   transform: translateX(-50%) scale3d(0, 0, 0);
    width: 316rpx;
    height: 109rpx;
    transition: all .3s ease-in-out;
 }
 
 .join-box.active {
-   transform: translateX(-50%) scale(1);
+   transform: translateX(-50%) scale3d(1, 1, 1);
 }
 
 .join-box .join {
