@@ -1,5 +1,7 @@
 Page({
    data: {
+      isFixed: false,
+      showReply: false,
       postItem: {
          gender: 1,
          nickname: '想那些阿布',
@@ -33,6 +35,22 @@ Page({
                content: '拥有交互思维的视觉设计师，拥有了在产品层面讨论问题的能力，更多的交流能弥补信息不对称话语权。'
             }
          ]
+      }
+   },
+   onNavigate({ detail: { data } }) {
+      if (data === 'post') {
+
+      }
+      else if (data === 'comment') {
+         this.setData({ showReply: true })
+      }
+   },
+   onReply({ detail: { data } }) {
+      if (data === 'hide') {
+         this.setData({ showReply: false })
+      }
+      else if (data === 'fixed') {
+         this.setData({ isFixed: !this.data.isFixed })
       }
    }
 })

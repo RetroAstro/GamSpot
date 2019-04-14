@@ -57,6 +57,7 @@
    },
    "usingComponents": {
       "post": "/components/post/post",
-      "comment": "/components/comment/comment"
+      "comment": "/components/comment/comment",
+      "reply": "/components/reply/reply"
    }
 }

@@ -48,11 +48,13 @@ Page({
          this.setData({ showReply: true })
       }
    },
-   hideReplyBox() {
-      this.setData({ showReply: false })
-   },
-   handleFixed() {
-      this.setData({ isFixed: !this.data.isFixed })
+   onReply({ detail: { data } }) {
+      if (data === 'hide') {
+         this.setData({ showReply: false })
+      }
+      else if (data === 'fixed') {
+         this.setData({ isFixed: !this.data.isFixed })
+      }
    },
    scrollToComment() {
       let query = qq.createSelectorQuery()
@@ -60,11 +62,6 @@ Page({
       query
       .select('.post-box')
       .boundingClientRect()
-      .exec(([{ height }]) => {
-         qq.pageScrollTo({
-            scrollTop: height,
-            duration: 500
-         })
-      })
+      .exec(([{ height }]) => qq.pageScrollTo({ scrollTop: height }))
    }
 })
