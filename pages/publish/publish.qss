@@ -64,3 +64,9 @@
    color: #fff;
    margin: 65rpx 0;
 }
+
+.publish-box.disabled {
+   background: #f6f6f6;
+   user-select: none;
+   pointer-events: none;
+}

@@ -3,7 +3,13 @@
       <view class="circle-name flex-center">#失物招领#</view>
    </view>
    <view class="content-box">
-      <textarea auto-height maxlength="300" placeholder="发布新动态... (最多300字)" placeholder-class="placeholder"></textarea>
+      <textarea
+         auto-height
+         maxlength="300"
+         placeholder="发布新动态... (最多300字)"
+         placeholder-class="placeholder"
+         bindinput="handleInput"
+      ></textarea>
    </view>
    <view class="upload-box">
       <block qq:for="{{imagePaths}}" qq:key="index">
@@ -17,5 +23,5 @@
          </view>
       </block>
    </view>
-   <view class="publish-box flex-center">发布</view>
+   <view class="publish-box flex-center {{disabled ? 'disabled' : ''}}">发布</view>
 </view>
