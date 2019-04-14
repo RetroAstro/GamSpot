@@ -51,10 +51,10 @@ Component({
          let { isAgree, agreeCount } = self.data
 
          self.setData({
-            'active': false,
-            'isAgree': !isAgree,
-            'agreeCount': isAgree ? agreeCount - 1 : agreeCount + 1
-         }, () => self.setData({ 'active': true }))
+            active: false,
+            isAgree: !isAgree,
+            agreeCount: isAgree ? agreeCount - 1 : agreeCount + 1
+         }, () => self.setData({ active: true }))
       }, 500)
    }
 })

@@ -1,5 +1,7 @@
 Page({
    data: {
+      isFixed: false,
+      showReply: false,
       postItem: {
          gender: 1,
          nickname: '想那些阿布',
@@ -37,6 +39,20 @@ Page({
    },
    onLoad({ tag }) {
       tag === 'comment' ? this.scrollToComment() : null
+   },
+   onNavigate({ detail: { data } }) {
+      if (data === 'post') {
+
+      }
+      else if (data === 'comment') {
+         this.setData({ showReply: true })
+      }
+   },
+   hideReplyBox() {
+      this.setData({ showReply: false })
+   },
+   handleFixed() {
+      this.setData({ isFixed: !this.data.isFixed })
    },
    scrollToComment() {
       let query = qq.createSelectorQuery()
