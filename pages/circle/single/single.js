@@ -24,6 +24,9 @@ Page({
    onLoad() {
       qq.hideTabBar()
    },
+   onUnload() {
+      qq.showTabBar()
+   },
    onTap() {
       this.setData({
          mark: 'publish'

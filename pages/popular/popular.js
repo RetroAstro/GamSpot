@@ -21,6 +21,17 @@ Page({
       }
    },
    onNavigate({ detail: { data } }) {
-      qq.navigateTo({ url: `/pages/circle/detail/detail?tag=${data}` })
+      let route = this.getRoute(data)
+      
+      route.navigate()
+   },
+   getRoute(key) {
+      let routes = {
+         post: () => qq.navigateTo({ url: '/pages/circle/detail/detail?tag=post' }),
+         comment: () => qq.navigateTo({ url: '/pages/circle/detail/detail?tag=comment' }),
+         circle: () => qq.navigateTo({ url: '/pages/circle/single/single' })
+      }
+
+      return { navigate: routes[key] }
    }
 })

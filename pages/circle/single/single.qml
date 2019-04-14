@@ -11,7 +11,7 @@
       </view>
       <view class="sticky">
          <image class="message" mode="scaleToFill" src="../../../images/message.png"></image>
-         <navigator class="upon-box flex-center" open-type="navigate" url="/pages/circle/upon/upon">
+         <navigator class="upon-box flex-center" open-type="navigate" url="/pages/circle/upon/upon" hover-class="none">
             <view class="upon flex-start">
                <view class="title">置顶</view>
                <view class="content ellipsis">这里由创建者编辑、创建</view>

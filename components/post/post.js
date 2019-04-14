@@ -57,27 +57,41 @@ Component({
       tapPost() {
          this.triggerEvent('navigate', { data: 'post' })
       },
+      tapCircle() {
+         this.triggerEvent('navigate', { data: 'circle' })
+      },
       tapComment() {
          this.triggerEvent('navigate', { data: 'comment' })
       },
       tapInteract: throttle((self, e) => {
          let key = e.currentTarget.dataset.event
-         let { like: { isAgree, agreeCount }, collect: { isCollection, collectionCount } } = self.data
-         
-         if (key === 'like') {
-            self.setData({
-               'like.active': false,
-               'like.isAgree': !isAgree,
-               'like.agreeCount': isAgree ? agreeCount - 1 : agreeCount + 1
-            }, () => self.setData({ 'like.active': true }))
+         let action = self.getAction(key)
+
+         action.run()
+      }, 500),
+      getAction(key) {
+         let { like: { isAgree, agreeCount }, collect: { isCollection, collectionCount } } = this.data
+
+         let actions = {
+            like: () => this.likeAction(isAgree, agreeCount),
+            collect: () => this.collectAction(isCollection, collectionCount)
          }
-         else if (key === 'collect') {
-            self.setData({
-               'collect.active': false,
-               'collect.isCollection': !isCollection,
-               'collect.collectionCount': isCollection ? collectionCount - 1 : collectionCount + 1
-            }, () => self.setData({ 'collect.active': true }))
-         }
-      }, 500)
+
+         return { run: actions[key] }
+      },
+      likeAction(isAgree, agreeCount) {
+         this.setData({
+            'like.active': false,
+            'like.isAgree': !isAgree,
+            'like.agreeCount': isAgree ? agreeCount - 1 : agreeCount + 1
+         }, () => this.setData({ 'like.active': true }))
+      },
+      collectAction(isCollection, collectionCount) {
+         this.setData({
+            'collect.active': false,
+            'collect.isCollection': !isCollection,
+            'collect.collectionCount': isCollection ? collectionCount - 1 : collectionCount + 1
+         }, () => this.setData({ 'collect.active': true }))
+      }
    }
 })

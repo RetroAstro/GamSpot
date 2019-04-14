@@ -38,19 +38,19 @@ Page({
       }
    },
    onNavigate({ detail: { data } }) {
-      if (data === 'post') {
-
-      }
-      else if (data === 'comment') {
-         this.setData({ showReply: true })
-      }
+      data === 'comment' ? this.setData({ showReply: true }) : null
    },
    onReply({ detail: { data } }) {
-      if (data === 'hide') {
-         this.setData({ showReply: false })
+      let action = this.getAction(data)
+
+      action.run()
+   },
+   getAction(key) {
+      let actions = {
+         hide: () => this.setData({ showReply: false }),
+         fixed: () => this.setData({ isFixed: !this.data.isFixed })
       }
-      else if (data === 'fixed') {
-         this.setData({ isFixed: !this.data.isFixed })
-      }
+      
+      return { run: actions[key] }
    }
 })
