@@ -3,7 +3,8 @@ const { promisify } = require('../utils/index')
 const {
    GET_FRESH_JWT,
    SEND_BIND_DATA,
-   SELECT_GENDER
+   SELECT_GENDER,
+   RESET_ALL_DATA
 } = require('./urls')
 
 const basic = () => ({
@@ -70,7 +71,7 @@ const sendGender = promisify((gender, resolve) => {
 const resetAllData = () => {
    qq.request({
       ...basic(),
-      url: 'http://111.230.169.17:8080/miniapp/refreshDB',
+      url: RESET_ALL_DATA,
       success(res) {
          console.log(res)
       }
