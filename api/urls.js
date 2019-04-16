@@ -1,4 +1,4 @@
-const { baseUrl } = require('./config')
+const { baseUrl } = require('../config/index')
 
 const routes = {
    GET_FRESH_JWT: '/app/login',
