@@ -4,7 +4,7 @@ const { getTimeStamp } = require('./utils/index')
 App({
    onLaunch () {
       let jwt = qq.getStorageSync('jwt') || {}
-      
+
       this.routeSwitch(jwt)
    },
    routeSwitch({ exp, sub }) {
