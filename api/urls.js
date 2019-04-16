@@ -1,6 +1,10 @@
+const { baseUrl } = require('./config')
+
+const url = route => baseUrl + route
+
 module.exports = {
-   GET_FRESH_JWT: 'http://111.230.169.17:8080/miniapp/app/login',
-   SEND_BIND_DATA: 'http://111.230.169.17:8080/miniapp/app/binding',
-   SELECT_GENDER: 'http://111.230.169.17:8080/miniapp/app/selectGender',
-   RESET_ALL_DATA: 'http://111.230.169.17:8080/miniapp/refreshDB'
+   GET_FRESH_JWT: url('/app/login'),
+   SEND_BIND_DATA: url('/app/binding'),
+   SELECT_GENDER: url('/app/selectGender'),
+   RESET_ALL_DATA: url('/refreshDB')
 }

@@ -13,9 +13,9 @@
       "pages/publish/publish",
       "pages/mine/index/index",
       "pages/mine/joined/joined",
-      "pages/mine/words/words",
-      "pages/mine/collect/collect",
-      "pages/mine/like/like"
+      "pages/mine/published/published",
+      "pages/mine/collects/collects",
+      "pages/mine/likes/likes"
    ],
    "tabBar": {
       "borderStyle": "black",
