@@ -4,6 +4,7 @@ const {
    GET_FRESH_JWT,
    SEND_BIND_DATA,
    SELECT_GENDER,
+   GET_ALL_CIRCLES,
    RESET_ALL_DATA
 } = require('./urls')
 
@@ -68,6 +69,27 @@ const sendGender = promisify((gender, resolve) => {
    })
 })
 
+const getCircles = promisify((resolve) => {
+   qq.request({
+      ...basic(),
+      url: GET_ALL_CIRCLES,
+      method: 'GET',
+      success({ data }) {
+         resolve(data)
+      }
+   })
+})
+
+const joinCircle = promisify((circleId, resolve) => {
+   qq.request({
+      ...basic(),
+      url: `${GET_ALL_CIRCLES}/${circleId}/joining`,
+      success(res) {
+         resolve(res)
+      }
+   })
+})
+
 const resetAllData = () => {
    qq.request({
       ...basic(),
@@ -82,5 +104,7 @@ module.exports = {
    setFreshJWT,
    sendBindData,
    sendGender,
+   getCircles,
+   joinCircle,
    resetAllData
 }

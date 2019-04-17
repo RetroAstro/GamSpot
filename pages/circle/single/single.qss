@@ -31,7 +31,7 @@
 }
 
 .header .circle-box .content {
-   width: 320rpx;
+   width: 350rpx;
    height: 100rpx;
    margin-left: 35rpx;
 }
@@ -46,6 +46,17 @@
    font-size: 26rpx;
    color: #fff;
    font-weight: bold;
+}
+
+.header .circle-box .content .posts {
+   font-size: 26rpx;
+   color: #fff;
+   font-weight: bold;
+   margin-left: 20rpx;
+}
+
+.header .circle-box .content .posts .talking {
+   max-width: 90rpx;
 }
 
 .header .sticky {
@@ -114,14 +125,14 @@
    position: fixed;
    bottom: 40rpx;
    left: 50%;
-   transform: translateX(-50%) scale3d(0, 0, 0);
+   transform: translateX(-50%) scale3d(1, 1, 1);
    width: 316rpx;
    height: 109rpx;
    transition: all .3s ease-in-out;
 }
 
-.join-box.active {
-   transform: translateX(-50%) scale3d(1, 1, 1);
+.join-box.disabled {
+   transform: translateX(-50%) scale3d(0, 0, 0);
 }
 
 .join-box .join {

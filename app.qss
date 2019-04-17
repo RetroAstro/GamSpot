@@ -77,6 +77,11 @@ view, scroll-view, navigator, post, comment {
   white-space: nowrap;
 }
 
+.disabled {
+  user-select: none;
+  pointer-events: none;
+}
+
 @keyframes bounceIn {
   from,
   20%,

@@ -1,6 +1,9 @@
+const { joinCircle } = require('../../../api/index')
+
 Page({
    data: {
-      mark: 'join',
+      mark: '',
+      info: {},
       postItem: {
          gender: 1,
          nickname: '想那些阿布',
@@ -21,18 +24,27 @@ Page({
          isTop: false
       }
    },
-   onLoad() {
+   onLoad({ params }) {
       qq.hideTabBar()
+
+      let data = JSON.parse(params)
+
+      this.checkJoin(data.isJoin)
+      this.renderCircleInfo(data)
    },
    onUnload() {
       qq.showTabBar()
    },
-   onTap() {
-      this.setData({
-         mark: 'publish'
-      })
-   },
    onNavigate({ detail: { data } }) {
       qq.navigateTo({ url: `/pages/circle/detail/detail?tag=${data}` })
+   },
+   onTap() {
+      
+   },
+   checkJoin(isJoin) {
+      isJoin ? this.setData({ mark: 'publish' }) : null
+   },
+   renderCircleInfo(info) {
+      this.setData({ info })
    }
 })

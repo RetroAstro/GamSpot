@@ -2,11 +2,17 @@
    <view class="header">
       <view class="circle-box flex-start">
          <view class="icon-box">
-            <image class="icon" mode="scaleToFill" src="../../../images/icon.png"></image>
+            <image class="icon" mode="scaleToFill" src="{{info.avatarUrl}}"></image>
          </view>
          <view class="content flex-col-between">
-            <view class="title">重邮小公告</view>
-            <view class="member">4567个圈友</view>
+            <view class="title">{{info.name}}</view>
+            <view class="flex-start">
+               <view class="member">{{info.joinCount}}个圈友</view>
+               <view class="posts flex-start">
+                  <view class="talking ellipsis">{{info.talkingCount}}</view>
+                  <view>条邮话</view>
+               </view>
+            </view>
          </view>
       </view>
       <view class="sticky">
@@ -22,13 +28,13 @@
    <view class="main">
       <view class="post-box">
          <view class="top-bar"></view>
-         <post item="{{postItem}}" bindnavigate="onNavigate"></post>
-         <post item="{{postItem}}" bindnavigate="onNavigate"></post>
       </view>
    </view>
-   <view class="join-box {{mark === 'join' ? 'active' : ''}}" bindtap="onTap">
-      <image class="join" mode="scaleToFill" src="../../../images/join.png"></image>
-   </view>
+   <block qq:if="{{mark !== 'publish'}}">
+      <view class="join-box {{mark === 'join' ? 'disabled' : ''}}" bindtap="onTap">
+         <image class="join" mode="scaleToFill" src="../../../images/join.png"></image>
+      </view>
+   </block>
    <navigator class="publish-box {{mark === 'publish' ? 'active' : ''}}" open-type="navigateTo" url="/pages/publish/publish">
       <image class="publish" mode="scaleToFill" src="../../../images/publish.png"></image>
    </navigator>
