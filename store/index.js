@@ -1,71 +1,18 @@
-// get JWT
-// send binding data
-// like and collect
-// join circle
-// publish post
-// reply comment
+const { createStore, applyMiddleware, bindActionCreators } = require('../lib/redux')
+const thunk = require('../lib/redux-thunk').default
+const rootReducer = require('./reducers/index')
+const actionCreators = require('./actions/index')
 
-const state = {
-   mine: {
-      gender: '',
-      nickname: '',
-      joined: [],
-      published: [],
-      collects: [],
-      likes: []
-   },
-   circles: [
-      {
-         name: '',
-         avatar: '',
-         joinCount: '',
-         talkingCount: '',
-         isJoin: '',
-         top: {
-            title: '',
-            post: {},
-            comments: []
-         }
-      }
-   ],
-   notices: [
-      {
-         type: '',
-         nickname: '',
-         createdTime: ''
-      }
-   ],
-   posts: [
-      {
-         gender: 1,
-         nickname: '',
-         createdTime: '',
-         circleName: '',
-         content: '',
-         images: [],
-         agreeCount: 0,
-         commitCount: 0,
-         collectionCount: 0,
-         isAgree: false,
-         isCollection: false,
-         isTop: false
-      }
-   ],
-   comments: [
-      {
-         gender: 1,
-         nickname: '',
-         createdTime: '',
-         content: '',
-         agreeCount: 0,
-         isAgree: false,
-         childComments: [
-            {
-               sender: '',
-               recipient: '',
-               content: ''
-            }
-         ]
-      }
-   ]
+const store = createStore(
+   rootReducer,
+   applyMiddleware(thunk)
+)
+
+const actions = bindActionCreators(actionCreators, store.dispatch)
+
+const subscribe = callback => store.subscribe(callback.bind(null, store.getState))
+
+module.exports = {
+   actions,
+   subscribe
 }

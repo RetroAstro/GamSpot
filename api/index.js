@@ -1,19 +1,12 @@
+const { opts } = require('./config')
 const { promisify } = require('../utils/index')
 
 const {
    GET_FRESH_JWT,
    SEND_BIND_DATA,
    SELECT_GENDER,
-   GET_ALL_CIRCLES,
    RESET_ALL_DATA
 } = require('./urls')
-
-const basic = () => ({
-   method: 'POST',
-   header: {
-      'Authorization': 'Bearer ' + qq.getStorageSync('jwt').token
-   }
-})
 
 const setFreshJWT = promisify(resolve => {
    qq.showLoading()
@@ -42,7 +35,7 @@ const sendBindData = promisify((data, resolve) => {
       withCredentials: true,
       success({ iv, encryptedData, signature }) {
          qq.request({
-            ...basic(),
+            ...opts(),
             url: SEND_BIND_DATA,
             data: {
                iv,
@@ -60,7 +53,7 @@ const sendBindData = promisify((data, resolve) => {
 
 const sendGender = promisify((gender, resolve) => {
    qq.request({
-      ...basic(),
+      ...opts(),
       url: SELECT_GENDER,
       data: gender,
       success({ data }) {
@@ -69,30 +62,9 @@ const sendGender = promisify((gender, resolve) => {
    })
 })
 
-const getCircles = promisify((resolve) => {
-   qq.request({
-      ...basic(),
-      url: GET_ALL_CIRCLES,
-      method: 'GET',
-      success({ data }) {
-         resolve(data)
-      }
-   })
-})
-
-const joinCircle = promisify((circleId, resolve) => {
-   qq.request({
-      ...basic(),
-      url: `${GET_ALL_CIRCLES}/${circleId}/joining`,
-      success(res) {
-         resolve(res)
-      }
-   })
-})
-
 const resetAllData = () => {
    qq.request({
-      ...basic(),
+      ...opts(),
       url: RESET_ALL_DATA,
       success(res) {
          console.log(res)
@@ -104,7 +76,5 @@ module.exports = {
    setFreshJWT,
    sendBindData,
    sendGender,
-   getCircles,
-   joinCircle,
    resetAllData
 }

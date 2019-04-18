@@ -1,5 +1,3 @@
-const { joinCircle } = require('../../../api/index')
-
 Page({
    data: {
       mark: '',
@@ -26,7 +24,7 @@ Page({
    },
    onLoad({ params }) {
       qq.hideTabBar()
-
+      
       let data = JSON.parse(params)
 
       this.checkJoin(data.isJoin)
