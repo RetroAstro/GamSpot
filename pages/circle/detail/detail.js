@@ -58,7 +58,7 @@ Page({
    },
    scrollToComment() {
       let query = qq.createSelectorQuery()
-
+      
       query
       .select('.post-box')
       .boundingClientRect()

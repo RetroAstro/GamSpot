@@ -6,10 +6,12 @@ Page({
    },
    onLoad() {
       let self = this
+      this.unsubscribe = subscribe(getState => self.handleState(getState()))
 
-      subscribe(getState => self.handleState(getState()))
-      
       actions.fetchCircles()
+   },
+   onUnload() {
+      this.unsubscribe()
    },
    handleState({ circles }) {
       this.setData({ circles })

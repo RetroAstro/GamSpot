@@ -1,3 +1,5 @@
+const { actions, subscribe } = require('../../../store/index')
+
 Page({
    data: {
       mark: '',
@@ -24,23 +26,34 @@ Page({
    },
    onLoad({ params }) {
       qq.hideTabBar()
-      
-      let data = JSON.parse(params)
 
-      this.checkJoin(data.isJoin)
+      let self = this
+      this.unsubscribe = subscribe(getState => self.handleState(getState()))
+
+      let data = JSON.parse(params)
       this.renderCircleInfo(data)
    },
    onUnload() {
       qq.showTabBar()
+      this.unsubscribe()
    },
    onNavigate({ detail: { data } }) {
       qq.navigateTo({ url: `/pages/circle/detail/detail?tag=${data}` })
    },
    onTap() {
-      
+      this.setData({
+         mark: 'join'
+      }, () => actions.joinCircle(this.data.info.id))
    },
-   checkJoin(isJoin) {
-      isJoin ? this.setData({ mark: 'publish' }) : null
+   handleState({ circles }) {
+      circles.map((item) => {
+         if (item.id === this.data.info.id) {
+            this.setData({
+               'info.isJoin': item.isJoin,
+               'info.joinCount': item.joinCount
+            })
+         }
+      })
    },
    renderCircleInfo(info) {
       this.setData({ info })

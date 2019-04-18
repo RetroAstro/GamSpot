@@ -42,7 +42,7 @@ Page({
    },
    onReply({ detail: { data } }) {
       let action = this.getAction(data)
-
+      
       action.run()
    },
    getAction(key) {
@@ -50,7 +50,7 @@ Page({
          hide: () => this.setData({ showReply: false }),
          fixed: () => this.setData({ isFixed: !this.data.isFixed })
       }
-      
+
       return { run: actions[key] }
    }
 })

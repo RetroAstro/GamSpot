@@ -30,12 +30,12 @@
          <view class="top-bar"></view>
       </view>
    </view>
-   <block qq:if="{{mark !== 'publish'}}">
+   <block qq:if="{{!info.isJoin}}">
       <view class="join-box {{mark === 'join' ? 'disabled' : ''}}" bindtap="onTap">
          <image class="join" mode="scaleToFill" src="../../../images/join.png"></image>
       </view>
    </block>
-   <navigator class="publish-box {{mark === 'publish' ? 'active' : ''}}" open-type="navigateTo" url="/pages/publish/publish">
+   <navigator class="publish-box {{info.isJoin ? 'active' : ''}}" open-type="navigateTo" url="/pages/publish/publish">
       <image class="publish" mode="scaleToFill" src="../../../images/publish.png"></image>
    </navigator>
 </view>
