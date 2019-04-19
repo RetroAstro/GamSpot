@@ -15,7 +15,7 @@ Page({
          })
       } else {
          qq.showModal({
-            title: '您点击了拒绝授权，因而无法正常使用此款小程序的功能！若因为手滑，请先删除小程序后再次进入。',
+            title: '您点击了拒绝授权，因而无法正常使用此款小程序的功能！',
             showCancel: false,
             confirmColor: '#24292E'
          })

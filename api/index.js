@@ -1,5 +1,6 @@
 const { opts } = require('./config')
 const { promisify } = require('../utils/index')
+const { Base64 } = require('../utils/base64')
 
 const {
    GET_FRESH_JWT,
@@ -17,12 +18,12 @@ const setFreshJWT = promisify(resolve => {
             url: GET_FRESH_JWT,
             method: 'POST',
             data: { code },
-            success(res) {
-               if (!res.data.data) return
-
-               let { exp, sub } = JSON.parse(atob(res.data.data.split('.')[1]))
+            success({ data: { status, data } }) {
+               if (status !== 10000) return
                
-               qq.setStorageSync('jwt', { exp, sub, token: res.data.data })
+               let { exp, sub } = JSON.parse(Base64.decode(data.split('.')[1]))
+               
+               qq.setStorageSync('jwt', { exp, sub, token: data })
                qq.hideLoading()
                resolve()
             }
@@ -57,8 +58,8 @@ const sendGender = promisify((gender, resolve) => {
       ...opts(),
       url: SELECT_GENDER,
       data: gender,
-      success({ data }) {
-         resolve(data)
+      success(res) {
+         resolve(res.data)
       }
    })
 })

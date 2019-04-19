@@ -19,8 +19,10 @@ const fetchCircles = () => dispatch => {
       ...opts(),
       url: GET_ALL_CIRCLES,
       method: 'GET',
-      success(res) {
-         dispatch(receiveCircles(res.data.data))
+      success({ data: { status, data } }) {
+         if (status === 10000) {
+            dispatch(receiveCircles(data))
+         }
       }
    })
 }

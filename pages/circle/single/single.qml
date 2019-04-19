@@ -28,6 +28,8 @@
    <view class="main">
       <view class="post-box">
          <view class="top-bar"></view>
+         <post item="{{postItem}}" bindnavigate="onNavigate"></post>
+         <post item="{{postItem}}" bindnavigate="onNavigate"></post>
       </view>
    </view>
    <block qq:if="{{!info.isJoin}}">

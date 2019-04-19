@@ -30,8 +30,7 @@ Page({
       let self = this
       this.unsubscribe = subscribe(getState => self.handleState(getState()))
 
-      let data = JSON.parse(params)
-      this.renderCircleInfo(data)
+      this.renderCircleInfo(JSON.parse(params))
    },
    onUnload() {
       qq.showTabBar()

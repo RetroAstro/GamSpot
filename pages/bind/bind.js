@@ -1,4 +1,5 @@
 const { sendBindData } = require('../../api/index')
+const { Base64 } = require('../../utils/base64')
 
 Page({
    data: {
@@ -29,11 +30,11 @@ Page({
       qq.showLoading()
       
       sendBindData(data)
-      .then(({ data }) => {
+      .then(({ status, data }) => {
          qq.hideLoading()
          
-         if (data) {
-            let { exp, sub } = JSON.parse(atob(data.split('.')[1]))
+         if (status === 10000) {
+            let { exp, sub } = JSON.parse(Base64.decode(data.split('.')[1]))
             
             qq.setStorageSync('jwt', { exp, sub, token: data })
             qq.redirectTo({ url: '/pages/avatar/avatar' })

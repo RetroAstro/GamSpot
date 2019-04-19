@@ -29,7 +29,7 @@ Page({
       let routes = {
          post: () => qq.navigateTo({ url: '/pages/circle/detail/detail?tag=post' }),
          comment: () => qq.navigateTo({ url: '/pages/circle/detail/detail?tag=comment' }),
-         circle: () => qq.navigateTo({ url: '/pages/circle/single/single' })
+         circle: () => null
       }
 
       return { navigate: routes[key] }
