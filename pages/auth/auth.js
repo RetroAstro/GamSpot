@@ -5,7 +5,7 @@ Page({
       if (e.detail.userInfo) {
          setFreshJWT()
          .then(() => {
-            let { sub } = qq.getStorageSync('jwt')
+            let { sub } = qq.getStorageSync('userInfo')
 
             if (sub === 'student') {
                qq.switchTab({ url: '/pages/popular/popular' })

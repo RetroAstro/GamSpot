@@ -14,7 +14,12 @@ Page({
       
       if (gender) {
          sendGender({ gender })
-         .then(({ status }) => status === 10000 ? qq.switchTab({ url: '/pages/popular/popular' }) : null)
+         .then(({ status }) => {
+            if (status === 10000) {
+               this.saveGender(gender)
+               qq.switchTab({ url: '/pages/popular/popular' })
+            }
+         })
       } else {
          qq.showModal({
             title: '您还未选择性别呢 ～',
@@ -22,5 +27,13 @@ Page({
             confirmColor: '#24292E'
          })
       }
+   },
+   saveGender(gender) {
+      let userInfo = qq.getStorageSync('userInfo')
+
+      qq.setStorageSync('userInfo', {
+         ...userInfo,
+         gender: gender == 1 ? 'male' : 'female'
+      })
    }
 })

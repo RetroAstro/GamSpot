@@ -1,7 +1,7 @@
 const opts = () => ({
    method: 'POST',
    header: {
-      'Authorization': 'Bearer ' + qq.getStorageSync('jwt').token
+      'Authorization': 'Bearer ' + qq.getStorageSync('userInfo').token
    }
 })
 

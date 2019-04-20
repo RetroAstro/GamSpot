@@ -2,11 +2,11 @@
    <view class="user-box">
       <view>
          <view class="flex-center">
-            <image class="avatar" mode="scaleToFill" src="../../../images/icon.png"></image>
+            <image class="avatar" mode="scaleToFill" src="{{gender === 'male' ? '../../../images/boy.png' : '../../../images/girl.png'}}"></image>
          </view>
          <view class="flex-center">
             <view class="editable flex-start">
-               <input class="name" maxlength="10" value="想那些阿布" placeholder="(⊙ˍ⊙)" placeholder-style="placeholder" />
+               <input class="name" maxlength="10" value="{{nickname}}" placeholder="(⊙ˍ⊙)" placeholder-style="placeholder" />
                <image class="pencil" mode="scaleToFill" src="../../../images/pencil.png"></image>
             </view>
          </view>

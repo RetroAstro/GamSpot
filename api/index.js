@@ -7,6 +7,8 @@ const {
    SEND_BIND_DATA,
    SELECT_GENDER,
    GET_ALL_CIRCLES,
+   UPLOAD_IMAGE,
+   SEND_NEW_POST,
    RESET_ALL_DATA
 } = require('./urls')
 
@@ -22,9 +24,9 @@ const setFreshJWT = promisify((resolve) => {
             success({ data: { status, data } }) {
                if (status !== 10000) return
                
-               let { exp, sub } = JSON.parse(Base64.decode(data.split('.')[1]))
+               let { exp, sub, gender, nickname } = JSON.parse(Base64.decode(data.split('.')[1]))
                
-               qq.setStorageSync('jwt', { exp, sub, token: data })
+               qq.setStorageSync('userInfo', { exp, sub, gender, nickname, token: data })
                qq.hideLoading()
                resolve()
             }
@@ -90,6 +92,35 @@ const sendCircleId = promisify((id, resolve) => {
    })
 })
 
+const uploadImage = promisify((imagePath, resolve) => {
+   qq.uploadFile({
+      ...opts(),
+      url: UPLOAD_IMAGE,
+      filePath: imagePath,
+      name: 'file',
+      success(res) {
+         let { status, data } = JSON.parse(res.data)
+         
+         if (status === 10000) {
+            resolve(data)
+         }
+      }
+   })
+})
+
+const sendNewPost = promisify((data, resolve) => {
+   qq.request({
+      ...opts(),
+      url: SEND_NEW_POST,
+      data,
+      success({ data: { status } }) {
+         if (status === 10000) {
+            resolve()
+         }
+      }
+   })
+})
+
 const resetAllData = () => {
    qq.request({
       ...opts(),
@@ -106,5 +137,7 @@ module.exports = {
    sendGender,
    getCircles,
    sendCircleId,
+   uploadImage,
+   sendNewPost,
    resetAllData
 }

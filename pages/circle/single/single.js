@@ -45,14 +45,7 @@ Page({
       }, () => actions.joinCircle(this.data.info.id))
    },
    handleState({ circles }) {
-      circles.map((item) => {
-         if (item.id === this.data.info.id) {
-            this.setData({
-               'info.isJoin': item.isJoin,
-               'info.joinCount': item.joinCount
-            })
-         }
-      })
+      circles.map(item => item.id === this.data.info.id ? this.setData({ info: { ...item } }) : null)
    },
    renderCircleInfo(info) {
       this.setData({ info })

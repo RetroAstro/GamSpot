@@ -1,6 +1,7 @@
 const {
    RECEIVE_CIRCLES,
-   JOIN_CIRCLE
+   JOIN_CIRCLE,
+   PUBLISH_NEW_POST
 } = require('../constants/index')
 
 const {
@@ -28,7 +29,13 @@ const joinCircle = id => dispatch => {
    .then(() => dispatch(joinSuccess(id)))
 }
 
+const publishNewPost = data => ({
+   type: PUBLISH_NEW_POST,
+   ...data
+})
+
 module.exports = {
    fetchCircles,
-   joinCircle
+   joinCircle,
+   publishNewPost
 }

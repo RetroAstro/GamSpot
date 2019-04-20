@@ -37,7 +37,12 @@
          <image class="join" mode="scaleToFill" src="../../../images/join.png"></image>
       </view>
    </block>
-   <navigator class="publish-box {{info.isJoin ? 'active' : ''}}" open-type="navigateTo" url="/pages/publish/publish">
+   <navigator
+      hover-class="none"
+      open-type="navigateTo"
+      class="publish-box {{info.isJoin ? 'active' : ''}}"
+      url="/pages/publish/publish?id={{info.id}}&name={{info.name}}"
+   >
       <image class="publish" mode="scaleToFill" src="../../../images/publish.png"></image>
    </navigator>
 </view>
