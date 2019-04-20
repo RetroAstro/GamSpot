@@ -1,13 +1,12 @@
-const { opts } = require('../../api/config')
-
-const {
-   GET_ALL_CIRCLES
-} = require('../../api/urls')
-
 const {
    RECEIVE_CIRCLES,
    JOIN_CIRCLE
 } = require('../constants/index')
+
+const {
+   getCircles,
+   sendCircleId
+} = require('../../api/index')
 
 const receiveCircles = data => ({
    type: RECEIVE_CIRCLES,
@@ -15,16 +14,8 @@ const receiveCircles = data => ({
 })
 
 const fetchCircles = () => dispatch => {
-   qq.request({
-      ...opts(),
-      url: GET_ALL_CIRCLES,
-      method: 'GET',
-      success({ data: { status, data } }) {
-         if (status === 10000) {
-            dispatch(receiveCircles(data))
-         }
-      }
-   })
+   getCircles()
+   .then(data => dispatch(receiveCircles(data)))
 }
 
 const joinSuccess = id => ({
@@ -33,15 +24,8 @@ const joinSuccess = id => ({
 })
 
 const joinCircle = id => dispatch => {
-   qq.request({
-      ...opts(),
-      url: `${GET_ALL_CIRCLES}/${id}/joining`,
-      success({ data: { status } }) {
-         if (status === 10000) {
-            dispatch(joinSuccess(id))
-         }
-      }
-   })
+   sendCircleId(id)
+   .then(() => dispatch(joinSuccess(id)))
 }
 
 module.exports = {
