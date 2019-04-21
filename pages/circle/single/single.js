@@ -26,10 +26,8 @@ Page({
    },
    onLoad({ params }) {
       qq.hideTabBar()
-
-      let self = this
-      this.unsubscribe = subscribe(getState => self.handleState(getState()))
-
+      
+      this.connectStore()
       this.renderCircleInfo(JSON.parse(params))
    },
    onUnload() {
@@ -43,6 +41,10 @@ Page({
       this.setData({
          mark: 'join'
       }, () => actions.joinCircle(this.data.info.id))
+   },
+   connectStore() {
+      let self = this
+      this.unsubscribe = subscribe(getState => self.handleState(getState()))
    },
    handleState({ circles }) {
       circles.map(item => item.id === this.data.info.id ? this.setData({ info: { ...item } }) : null)

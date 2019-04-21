@@ -80,6 +80,19 @@ const getCircles = promisify((resolve) => {
    })
 })
 
+const getSinglePosts = promisify((circleId, resolve) => {
+   qq.request({
+      ...opts(),
+      url: `${GET_ALL_CIRCLES}/${circleId}`,
+      method: 'GET',
+      success({ data: { status, data } }) {
+         if (status === 10000) {
+            resolve(data)
+         }
+      }
+   })
+})
+
 const sendCircleId = promisify((id, resolve) => {
    qq.request({
       ...opts(),

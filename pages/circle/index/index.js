@@ -5,13 +5,16 @@ Page({
       circles: []
    },
    onLoad() {
-      let self = this
-      this.unsubscribe = subscribe(getState => self.handleState(getState()))
+      this.connectStore()
 
       actions.fetchCircles()
    },
    onUnload() {
       this.unsubscribe()
+   },
+   connectStore() {
+      let self = this
+      this.unsubscribe = subscribe(getState => self.handleState(getState()))
    },
    handleState({ circles }) {
       this.setData({ circles })
