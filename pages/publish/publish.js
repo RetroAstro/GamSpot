@@ -42,38 +42,28 @@ Page({
    checkImageFormat(images) {
       return images.every(image => image.match(/http:\/\/.*?(png|jpg)/gi))
    },
-   tapPublish() {
-      (async () => {
-         qq.showLoading()
+   async tapPublish() {
+      qq.showLoading()
 
-         await this.sendNewPost()()
+      await this.sendNewPost()
 
-         actions.publishNewPost(this.getPayload())
+      actions.publishNewPost(this.getPayload())
 
-         qq.hideLoading()
+      qq.hideLoading()
 
-         qq.navigateBack({ delta: 1 })
-      })()
+      qq.navigateBack({ delta: 1 })
    },
-   sendNewPost() {
-      return async () => {
-         let post = {
-            content: this.data.content,
-            socialCircleId: this.data.info.id,
-            images: await this.getImageKeys(this.data.imagePaths)
-         }
-         
-         await sendNewPost(post)
+   async sendNewPost() {
+      let post = {
+         content: this.data.content,
+         socialCircleId: this.data.info.id,
+         images: await this.getImageKeys(this.data.imagePaths)
       }
+      
+      await sendNewPost(post)
    },
    getImageKeys(imagePaths) {
-      return new Promise((resolve) => {
-         (async () => {
-            resolve(
-               await Promise.all(imagePaths.map(imagePath => uploadImage(imagePath)))
-            )
-         })()
-      })
+      return Promise.all(imagePaths.map(imagePath => uploadImage(imagePath)))
    },
    getPayload() {
       return {
