@@ -1,6 +1,6 @@
 {
    "pages": [
-      "pages/loading/loading",
+      "pages/buffer/buffer",
       "pages/auth/auth",
       "pages/bind/bind",
       "pages/avatar/avatar",

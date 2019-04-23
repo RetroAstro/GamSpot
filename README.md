@@ -402,4 +402,3 @@ function updateObjectInArray(array, action) {
   })
 }
 ```
-
