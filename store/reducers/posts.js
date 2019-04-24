@@ -1,8 +1,20 @@
-const posts = (state = [], action) => {
+const { combineReducers } = require('../../lib/redux')
+
+const postsById = (state = {}, action) => {
    switch (action.type) {
       default:
          return state
    }
 }
 
-module.exports = posts
+const allPosts = (state = [], action) => {
+   switch (action.type) {
+      default:
+         return state
+   }
+}
+
+module.exports = combineReducers({
+   byId: postsById,
+   allIds: allPosts
+})
