@@ -6,7 +6,7 @@
    <form bindsubmit="formSubmit" class="binding-box flex-col-start">
       <view class="nickname flex-between">
          <image mode="scaleToFill" src="../../images/nickname.png"></image>
-         <input bindfocus="onFocus" data-mark="nickname" name="nickname" class="binding-input" placeholder="昵称" placeholder-style="color:#e5e5e5"/>
+         <input bindfocus="onFocus" data-mark="nickname" name="nickname" class="binding-input" placeholder="昵称" placeholder-style="color:#e5e5e5" maxlength="12"/>
       </view>
       <view class="line-box">
          <view class="line"></view>
