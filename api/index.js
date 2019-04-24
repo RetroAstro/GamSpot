@@ -7,8 +7,8 @@ const {
    SEND_BIND_DATA,
    SELECT_GENDER,
    GET_ALL_CIRCLES,
-   UPLOAD_IMAGE,
    SEND_NEW_POST,
+   UPLOAD_IMAGE,
    RESET_ALL_DATA
 } = require('./urls')
 
