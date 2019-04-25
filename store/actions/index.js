@@ -1,13 +1,55 @@
-const circles = require('./circles')
-const posts = require('./posts')
-const comments = require('./comments')
-const notices = require('./notices')
+const {
+   RECEIVE_CIRCLES,
+   RECEIVE_SINGLE_POSTS,
+   JOIN_CIRCLE,
+   PUBLISH_NEW_POST
+} = require('../constants/index')
 
-const actionCreators = {
-   ...circles,
-   ...posts,
-   ...comments,
-   ...notices
+const {
+   getCircles,
+   getSinglePosts,
+   sendCircleId
+} = require('../../api/index')
+
+const receiveCircles = data => ({
+   type: RECEIVE_CIRCLES,
+   data
+})
+
+const fetchCircles = () => dispatch => {
+   getCircles()
+   .then(data => dispatch(receiveCircles(data)))
 }
 
-module.exports = actionCreators
+const receiveSinglePosts = (id, data) => ({
+   type: RECEIVE_SINGLE_POSTS,
+   circleId: id,
+   data
+})
+
+const fetchSinglePosts = id => dispatch => {
+   getSinglePosts(id)
+   .then(data => dispatch(receiveSinglePosts(id, data)))
+}
+
+const joinSuccess = id => ({
+   type: JOIN_CIRCLE,
+   id
+})
+
+const joinCircle = id => dispatch => {
+   sendCircleId(id)
+   .then(() => dispatch(joinSuccess(id)))
+}
+
+const publishNewPost = data => ({
+   type: PUBLISH_NEW_POST,
+   ...data
+})
+
+module.exports = {
+   fetchCircles,
+   fetchSinglePosts,
+   joinCircle,
+   publishNewPost
+}

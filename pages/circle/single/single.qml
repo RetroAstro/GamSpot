@@ -28,6 +28,9 @@
    <view class="main">
       <view class="post-box">
          <view class="top-bar"></view>
+         <block qq:for="{{postItems}}" qq:key="index">
+            <post item="{{item}}" bindnavigate="onNavigate"></post>
+         </block>
       </view>
    </view>
    <block qq:if="{{!info.isJoin}}">

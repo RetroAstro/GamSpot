@@ -1,6 +1,6 @@
 const { opts } = require('./config')
-const { promisify } = require('../utils/index')
 const { Base64 } = require('../utils/base64')
+const { promisify, timeFromNow } = require('../utils/index')
 
 const {
    GET_FRESH_JWT,
@@ -87,7 +87,9 @@ const getSinglePosts = promisify((circleId, resolve) => {
       method: 'GET',
       success({ data: { status, data } }) {
          if (status === 10000) {
-            resolve(data)
+            resolve(
+               data.map(item => ({ ...item, createdTime: timeFromNow(item.timestamp) }))
+            )
          }
       }
    })
@@ -149,6 +151,7 @@ module.exports = {
    sendBindData,
    sendGender,
    getCircles,
+   getSinglePosts,
    sendCircleId,
    uploadImage,
    sendNewPost,

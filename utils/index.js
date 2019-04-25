@@ -1,4 +1,8 @@
-const getTimeStamp = () => Math.round(new Date().getTime() / 1000).toString()
+const moment = require('../lib/moment/index')
+
+const timeFromNow = timestamp => moment.locale('zh-cn') && moment.unix(timestamp).startOf('minute').fromNow()
+
+const unique = (array) => Array.from(new Set(array))
 
 const promisify = fn => {
    return function() {
@@ -40,7 +44,8 @@ const debounce = (func, wait) => {
 }
 
 module.exports = {
-   getTimeStamp,
+   timeFromNow,
+   unique,
    promisify,
    throttle,
    debounce
