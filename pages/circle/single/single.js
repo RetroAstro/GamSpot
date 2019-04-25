@@ -39,7 +39,7 @@ Page({
       circles.map(item => item.id === this.data.info.id ? this.setData({ info: { ...item } }) : null)
    },
    updatePosts(posts, circlePost) {
-      const result = circlePost.allIds
+      let result = circlePost.allIds
          .filter(id => circlePost.byId[id].circleId === this.data.info.id).map(id => posts.byId[id])
 
       this.setData({ postItems: result })
