@@ -1,6 +1,6 @@
 <view class="post">
    <view class="user-box flex-start">
-      <block qq:if="{{item.author.gender === 1}}">
+      <block qq:if="{{item.author.gender == 1}}">
          <image class="avatar" mode="scaleToFill" src="../../images/boy.png"></image>
       </block>
       <block qq:else>

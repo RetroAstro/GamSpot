@@ -2,7 +2,7 @@ const moment = require('../lib/moment/index')
 
 const timeFromNow = timestamp => moment.locale('zh-cn') && moment.unix(timestamp).startOf('minute').fromNow()
 
-const unique = (array) => Array.from(new Set(array))
+const unique = array => Array.from(new Set(array))
 
 const promisify = fn => {
    return function() {

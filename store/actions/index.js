@@ -29,7 +29,7 @@ const receiveSinglePosts = (id, data) => ({
 
 const fetchSinglePosts = id => dispatch => {
    getSinglePosts(id)
-   .then(data => dispatch(receiveSinglePosts(id, data)))
+   .then(data => data.length ? dispatch(receiveSinglePosts(id, data)) : null)
 }
 
 const joinSuccess = id => ({

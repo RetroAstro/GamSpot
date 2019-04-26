@@ -7,7 +7,7 @@ const {
 
 const loadCirclePost = (state, { circleId, data }) => {
    const result = data
-      .map(item => ({ [item.id]: { circleId } })).reduce((prev, next) => ({ ...prev, ...next }), {})
+      .map(item => ({ [item.id]: { circleId } })).reduce((prev, next) => ({ ...prev, ...next }))
 
    return {
       ...state,

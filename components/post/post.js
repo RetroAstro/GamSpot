@@ -12,7 +12,7 @@ Component({
          value: {
             author: {
                id: '',
-               gender: 1,
+               gender: '',
                nickname: '',
             },
             createdTime: '',

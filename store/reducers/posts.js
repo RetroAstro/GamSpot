@@ -7,7 +7,7 @@ const {
 
 const loadSinglePosts = (state, { data }) => {
    const posts = data
-      .map(item => ({ [item.id]: item })).reduce((prev, next) => ({ ...prev, ...next }), {})
+      .map(item => ({ [item.id]: item })).reduce((prev, next) => ({ ...prev, ...next }))
       
    return {
       ...state,

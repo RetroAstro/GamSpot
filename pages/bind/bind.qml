@@ -14,7 +14,7 @@
       </view>
       <view class="stuid flex-between">
          <image mode="scaleToFill" src="../../images/stuid.png"></image>
-         <input bindfocus="onFocus" data-mark="stuid" name="stuid" class="binding-input" placeholder="学号" placeholder-style="color:#e5e5e5"/>
+         <input type="number" bindfocus="onFocus" data-mark="stuid" name="stuid" class="binding-input" placeholder="学号" placeholder-style="color:#e5e5e5" maxlength="10"/>
       </view>
       <view class="line-box">
          <view class="line"></view>
@@ -22,7 +22,7 @@
       </view>
       <view class="identity flex-between">
          <image mode="scaleToFill" src="../../images/identity.png"></image>
-         <input bindfocus="onFocus" data-mark="identity" name="identification" class="binding-input" placeholder="身份证后六位" placeholder-style="color:#e5e5e5"/>
+         <input password type="number" bindfocus="onFocus" data-mark="identity" name="identification" class="binding-input" placeholder="身份证后六位" placeholder-style="color:#e5e5e5" maxlength="6"/>
       </view>
       <view class="line-box">
          <view class="line"></view>

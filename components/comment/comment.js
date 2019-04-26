@@ -10,8 +10,11 @@ Component({
       item: {
          type: Object,
          value: {
-            gender: 1,
-            nickname: '',
+            author: {
+               id: '',
+               gender: '',
+               nickname: '',
+            },
             createdTime: '',
             content: '',
             agreeCount: 0,
