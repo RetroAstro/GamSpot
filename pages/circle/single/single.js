@@ -14,6 +14,7 @@ Page({
    },
    onUnload() {
       qq.showTabBar()
+      
       this.unsubscribe()
    },
    onNavigate({ detail: { data } }) {
