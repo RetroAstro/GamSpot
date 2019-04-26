@@ -41,7 +41,7 @@ Page({
    updatePosts(posts, circlePost) {
       let result = circlePost.allIds
          .filter(id => circlePost.byId[id].circleId === this.data.info.id).map(id => posts.byId[id])
-console.log(result)
+
       this.setData({ postItems: result })
    }
 })
