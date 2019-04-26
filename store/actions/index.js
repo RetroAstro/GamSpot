@@ -42,10 +42,12 @@ const joinCircle = id => dispatch => {
    .then(() => dispatch(joinSuccess(id)))
 }
 
-const publishNewPost = data => ({
+const addNewPost = id => ({
    type: PUBLISH_NEW_POST,
-   ...data
+   id
 })
+
+const publishNewPost = id => dispatch => dispatch(addNewPost(id)) && dispatch(fetchSinglePosts(id))
 
 module.exports = {
    fetchCircles,

@@ -21,7 +21,9 @@
          <view class="number">{{agreeCount}}</view>
       </view>
    </view>
-   <view class="content">{{item.content}}</view>
+   <view class="content">
+      <text>{{item.content}}</text>
+   </view>
    <block qq:if="{{item.comments.length}}">
       <view class="reply">
          <block qq:for="{{item.comments}}" qq:key="index">

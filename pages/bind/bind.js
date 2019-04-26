@@ -34,9 +34,9 @@ Page({
          qq.hideLoading()
          
          if (status === 10000) {
-            let { exp, sub, gender, nickname } = JSON.parse(Base64.decode(data.split('.')[1]))
+            let userInfo = JSON.parse(Base64.decode(data.split('.')[1]))
             
-            qq.setStorageSync('userInfo', { exp, sub, gender, nickname, token: data })
+            qq.setStorageSync('userInfo', { ...userInfo, token: data })
             qq.redirectTo({ url: '/pages/avatar/avatar' })
          } else {
             qq.showModal({

@@ -1,6 +1,6 @@
 const moment = require('../lib/moment/index')
 
-const timeFromNow = timestamp => moment.locale('zh-cn') && moment.unix(timestamp).startOf('minute').fromNow()
+const timeFromNow = timestamp => moment.unix(timestamp).startOf('minute').fromNow()
 
 const unique = array => Array.from(new Set(array))
 

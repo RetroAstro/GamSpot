@@ -129,6 +129,7 @@
    width: 316rpx;
    height: 109rpx;
    transition: all .3s ease-in-out;
+   animation: fadeInUp .5s ease-in-out;
 }
 
 .join-box.disabled {

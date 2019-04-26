@@ -47,10 +47,10 @@ Page({
 
       await this.sendNewPost()
 
-      actions.publishNewPost(this.getPayload())
+      actions.publishNewPost(this.data.info.id)
 
       qq.hideLoading()
-
+      
       qq.navigateBack({ delta: 1 })
    },
    async sendNewPost() {
@@ -64,12 +64,5 @@ Page({
    },
    getImageKeys(imagePaths) {
       return Promise.all(imagePaths.map(imagePath => uploadImage(imagePath)))
-   },
-   getPayload() {
-      return {
-         id: this.data.info.id,
-         content: this.data.content,
-         images: this.data.imagePaths
-      }
    }
 })

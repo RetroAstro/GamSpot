@@ -21,7 +21,9 @@
          </view>
       </block>
    </view>
-   <view class="content-box" bindtap="tapPost">{{item.content}}</view>
+   <view class="content-box" bindtap="tapPost">
+      <text>{{item.content}}</text>
+   </view>
    <view class="photo-box">
       <block qq:if="{{item.images.length === 1}}">
          <template is="one" data="{{...item.images[0]}}" />
