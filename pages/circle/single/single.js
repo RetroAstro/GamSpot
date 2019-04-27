@@ -37,7 +37,7 @@ Page({
       this.updatePosts(posts, circlePost)
    },
    updateCircleInfo(circles) {
-      circles.map(item => item.id === this.data.info.id ? this.setData({ info: { ...item } }) : null)
+      circles.map(item => item.id == this.data.info.id ? this.setData({ info: { ...item } }) : null)
    },
    updatePosts(posts, circlePost) {
       let result = circlePost.allIds
