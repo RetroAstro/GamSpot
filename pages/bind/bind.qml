@@ -22,7 +22,7 @@
       </view>
       <view class="identity flex-between">
          <image mode="scaleToFill" src="../../images/identity.png"></image>
-         <input password type="number" bindfocus="onFocus" data-mark="identity" name="identification" class="binding-input" placeholder="身份证后六位" placeholder-style="color:#e5e5e5" maxlength="6"/>
+         <input password bindfocus="onFocus" data-mark="identity" name="identification" class="binding-input" placeholder="身份证后六位" placeholder-style="color:#e5e5e5" maxlength="6"/>
       </view>
       <view class="line-box">
          <view class="line"></view>
