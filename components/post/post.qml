@@ -26,7 +26,7 @@
    </view>
    <view class="photo-box">
       <block qq:if="{{item.images.length === 1}}">
-         <template is="one" data="{{...item.images[0]}}" />
+         <template is="one" data="{{ratio, url: item.images[0]}}" />
       </block>
       <block qq:elif="{{item.images.length >= 2 && item.images.length <= 4}}">
          <template is="two" data="{{images: item.images, type: 'layout-two'}}" />
@@ -74,7 +74,7 @@
    <view class="{{type}}">
       <view class="flex-box">
          <block qq:for="{{images}}" qq:key="index">
-            <image mode="scaleToFill" src="{{item.url}}"></image>
+            <image mode="scaleToFill" src="{{item}}"></image>
          </block>
       </view>
    </view>

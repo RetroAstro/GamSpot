@@ -9,6 +9,7 @@ const {
    GET_ALL_CIRCLES,
    SEND_NEW_POST,
    UPLOAD_IMAGE,
+   IMAGE_DOMAIN,
    RESET_ALL_DATA
 } = require('./urls')
 
@@ -88,7 +89,11 @@ const getSinglePosts = promisify((circleId, resolve) => {
       success({ data: { status, data } }) {
          if (status === 10000) {
             resolve(
-               data.map(item => ({ ...item, createdTime: timeFromNow(item.timestamp) }))
+               data.map(item => ({
+                  ...item,
+                  createdTime: timeFromNow(item.timestamp),
+                  images: item.images ? item.images.map(image => `${IMAGE_DOMAIN}/${image}`) : []
+               }))
             )
          }
       }

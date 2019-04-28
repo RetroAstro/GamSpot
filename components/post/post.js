@@ -1,4 +1,6 @@
+const regeneratorRuntime = require('../../lib/runtime')
 const { throttle } = require('../../utils/index')
+const { getImageRatio } = require('../../utils/index')
 
 Component({
    externalClasses: [],
@@ -29,6 +31,7 @@ Component({
       }
    },
    data: {
+      ratio: 1,
       like: {
          active: false,
          isAgree: false,
@@ -42,7 +45,7 @@ Component({
    },
    lifetimes: {
       attached() {
-         
+         this.setRatio()
       },
       detached() {
 
@@ -95,6 +98,15 @@ Component({
             'collect.isCollection': !isCollection,
             'collect.collectionCount': isCollection ? collectionCount - 1 : collectionCount + 1
          }, () => this.setData({ 'collect.active': true }))
+      },
+      async setRatio() {
+         let images = this.properties.item.images
+
+         if (images.length === 1) {
+            this.setData({
+               ratio: await getImageRatio(images[0])
+            })
+         }
       }
    }
 })

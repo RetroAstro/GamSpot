@@ -43,10 +43,20 @@ const debounce = (func, wait) => {
    }
 }
 
+const getImageRatio = promisify((url, resolve) => {
+   qq.getImageInfo({
+      src: url,
+      success({ width, height }) {
+         resolve(width / height)
+      }
+   })
+})
+
 module.exports = {
    timeFromNow,
    unique,
    promisify,
    throttle,
-   debounce
+   debounce,
+   getImageRatio
 }

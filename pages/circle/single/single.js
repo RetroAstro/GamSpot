@@ -32,17 +32,18 @@ Page({
    renderCircleInfo(info) {
       this.setData({ info }, () => actions.fetchSinglePosts(this.data.info.id))
    },
-   handleState({ circles, posts, circlePost }) {
+   handleState({ circles, posts, circlePosts }) {
       this.updateCircleInfo(circles)
-      this.updatePosts(posts, circlePost)
+      this.updatePosts(posts, circlePosts)
    },
    updateCircleInfo(circles) {
       circles.map(item => item.id == this.data.info.id ? this.setData({ info: { ...item } }) : null)
    },
-   updatePosts(posts, circlePost) {
-      let result = circlePost.allIds
-         .filter(id => circlePost.byId[id].circleId == this.data.info.id).map(id => posts.byId[id])
+   updatePosts(posts, circlePosts) {
+      let postIds = circlePosts[this.data.info.id] || []
 
-      this.setData({ postItems: result })
+      this.setData({
+         postItems: postIds.map(id => posts.byId[id])
+      })
    }
 })

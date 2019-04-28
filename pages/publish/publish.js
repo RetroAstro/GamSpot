@@ -62,7 +62,15 @@ Page({
       
       await sendNewPost(post)
    },
-   getImageKeys(imagePaths) {
-      return Promise.all(imagePaths.map(imagePath => uploadImage(imagePath)))
+   async getImageKeys(imagePaths) {
+      let imageKeys = []
+
+      for (let imagePath of imagePaths) {
+         imageKeys.push(
+            await uploadImage(imagePath)
+         )
+      }
+      
+      return imageKeys
    }
 })

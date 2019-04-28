@@ -6,7 +6,8 @@ const routes = {
    SELECT_GENDER: '/app/gender',
    GET_ALL_CIRCLES: '/circles',
    SEND_NEW_POST: '/talks',
-   UPLOAD_IMAGE: '/talks/picture',
+   UPLOAD_IMAGE: '/file',
+   IMAGE_DOMAIN: '/talks/picture',
    SEND_COMMENT: '/talks/comments',
    RESET_ALL_DATA: '/refreshDB',
 }

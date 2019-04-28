@@ -3,7 +3,7 @@ const circles = require('./circles')
 const posts = require('./posts')
 const comments = require('./comments')
 const notices = require('./notices')
-const circlePost = require('./joins/circlePost')
+const circlePosts = require('./joins/circlePosts')
 const popularIds = require('./joins/popularIds')
 
 const rootReducer = combineReducers({
@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
    posts,
    comments,
    notices,
-   circlePost,
+   circlePosts,
    popularIds
 })
 
