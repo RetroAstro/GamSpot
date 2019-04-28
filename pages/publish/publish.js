@@ -66,9 +66,7 @@ Page({
       let imageKeys = []
 
       for (let imagePath of imagePaths) {
-         imageKeys.push(
-            await uploadImage(imagePath)
-         )
+         imageKeys.push(await uploadImage(imagePath))
       }
       
       return imageKeys
