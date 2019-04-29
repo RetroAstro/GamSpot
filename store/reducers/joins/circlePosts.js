@@ -1,10 +1,15 @@
+const { unique } = require('../../../utils/index')
+
 const {
    RECEIVE_SINGLE_POSTS
 } = require('../../constants/index')
 
 const loadCirclePosts = (state, { circleId, data }) => {
    const result = {
-      [circleId]: data.map(item => item.id)
+      [circleId]: unique([
+         ...(state[circleId] || []),
+         ...data.map(item => item.id)
+      ])
    }
 
    return {

@@ -27,8 +27,8 @@ const receiveSinglePosts = (id, data) => ({
    data
 })
 
-const fetchSinglePosts = id => dispatch => {
-   getSinglePosts(id)
+const fetchSinglePosts = (id, page = 1) => dispatch => {
+   getSinglePosts(id, page)
    .then(data => dispatch(receiveSinglePosts(id, data)))
 }
 

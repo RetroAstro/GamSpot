@@ -17,6 +17,9 @@ Page({
       
       this.unsubscribe()
    },
+   onPullDownRefresh() {
+      
+   },
    onNavigate({ detail: { data } }) {
       qq.navigateTo({ url: `/pages/circle/detail/detail?tag=${data}` })
    },
