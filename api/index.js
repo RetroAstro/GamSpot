@@ -23,13 +23,13 @@ const setFreshJWT = promisify((resolve) => {
             method: 'POST',
             data: { code },
             success({ data: { status, data } }) {
-               if (status !== 10000) return
+               if (status === 10000) {
+                  let userInfo = JSON.parse(Base64.decode(data.split('.')[1]))
                
-               let userInfo = JSON.parse(Base64.decode(data.split('.')[1]))
-               
-               qq.setStorageSync('userInfo', { ...userInfo, token: data })
-               qq.hideLoading()
-               resolve()
+                  qq.setStorageSync('userInfo', { ...userInfo, token: data })
+                  qq.hideLoading()
+                  resolve()
+               }
             }
          })
       }
