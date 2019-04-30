@@ -12,6 +12,7 @@ Component({
    },
    lifetimes: {
       attached() {
+         
       },
       detached() {
 

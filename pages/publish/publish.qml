@@ -10,7 +10,7 @@
          placeholder-class="placeholder"
          bindinput="handleInput"
          bindblur="handleBlur"
-      ></textarea>
+      />
    </view>
    <view class="upload-box">
       <block qq:for="{{imagePaths}}" qq:key="index">

@@ -33,6 +33,8 @@
    left: 0rpx;
    width: 32rpx;
    height: 32rpx;
+   padding: 15rpx;
+   padding-top: 0rpx;
 }
 
 .reply-box .header .lay .send {
@@ -42,6 +44,7 @@
    font-size: 30rpx;
    color: #6a9ef8;
    font-weight: bold;
+   padding: 0 10rpx;
 }
 
 .reply-box .header .lay .send.disabled {
@@ -52,11 +55,11 @@
 
 .reply-box .reply-area {
    padding: 30rpx;
+   height: 740rpx;
 }
 
 .reply-box .reply-area textarea {
    width: 100%;
-   height: 800rpx;
    font-size: 30rpx;
    color: #585858;
 }
