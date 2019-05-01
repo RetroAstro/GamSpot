@@ -60,6 +60,6 @@
       "comment": "/components/common/comment/comment",
       "reply": "/components/common/reply/reply",
       "skeleton": "/components/performance/skeleton/skeleton",
-      "preloader": "/components/performance/preloader/preloader"
+      "preload": "/components/performance/preload/preload"
    }
 }

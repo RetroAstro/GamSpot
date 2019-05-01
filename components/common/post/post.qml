@@ -61,7 +61,7 @@
 
 <template name="one">
    <view class="layout-one flex-center">
-      <preloader class="{{ratio >= 1 ? 'column' : 'row'}}" src="{{url}}" needRatio=true bindsetratio="setRatio"></preloader>
+      <preload class="{{ratio >= 1 ? 'column' : 'row'}}" src="{{url}}" needRatio=true bindsetratio="setRatio"></preload>
    </view>
 </template>
 

@@ -12,7 +12,7 @@
 <template name="single">
    <view class="single-box">
       <view class="flex-start" bindtap="onNavigate" data-item="{{item}}">
-         <preloader class="avatar skeleton-radius" src="{{item.avatarUrl}}"></preloader>
+         <preload class="avatar skeleton-radius" src="{{item.avatarUrl}}"></preload>
          <view class="info flex-col-between">
             <view class="name skeleton-rect">{{item.name}}</view>
             <view class="data-box flex-start skeleton-rect">
