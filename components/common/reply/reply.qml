@@ -1,7 +1,7 @@
 <view class="reply-box {{showReply ? 'active' : ''}}" bindtransitionend="handleFixed">
    <view class="header">
       <view class="lay flex-center">
-         <image class="close" mode="scaleToFill" src="../../images/close.png" bindtap="hideReplyBox"></image>
+         <image class="close" mode="scaleToFill" src="../../../images/close.png" bindtap="hideReplyBox"></image>
          <view class="send {{disabled ? 'disabled' : ''}}">发送</view>
       </view>
    </view>

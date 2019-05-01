@@ -1,10 +1,10 @@
 <view class="post">
    <view class="user-box flex-start">
       <block qq:if="{{item.author.gender == 1}}">
-         <image class="avatar" mode="scaleToFill" src="../../images/boy.png"></image>
+         <image class="avatar" mode="scaleToFill" src="../../../images/boy.png"></image>
       </block>
       <block qq:else>
-         <image class="avatar" mode="scaleToFill" src="../../images/girl.png"></image>
+         <image class="avatar" mode="scaleToFill" src="../../../images/girl.png"></image>
       </block>
       <view class="info flex-col-between">
          <view class="name">{{item.author.nickname}}</view>
@@ -26,7 +26,7 @@
    </view>
    <view class="photo-box">
       <block qq:if="{{item.images.length === 1}}">
-         <template is="one" data="{{ratio, url: item.images[0]}}" />
+         <template is="one" data="{{url: item.images[0]}}" />
       </block>
       <block qq:elif="{{item.images.length >= 2 && item.images.length <= 4}}">
          <template is="two" data="{{images: item.images, type: 'layout-two'}}" />
@@ -40,19 +40,19 @@
          <image
             class="{{like.active ? 'active': ''}}"
             mode="scaleToFill"
-            src="{{like.isAgree ? '../../images/active-like.png' : '../../images/like.png'}}"
+            src="{{like.isAgree ? '../../../images/active-like.png' : '../../../images/like.png'}}"
          ></image>
          <view class="number">{{like.agreeCount}}</view>
       </view>
       <view class="comment flex-start" bindtap="tapComment">
-         <image mode="scaleToFill" src="../../images/comment.png"></image>
+         <image mode="scaleToFill" src="../../../images/comment.png"></image>
          <view class="number">{{item.commitCount}}</view>
       </view>
       <view class="collect flex-start" bindtap="tapInteract" data-event="collect">
          <image
             class="{{collect.active ? 'active' : ''}}"
             mode="scaleToFill"
-            src="{{collect.isCollection ? '../../images/active-collect.png' : '../../images/collect.png'}}"
+            src="{{collect.isCollection ? '../../../images/active-collect.png' : '../../../images/collect.png'}}"
          ></image>
          <view class="number">{{collect.collectionCount}}</view>
       </view>
@@ -61,12 +61,7 @@
 
 <template name="one">
    <view class="layout-one flex-center">
-      <block qq:if="{{ratio >= 1}}">
-         <image class="row" mode="widthFix" src="{{url}}"></image>
-      </block>
-      <block qq:else>
-         <image class="column" mode="widthFix" src="{{url}}"></image>
-      </block>
+      <preloader class="{{ratio >= 1 ? 'column' : 'row'}}" src="{{url}}" needRatio=true bindsetratio="setRatio"></preloader>
    </view>
 </template>
 

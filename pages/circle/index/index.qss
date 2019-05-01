@@ -20,6 +20,7 @@
    width: 80rpx;
    height: 80rpx;
    border-radius: 12rpx;
+   overflow: hidden;
 }
 
 .main .single-box .info {
@@ -30,6 +31,7 @@
 .main .single-box .info .name {
    font-size: 28rpx;
    color: #447de1;
+   width: fit-content;
 }
 
 .main .single-box .info .data-box view {

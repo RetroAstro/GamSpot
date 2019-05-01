@@ -56,8 +56,10 @@
       "downloadFile": 10000
    },
    "usingComponents": {
-      "post": "/components/post/post",
-      "comment": "/components/comment/comment",
-      "reply": "/components/reply/reply"
+      "post": "/components/common/post/post",
+      "comment": "/components/common/comment/comment",
+      "reply": "/components/common/reply/reply",
+      "skeleton": "/components/performance/skeleton/skeleton",
+      "preloader": "/components/performance/preloader/preloader"
    }
 }

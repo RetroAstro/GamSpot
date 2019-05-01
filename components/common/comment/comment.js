@@ -1,4 +1,4 @@
-const { throttle } = require('../../utils/index')
+const { throttle } = require('../../../utils/index')
 
 Component({
    externalClasses: [],

@@ -2,10 +2,10 @@
    <view class="header flex-between">
       <view class="left flex-start">
          <block qq:if="{{item.author.gender == 1}}">
-            <image class="avatar" mode="scaleToFill" src="../../images/boy.png"></image>
+            <image class="avatar" mode="scaleToFill" src="../../../images/boy.png"></image>
          </block>
          <block qq:else>
-            <image class="avatar" mode="scaleToFill" src="../../images/girl.png"></image>
+            <image class="avatar" mode="scaleToFill" src="../../../images/girl.png"></image>
          </block>
          <view class="info flex-col-between">
             <view class="name">{{item.author.nickname}}</view>
@@ -16,7 +16,7 @@
          <image
             class="like {{active ? 'active': ''}}"
             mode="scaleToFill"
-            src="{{isAgree ? '../../images/active-like.png' : '../../images/like.png'}}"
+            src="{{isAgree ? '../../../images/active-like.png' : '../../../images/like.png'}}"
          ></image>
          <view class="number">{{agreeCount}}</view>
       </view>

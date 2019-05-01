@@ -40,7 +40,7 @@ Page({
       })
    },
    checkImageFormat(images) {
-      return images.every(image => image.match(/http:\/\/.*?(png|jpg)/gi))
+      return images.every(image => image.match(/.(png|jpg|JPG|PNG)$/gi))
    },
    async tapPublish() {
       qq.showLoading()
