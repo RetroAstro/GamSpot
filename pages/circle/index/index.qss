@@ -20,8 +20,11 @@
 .main .single-box .avatar {
    width: 80rpx;
    height: 80rpx;
-   border-radius: 12rpx;
    overflow: hidden;
+}
+
+.main .single-box .avatar image {
+   border-radius: 8rpx;
 }
 
 .main .single-box .info {

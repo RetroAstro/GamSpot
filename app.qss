@@ -1,4 +1,4 @@
-view, scroll-view, navigator, post, comment, skeleton, preloader {
+view, scroll-view, navigator, post, comment, skeleton, preload {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
