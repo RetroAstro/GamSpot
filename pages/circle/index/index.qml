@@ -1,8 +1,7 @@
-<skeleton selector="skeleton" showSkeleton={{showSkeleton}}></skeleton>
-
-<view class="container skeleton">
+<view class="container">
    <view class="popular flex-start">热门圈子</view>
-   <view class="main">
+   <view class="main skeleton">
+      <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}"></skeleton>
       <block qq:for="{{circles}}" qq:key="index">
             <template is="single" data="{{item}}" />
       </block>

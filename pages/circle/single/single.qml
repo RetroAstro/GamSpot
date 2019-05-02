@@ -26,7 +26,8 @@
       </view>
    </view>
    <view class="main">
-      <view class="post-box">
+      <view class="post-box skeleton">
+         <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}" setStyle="min-height: 1354rpx;"></skeleton>
          <view class="top-bar"></view>
          <block qq:for="{{postItems}}" qq:key="index">
             <post item="{{item}}" bindnavigate="onNavigate"></post>

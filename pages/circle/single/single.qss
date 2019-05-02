@@ -8,7 +8,7 @@
    background: #6a9ef8;
    padding: 0 30rpx;
    position: relative;
-   z-index: 100;
+   z-index: 10000;
 }
 
 .header .circle-box {
@@ -104,11 +104,11 @@
 
 .main {
    width: 100%;
-   position: relative;
 }
 
 .main .post-box {
    width: 100%;
+   position: relative;
 }
 
 .main .post-box .top-bar {

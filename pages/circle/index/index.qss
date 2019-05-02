@@ -9,6 +9,7 @@
 .main {
    width: 100%;
    padding: 0 30rpx;
+   position: relative;
 }
 
 .main .single-box {

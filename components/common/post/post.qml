@@ -1,12 +1,12 @@
 <view class="post">
    <view class="user-box flex-start">
       <block qq:if="{{item.author.gender == 1}}">
-         <image class="avatar" mode="scaleToFill" src="../../../images/boy.png"></image>
+         <image class="avatar skeleton-radius" mode="scaleToFill" src="../../../images/boy.png"></image>
       </block>
       <block qq:else>
-         <image class="avatar" mode="scaleToFill" src="../../../images/girl.png"></image>
+         <image class="avatar skeleton-radius" mode="scaleToFill" src="../../../images/girl.png"></image>
       </block>
-      <view class="info flex-col-between">
+      <view class="info flex-col-between skeleton-rect">
          <view class="name">{{item.author.nickname}}</view>
          <view class="time">{{item.createdTime}}</view>
       </view>
@@ -22,7 +22,7 @@
       </block>
    </view>
    <view class="content-box" bindtap="tapPost">
-      <text>{{item.content}}</text>
+      <text class="skeleton-rect">{{item.content}}</text>
    </view>
    <view class="photo-box">
       <block qq:if="{{item.images.length === 1}}">
@@ -36,7 +36,7 @@
       </block>
    </view>
    <view class="interact-box flex-end">
-      <view class="like flex-start" bindtap="tapInteract" data-event="like">
+      <view class="like flex-start skeleton-rect" bindtap="tapInteract" data-event="like">
          <image
             class="{{like.active ? 'active': ''}}"
             mode="scaleToFill"
@@ -44,11 +44,11 @@
          ></image>
          <view class="number">{{like.agreeCount}}</view>
       </view>
-      <view class="comment flex-start" bindtap="tapComment">
+      <view class="comment flex-start skeleton-rect" bindtap="tapComment">
          <image mode="scaleToFill" src="../../../images/comment.png"></image>
          <view class="number">{{item.commitCount}}</view>
       </view>
-      <view class="collect flex-start" bindtap="tapInteract" data-event="collect">
+      <view class="collect flex-start skeleton-rect" bindtap="tapInteract" data-event="collect">
          <image
             class="{{collect.active ? 'active' : ''}}"
             mode="scaleToFill"
@@ -61,7 +61,7 @@
 
 <template name="one">
    <view class="layout-one flex-center">
-      <preload class="{{ratio >= 1 ? 'column' : 'row'}}" src="{{url}}" needRatio=true bindsetratio="setRatio"></preload>
+      <preload class="skeleton-rect {{ratio >= 1 ? 'column' : 'row'}}" src="{{url}}" needRatio=true bindsetratio="setRatio" mode="widthFix"></preload>
    </view>
 </template>
 
@@ -69,7 +69,7 @@
    <view class="{{type}}">
       <view class="flex-box">
          <block qq:for="{{images}}" qq:key="index">
-            <image mode="scaleToFill" src="{{item}}"></image>
+            <preload class="photo skeleton-rect" src="{{item}}"></preload>
          </block>
       </view>
    </view>

@@ -1,14 +1,16 @@
 const { actions, subscribe } = require('../../../store/index')
+const { postItems } = require('../../../mock/index')
 
 Page({
    data: {
       mark: '',
       info: {},
-      postItems: []
+      showSkeleton: true,
+      postItems
    },
    onLoad({ params }) {
       qq.hideTabBar()
-      
+
       this.connectStore()
       this.renderCircleInfo(JSON.parse(params))
    },
@@ -18,7 +20,7 @@ Page({
       this.unsubscribe()
    },
    onPullDownRefresh() {
-      
+
    },
    onNavigate({ detail: { data } }) {
       qq.navigateTo({ url: `/pages/circle/detail/detail?tag=${data}` })
@@ -40,7 +42,7 @@ Page({
       this.updatePosts(posts, circlePosts)
    },
    updateCircleInfo(circles) {
-      circles.map(item => item.id == this.data.info.id ? this.setData({ info: { ...item } }) : null)
+      circles.map(item => item.id == this.data.info.id ? this.setData({ info: { ...item }, showSkeleton: false }) : null)
    },
    updatePosts(posts, circlePosts) {
       let postIds = circlePosts[this.data.info.id] || []

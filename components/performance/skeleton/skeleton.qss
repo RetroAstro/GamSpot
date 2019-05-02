@@ -1,10 +1,12 @@
 .skeleton-box {
-   position: fixed;
+   position: absolute;
    top: 0;
    left: 0;
    right: 0;
    bottom: 0;
    z-index: 9999;
+   width: 100%;
+   height: 100%;
    overflow: hidden;
    background: #fff;
    opacity: 1;
@@ -12,7 +14,7 @@
 
 .fadeOut {
   opacity: 0;
-  transition: all .6s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .shine {

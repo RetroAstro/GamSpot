@@ -1,3 +1,6 @@
+const regeneratorRuntime = require('../../../lib/runtime')
+const { promisify } = require('../../../utils/index')
+
 Component({
    externalClasses: [],
    options: {
@@ -12,12 +15,16 @@ Component({
       showSkeleton: {
          type: Boolean,
          value: true
+      },
+      setStyle: {
+         type: String,
+         value: ''
       }
    },
    data: {
       show: true,
-      rectLists: [],
-      circleLists: []
+      rectList: [],
+      circleList: []
    },
    lifetimes: {
       attached() {
@@ -40,21 +47,51 @@ Component({
       }
    },
    methods: {
-      drawRect() {
-         let self = this
+      async drawRect() {
+         let selectorTop = await this.getSelectorTop()
+         let rectList = await this.getRectList()
 
-         qq.createSelectorQuery()
-         .selectAll(`.${this.properties.selector} >>> .${this.properties.selector}-rect`)
-         .boundingClientRect()
-         .exec(([ rectLists ]) => self.setData({ rectLists }))
+         this.setData({
+            rectList: rectList.map(item => ({ ...item, top: item.top - selectorTop }))
+         })
       },
-      drawCircle() {
-         let self = this 
+      async drawCircle() {
+         let selectorTop = await this.getSelectorTop()
+         let circleList = await this.getCircleList()
+         
+         this.setData({
+            circleList: circleList.map(item => ({ ...item, top: item.top - selectorTop }))
+         })
+      },
+      getSelectorTop() {
+         const exec = promisify((resolve) => {
+            qq.createSelectorQuery()
+            .select(`.${this.properties.selector}`)
+            .boundingClientRect()
+            .exec(([{ top }]) => resolve(top))
+         })
 
-         qq.createSelectorQuery()
-         .selectAll(`.${this.properties.selector} >>> .${this.properties.selector}-radius`)
-         .boundingClientRect()
-         .exec(([ circleLists ]) => self.setData({ circleLists }))
+         return exec()
+      },
+      getRectList() {
+         const exec = promisify((resolve) => {
+            qq.createSelectorQuery()
+            .selectAll(`.${this.properties.selector} >>> .${this.properties.selector}-rect`)
+            .boundingClientRect()
+            .exec(([ rectList ]) => resolve(rectList))
+         })
+
+         return exec()
+      },
+      getCircleList() {
+         const exec = promisify((resolve) => {
+            qq.createSelectorQuery()
+            .selectAll(`.${this.properties.selector} >>> .${this.properties.selector}-radius`)
+            .boundingClientRect()
+            .exec(([ circleList ]) => resolve(circleList))
+         })
+
+         return exec()
       },
       hideSkeleton() {
          this.setData({ show: false })

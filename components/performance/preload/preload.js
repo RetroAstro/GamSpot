@@ -12,6 +12,10 @@ Component({
             this.preloadImage(value)
          }
       },
+      mode: {
+         type: String,
+         value: 'scaleToFill'
+      },
       needRatio: {
          type: Boolean,
          value: false

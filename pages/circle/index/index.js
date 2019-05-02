@@ -1,82 +1,10 @@
 const { actions, subscribe } = require('../../../store/index')
+const { circles } = require('../../../mock/index')
 
 Page({
    data: {
       showSkeleton: true,
-      circles: [
-         {
-            avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
-            id: 6,
-            isJoin: true,
-            joinCount: 1111,
-            name: "燃烧卡路里",
-            talkingCount: 2222,
-            top: []
-         },
-         {
-            avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
-            id: 6,
-            isJoin: true,
-            joinCount: 1111,
-            name: "燃烧卡路里",
-            talkingCount: 2222,
-            top: []
-         },
-         {
-            avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
-            id: 6,
-            isJoin: true,
-            joinCount: 1111,
-            name: "燃烧卡路里",
-            talkingCount: 2222,
-            top: []
-         },
-         {
-            avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
-            id: 6,
-            isJoin: true,
-            joinCount: 1111,
-            name: "燃烧卡路里",
-            talkingCount: 2222,
-            top: []
-         },
-         {
-            avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
-            id: 6,
-            isJoin: true,
-            joinCount: 1111,
-            name: "燃烧卡路里",
-            talkingCount: 2222,
-            top: []
-         },
-         {
-            avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
-            id: 6,
-            isJoin: true,
-            joinCount: 1111,
-            name: "燃烧卡路里",
-            talkingCount: 2222,
-            top: []
-         },
-         {
-            avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
-            id: 6,
-            isJoin: true,
-            joinCount: 1111,
-            name: "燃烧卡路里",
-            talkingCount: 2222,
-            top: []
-         },
-         {
-            avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
-            id: 6,
-            isJoin: true,
-            joinCount: 1111,
-            name: "燃烧卡路里",
-            talkingCount: 2222,
-            top: []
-         }
-      ]
+      circles
    },
    onLoad() {
       this.connectStore()

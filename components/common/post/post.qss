@@ -85,12 +85,12 @@
    width: 50%;
 }
 
-.post .photo-box .layout-two image {
+.post .photo-box .layout-two .photo {
    width: 340rpx;
    height: 340rpx;
 }
 
-.post .photo-box .layout-three image {
+.post .photo-box .layout-three .photo {
    width: 226rpx;
    height: 226rpx;
 }
