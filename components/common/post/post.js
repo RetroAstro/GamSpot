@@ -1,4 +1,3 @@
-const regeneratorRuntime = require('../../../lib/runtime')
 const { throttle } = require('../../../utils/index')
 
 Component({
