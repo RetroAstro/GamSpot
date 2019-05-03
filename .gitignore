@@ -1,4 +1,7 @@
+# file
 .DS_Store
 project.config.json
+
+# directory
 mock/
 config/
