@@ -1,74 +1,74 @@
 const mockData = {
    circles: [
       {
-         avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
+         avatarUrl: '',
          id: 6,
          isJoin: true,
          joinCount: 1111,
-         name: "xxxxxxxx",
+         name: 'xxxxxxxx',
          talkingCount: 2222,
          top: []
       },
       {
-         avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
+         avatarUrl: '',
          id: 6,
          isJoin: true,
          joinCount: 1111,
-         name: "xxxxxxxx",
+         name: 'xxxxxxxx',
          talkingCount: 2222,
          top: []
       },
       {
-         avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
+         avatarUrl: '',
          id: 6,
          isJoin: true,
          joinCount: 1111,
-         name: "xxxxxxxx",
+         name: 'xxxxxxxx',
          talkingCount: 2222,
          top: []
       },
       {
-         avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
+         avatarUrl: '',
          id: 6,
          isJoin: true,
          joinCount: 1111,
-         name: "xxxxxxxx",
+         name: 'xxxxxxxx',
          talkingCount: 2222,
          top: []
       },
       {
-         avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
+         avatarUrl: '',
          id: 6,
          isJoin: true,
          joinCount: 1111,
-         name: "xxxxxxxx",
+         name: 'xxxxxxxx',
          talkingCount: 2222,
          top: []
       },
       {
-         avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
+         avatarUrl: '',
          id: 6,
          isJoin: true,
          joinCount: 1111,
-         name: "xxxxxxxx",
+         name: 'xxxxxxxx',
          talkingCount: 2222,
          top: []
       },
       {
-         avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
+         avatarUrl: '',
          id: 6,
          isJoin: true,
          joinCount: 1111,
-         name: "xxxxxxxx",
+         name: 'xxxxxxxx',
          talkingCount: 2222,
          top: []
       },
       {
-         avatarUrl: "http://image.mashiroc.fun/blog/initAvatar.png",
+         avatarUrl: '',
          id: 6,
          isJoin: true,
          joinCount: 1111,
-         name: "xxxxxxxx",
+         name: 'xxxxxxxx',
          talkingCount: 2222,
          top: []
       }
@@ -83,7 +83,7 @@ const mockData = {
          createdTime: 'xx:xx',
          circleName: '',
          content: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-         images: ['/images/row.jpg', '/images/row.jpg'],
+         images: ['', ''],
          commitCount: 0,
          agreeCount: 0,
          collectionCount: 0,
@@ -100,7 +100,7 @@ const mockData = {
          createdTime: 'xx:xx',
          circleName: '',
          content: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-         images: ['/images/row.jpg', '/images/row.jpg'],
+         images: ['', ''],
          commitCount: 0,
          agreeCount: 0,
          collectionCount: 0,
