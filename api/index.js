@@ -14,7 +14,7 @@ const {
 } = require('./urls')
 
 const setFreshJWT = promisify((resolve) => {
-   qq.showLoading()
+   qq.showLoading({ title: '等待中...', mask: true })
    
    qq.login({
       success({ code }) {

@@ -1,5 +1,8 @@
-.container {
+page {
    background: #f6f6f6;
+}
+
+.container {
    min-height: 100vh;
 }
 
@@ -119,6 +122,13 @@
 
 .main .post-box post:last-child > view {
    margin-bottom: 0rpx;
+}
+
+.main .loading-box {
+   width: 100%;
+   height: 60rpx;
+   font-size: 28rpx;
+   color: #b8b8b8;
 }
 
 .join-box {

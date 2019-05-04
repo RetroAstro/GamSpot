@@ -1,6 +1,7 @@
 const {
    RECEIVE_CIRCLES,
    RECEIVE_SINGLE_POSTS,
+   ADD_SINGLE_POSTS,
    JOIN_CIRCLE,
    PUBLISH_NEW_POST
 } = require('../constants/index')
@@ -24,12 +25,20 @@ const fetchCircles = () => dispatch => {
 const receiveSinglePosts = (id, data) => ({
    type: RECEIVE_SINGLE_POSTS,
    circleId: id,
+   cursor: 0,
+   data
+})
+
+const addSinglePosts = (id, data, page) => ({
+   type: ADD_SINGLE_POSTS,
+   circleId: id,
+   cursor: page - 1,
    data
 })
 
 const fetchSinglePosts = (id, page = 1) => dispatch => {
    getSinglePosts(id, page)
-   .then(data => dispatch(receiveSinglePosts(id, data)))
+   .then(data => page == 1 ? dispatch(receiveSinglePosts(id, data)) : dispatch(addSinglePosts(id, data, page)))
 }
 
 const joinSuccess = id => ({

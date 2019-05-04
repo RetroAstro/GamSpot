@@ -43,9 +43,11 @@ Page({
       return images.every(image => image.match(/.(png|jpg|JPG|PNG)$/gi))
    },
    async tapPublish() {
-      qq.showLoading()
+      qq.showLoading({ title: '等待中...', mask: true })
 
       await this.sendNewPost()
+
+      this.handlePrevPage()
 
       actions.publishNewPost(this.data.info.id)
 
@@ -70,5 +72,11 @@ Page({
       }
       
       return imageKeys
+   },
+   handlePrevPage() {
+      let pages = getCurrentPages()
+      let prevPage = pages[pages.length - 2]
+      
+      prevPage.props.pageNum = 1
    }
 })

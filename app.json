@@ -59,7 +59,7 @@
       "post": "/components/common/post/post",
       "comment": "/components/common/comment/comment",
       "reply": "/components/common/reply/reply",
-      "skeleton": "/components/performance/skeleton/skeleton",
-      "preload": "/components/performance/preload/preload"
+      "preload": "/components/performance/preload/preload",
+      "skeleton": "/components/performance/skeleton/skeleton"
    }
 }

@@ -29,10 +29,15 @@
       <view class="post-box skeleton">
          <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}" setStyle="min-height: 1354rpx;"></skeleton>
          <view class="top-bar"></view>
-         <block qq:for="{{postItems}}" qq:key="index">
-            <post item="{{item}}" bindnavigate="onNavigate"></post>
+         <block qq:for="{{feedList}}" qq:key="{{index}}" qq:for-item="postItems">
+            <block qq:for="{{postItems}}" qq:key="id">
+               <post item="{{item}}" bindnavigate="onNavigate"></post>
+            </block>
          </block>
       </view>
+      <block qq:if="{{loading}}">
+         <view class="loading-box flex-center">{{loadingText}}</view>
+      </block>
    </view>
    <block qq:if="{{!info.isJoin}}">
       <view class="join-box {{mark === 'join' ? 'disabled' : ''}}" bindtap="onTap">

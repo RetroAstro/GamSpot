@@ -27,7 +27,7 @@ Page({
       return Object.values(data).every(item => item)
    },
    sendData(data) {
-      qq.showLoading()
+      qq.showLoading({ title: '等待中...', mask: true })
       
       sendBindData(data)
       .then(({ status, data }) => {
