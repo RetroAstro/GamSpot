@@ -47,6 +47,7 @@ Page({
    },
    addSinglePosts() {
       this.props.pageNum++
+      
       actions.fetchSinglePosts(this.data.info.id, this.props.pageNum)
    },
    handleState({ circles, posts, circlePosts }) {
