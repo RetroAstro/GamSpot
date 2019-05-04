@@ -69,7 +69,8 @@ Page({
    updatePosts(posts, circlePosts) {
       let cursor = this.props.pageNum - 1
       let postIds = circlePosts[this.data.info.id][cursor]
-
+      let postItems = postIds.map(id => posts.byId[id])
+      
       if (this.noMorePosts(postIds)) {
          return { loadingText: '没有更多啦 ~' }
       } else {
@@ -77,7 +78,7 @@ Page({
 
          return {
             loading: false,
-            [`feedList[${cursor}]`]: postIds.map(id => posts.byId[id])
+            ...(cursor == 0 ? { feedList: [postItems] } : { [`feedList[${cursor}]`]: postItems })
          }
       }
    },
