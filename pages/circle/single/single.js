@@ -50,25 +50,34 @@ Page({
       actions.fetchSinglePosts(this.data.info.id, this.props.pageNum)
    },
    handleState({ circles, posts, circlePosts }) {
-      this.updateCircleInfo(circles)
-      this.updatePosts(posts, circlePosts)
+      let data = {
+         ...this.updateCircleInfo(circles),
+         ...this.updatePosts(posts, circlePosts)
+      }
+      
+      this.setData(data, this.hideSkeleton)
+   },
+   hideSkeleton() {
+      this.setData({ showSkeleton: false })
    },
    updateCircleInfo(circles) {
-      circles.map(item => item.id == this.data.info.id ? this.setData({ info: { ...item }, showSkeleton: false }) : null)
+      let [item] = circles.filter(item => item.id == this.data.info.id)
+
+      return { info: { ...item } }
    },
    updatePosts(posts, circlePosts) {
       let cursor = this.props.pageNum - 1
       let postIds = circlePosts[this.data.info.id][cursor]
 
       if (this.noMorePosts(postIds)) {
-         this.setData({ loadingText: '没有更多啦 ~' })
+         return { loadingText: '没有更多啦 ~' }
       } else {
          qq.stopPullDownRefresh()
 
-         this.setData({
+         return {
             loading: false,
             [`feedList[${cursor}]`]: postIds.map(id => posts.byId[id])
-         })
+         }
       }
    },
    noMorePosts(postIds) {
