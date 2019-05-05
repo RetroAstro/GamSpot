@@ -1,6 +1,6 @@
 const { opts } = require('./config')
 const { Base64 } = require('../utils/base64')
-const { promisify, timeFromNow } = require('../utils/index')
+const { promisify } = require('../utils/index')
 
 const {
    GET_FRESH_JWT,
@@ -9,9 +9,12 @@ const {
    GET_ALL_CIRCLES,
    SEND_NEW_POST,
    UPLOAD_IMAGE,
-   IMAGE_DOMAIN,
    RESET_ALL_DATA
 } = require('./urls')
+
+const {
+   alterSinglePosts
+} = require('./alter')
 
 const setFreshJWT = promisify((resolve) => {
    qq.showLoading({ title: '等待中...', mask: true })
@@ -88,13 +91,7 @@ const getSinglePosts = promisify((circleId, page, resolve) => {
       method: 'GET',
       success({ data: { status, data } }) {
          if (status === 10000) {
-            resolve(
-               data.map(item => ({
-                  ...item,
-                  createdTime: timeFromNow(item.timestamp),
-                  images: item.images ? item.images.map(image => `${IMAGE_DOMAIN}/${image}`) : []
-               }))
-            )
+            resolve(alterSinglePosts(data))
          }
       }
    })
