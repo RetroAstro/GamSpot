@@ -12,6 +12,10 @@ Component({
             this.preloadImage(value)
          }
       },
+      index: {
+         type: Number,
+         value: 0,
+      },
       mode: {
          type: String,
          value: 'scaleToFill'
@@ -46,13 +50,17 @@ Component({
 
          qq.getImageInfo({
             src: value,
-            success(res) {
-               self.checkRatio(res)
-               self.setData({ imgUrl: res.path })
+            success({ path, width, height }) {
+               self.checkRatio(width, height)
+               self.loaded(path)
+               self.setData({ imgUrl: path })
             }
          })
       },
-      checkRatio({ width, height }) {
+      loaded(path) {
+         this.triggerEvent('loaded', { data: [this.properties.index, path] })
+      },
+      checkRatio(width, height) {
          this.properties.needRatio ? this.triggerEvent('setratio', { data: width / height }) : null
       }
    }

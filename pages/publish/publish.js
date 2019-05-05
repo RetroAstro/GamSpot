@@ -43,7 +43,7 @@ Page({
       return images.every(image => image.match(/.(png|jpg|JPG|PNG)$/gi))
    },
    async tapPublish() {
-      qq.showLoading({ title: '等待中...', mask: true })
+      qq.showLoading({ title: '等待中', mask: true })
 
       await this.sendNewPost()
 

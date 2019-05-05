@@ -61,15 +61,15 @@
 
 <template name="one">
    <view class="layout-one flex-center">
-      <preload class="skeleton-rect {{ratio >= 1 ? 'column' : 'row'}}" src="{{url}}" needRatio=true bindsetratio="setRatio" mode="widthFix"></preload>
+      <preload class="skeleton-rect {{ratio >= 1 ? 'column' : 'row'}}" src="{{url}}" needRatio=true mode="widthFix" data-index="0" bindsetratio="setRatio" bindloaded="handleLoaded" bindtap="tapPreload"></preload>
    </view>
 </template>
 
 <template name="two">
    <view class="{{type}}">
       <view class="flex-box">
-         <block qq:for="{{images}}" qq:key="index">
-            <preload class="photo skeleton-rect" src="{{item}}"></preload>
+         <block qq:for="{{images}}" qq:key="{{index}}">
+            <preload class="photo skeleton-rect" src="{{item}}" index="{{index}}" data-index="{{index}}" bindloaded="handleLoaded" bindtap="tapPreload"></preload>
          </block>
       </view>
    </view>

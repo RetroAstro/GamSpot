@@ -17,7 +17,7 @@ const {
 } = require('./alter')
 
 const setFreshJWT = promisify((resolve) => {
-   qq.showLoading({ title: '等待中...', mask: true })
+   qq.showLoading({ title: '等待中', mask: true })
    
    qq.login({
       success({ code }) {

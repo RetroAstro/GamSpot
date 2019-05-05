@@ -26,6 +26,10 @@ Component({
             isCollection: false,
             isTop: false
          }
+      },
+      imagePaths: {
+         type: Array,
+         value: []
       }
    },
    data: {
@@ -43,11 +47,11 @@ Component({
    },
    lifetimes: {
       attached() {
-         
+
       },
       detached() {
 
-      },
+      }
    },
    pageLifetimes: {
       show() {
@@ -66,6 +70,15 @@ Component({
       },
       tapComment() {
          this.triggerEvent('navigate', { data: 'comment' })
+      },
+      tapPreload(e) {
+         let { imagePaths } = this.properties
+         let index = e.currentTarget.dataset.index
+
+         qq.previewImage({
+            current: imagePaths[index],
+            urls: imagePaths
+         })
       },
       tapInteract: throttle((self, e) => {
          let key = e.currentTarget.dataset.event
@@ -99,6 +112,9 @@ Component({
       },
       setRatio({ detail: { data } }) {
          this.setData({ ratio: data })
+      },
+      handleLoaded({ detail: { data: [index, path] } }) {
+         this.properties.imagePaths[index] = path
       }
    }
 })
