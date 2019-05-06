@@ -3,22 +3,28 @@ const { uploadImage, sendNewPost } = require('../../api/index')
 const { actions } = require('../../store/index')
 
 Page({
+   props: {
+      content: ''
+   },
    data: {
       disabled: true,
       showImagePicker: true,
       info: {},
-      content: '',
       imagePaths: [],
    },
    onLoad({ id, name }) {
       this.setData({ info: { id, name } })
    },
    handleInput({ detail: { value } }) {
+      this.saveContent(value)
+      this.setDisabled(value)
+   },
+   saveContent(value) {
+      this.props.content = value
+   },
+   setDisabled(value) {
       if (value.trim() && this.data.disabled) this.setData({ disabled: false })
       if (!value.trim() && !this.data.disabled) this.setData({ disabled: true })
-   },
-   handleBlur({ detail: { value } }) {
-      this.setData({ content: value })
    },
    chooseImage() {
       let self = this
@@ -45,7 +51,7 @@ Page({
    async tapPublish() {
       qq.showLoading({ title: '等待中', mask: true })
 
-      await this.sendNewPost()
+      await this.publishNewPost()
 
       this.handlePrevPage()
 
@@ -55,9 +61,9 @@ Page({
       
       qq.navigateBack({ delta: 1 })
    },
-   async sendNewPost() {
+   async publishNewPost() {
       let post = {
-         content: this.data.content,
+         content: this.props.content,
          socialCircleId: this.data.info.id,
          images: await this.getImageKeys(this.data.imagePaths)
       }

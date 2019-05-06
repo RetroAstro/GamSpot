@@ -9,7 +9,6 @@
          placeholder="发布新动态... (最多300字)"
          placeholder-class="placeholder"
          bindinput="handleInput"
-         bindblur="handleBlur"
       />
    </view>
    <view class="upload-box">
