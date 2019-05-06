@@ -25,6 +25,11 @@ Component({
             isAgree: false,
             isCollection: false,
             isTop: false
+         },
+         observer({ images }) {
+            this.setData({
+               imageItems: images.map(item => ({ show: false, url: item }))
+            })
          }
       },
       imagePaths: {
@@ -34,6 +39,8 @@ Component({
    },
    data: {
       ratio: 1,
+      isLoaded: false,
+      imageItems: [],
       like: {
          active: false,
          isAgree: false,
@@ -48,6 +55,9 @@ Component({
    lifetimes: {
       attached() {
 
+      },
+      ready() {
+         this.setLazyload()
       },
       detached() {
 
@@ -110,11 +120,25 @@ Component({
             'collect.collectionCount': isCollection ? collectionCount - 1 : collectionCount + 1
          }, () => this.setData({ 'collect.active': true }))
       },
+      handleLoaded({ detail: { data: [index, path] } }) {
+         this.properties.imagePaths[index] = path
+      },
       setRatio({ detail: { data } }) {
          this.setData({ ratio: data })
       },
-      handleLoaded({ detail: { data: [index, path] } }) {
-         this.properties.imagePaths[index] = path
+      setLazyload() {
+         const shouldLoad = ({ intersectionRatio }) => intersectionRatio > 0 && !this.data.isLoaded
+
+         this.createIntersectionObserver()
+         .relativeToViewport()
+         .observe('.user-box', (res) => {
+            if (shouldLoad(res)) {
+               this.setData({
+                  isLoaded: true,
+                  imageItems: this.data.imageItems.map(item => ({ ...item, show: true }))
+               })
+            }
+         })
       }
    }
 })

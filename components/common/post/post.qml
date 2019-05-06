@@ -25,14 +25,14 @@
       <text class="skeleton-rect">{{item.content}}</text>
    </view>
    <view class="photo-box">
-      <block qq:if="{{item.images.length === 1}}">
-         <template is="one" data="{{url: item.images[0]}}" />
+      <block qq:if="{{imageItems.length === 1}}">
+         <template is="one" data="{{...imageItems[0]}}" />
       </block>
-      <block qq:elif="{{item.images.length >= 2 && item.images.length <= 4}}">
-         <template is="two" data="{{images: item.images, type: 'layout-two'}}" />
+      <block qq:elif="{{imageItems.length >= 2 && imageItems.length <= 4}}">
+         <template is="two" data="{{images: imageItems, type: 'layout-two'}}" />
       </block>
       <block qq:else>
-         <template is="two" data="{{images: item.images, type: 'layout-three'}}" />
+         <template is="two" data="{{images: imageItems, type: 'layout-three'}}" />
       </block>
    </view>
    <view class="interact-box flex-end">
@@ -61,7 +61,7 @@
 
 <template name="one">
    <view class="layout-one flex-center">
-      <preload class="skeleton-rect {{ratio >= 1 ? 'column' : 'row'}}" src="{{url}}" needRatio=true mode="widthFix" data-index="0" bindsetratio="setRatio" bindloaded="handleLoaded" bindtap="tapPreload"></preload>
+      <preload class="skeleton-rect {{ratio >= 1 ? 'column' : 'row'}}" src="{{show ? url : ''}}" needRatio=true mode="widthFix" data-index="0" bindsetratio="setRatio" bindloaded="handleLoaded" bindtap="tapPreload"></preload>
    </view>
 </template>
 
@@ -69,7 +69,7 @@
    <view class="{{type}}">
       <view class="flex-box">
          <block qq:for="{{images}}" qq:key="{{index}}">
-            <preload class="photo skeleton-rect" src="{{item}}" index="{{index}}" data-index="{{index}}" bindloaded="handleLoaded" bindtap="tapPreload"></preload>
+            <preload class="photo skeleton-rect" src="{{item.show ? item.url : ''}}" index="{{index}}" data-index="{{index}}" bindloaded="handleLoaded" bindtap="tapPreload"></preload>
          </block>
       </view>
    </view>
