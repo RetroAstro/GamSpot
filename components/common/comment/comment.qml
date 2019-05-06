@@ -26,7 +26,7 @@
    </view>
    <block qq:if="{{item.comments.length}}">
       <view class="reply">
-         <block qq:for="{{item.comments}}" qq:key="index">
+         <block qq:for="{{item.comments}}" qq:key="{{index}}">
             <view class="box">
                <view style="float: left;" class="flex-start">
                   <view class="sender user">{{item.sender}}</view>

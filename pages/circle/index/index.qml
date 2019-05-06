@@ -2,7 +2,7 @@
    <view class="popular flex-start">热门圈子</view>
    <view class="main skeleton">
       <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}"></skeleton>
-      <block qq:for="{{circles}}" qq:key="index">
+      <block qq:for="{{circles}}" qq:key="{{index}}">
             <template is="single" data="{{item}}" />
       </block>
    </view>
@@ -11,7 +11,7 @@
 <template name="single">
    <view class="single-box">
       <view class="flex-start" bindtap="onNavigate" data-item="{{item}}">
-         <preload class="avatar skeleton-radius" src="{{item.avatarUrl}}"></preload>
+         <preload class="avatar skeleton-radius" src="{{item.avatarUrl}}" bindloaded="handleLoaded"></preload>
          <view class="info flex-col-between">
             <view class="name skeleton-rect">{{item.name}}</view>
             <view class="data-box flex-start skeleton-rect">

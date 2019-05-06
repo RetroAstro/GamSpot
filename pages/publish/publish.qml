@@ -12,7 +12,7 @@
       />
    </view>
    <view class="upload-box">
-      <block qq:for="{{imagePaths}}" qq:key="index">
+      <block qq:for="{{imagePaths}}" qq:key="{{index}}">
          <view>
             <image mode="scaleToFill" src="{{item}}"></image>
          </view>

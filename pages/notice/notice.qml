@@ -3,7 +3,7 @@
       <view class="checked">一键已读</view>
    </view>
    <view class="notice-box">
-      <block qq:for="{{notices}}" qq:key="index">
+      <block qq:for="{{notices}}" qq:key="{{index}}">
          <view class="notice flex-start {{item.checked ? 'checked' : ''}}">
             <block qq:if="{{item.type === 'bell'}}">
                <image mode="scaleToFill" src="../../images/notice-bell.png"></image>

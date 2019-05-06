@@ -58,7 +58,7 @@ Component({
          })
       },
       loaded(path) {
-         this.triggerEvent('loaded', { data: [this.properties.index, path] })
+         this.triggerEvent('loaded', { data: { path, index: this.properties.index } })
       },
       checkRatio(width, height) {
          this.properties.needRatio ? this.triggerEvent('setratio', { data: width / height }) : null

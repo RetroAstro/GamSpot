@@ -2,6 +2,9 @@ const { actions, subscribe } = require('../../../store/index')
 const { circles } = require('../../../mock/index')
 
 Page({
+   props: {
+      loadedNum: 0
+   },
    data: {
       showSkeleton: true,
       circles
@@ -19,7 +22,12 @@ Page({
       this.unsubscribe = subscribe(getState => self.handleState(getState()))
    },
    handleState({ circles }) {
-      this.setData({ circles, showSkeleton: false })
+      this.setData({ circles })
+   },
+   handleLoaded() {
+      this.props.loadedNum++
+      
+      if (this.props.loadedNum == this.data.circles.length) this.setData({ showSkeleton: false })
    },
    onNavigate(e) {
       let item = e.currentTarget.dataset.item

@@ -102,6 +102,7 @@
 
 .post .interact-box > view {
    margin-left: 45rpx;
+   padding: 10rpx 0;
 }
 
 .post .interact-box .number {

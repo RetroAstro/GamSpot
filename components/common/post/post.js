@@ -95,6 +95,7 @@ Component({
          let action = self.getAction(key)
 
          action.run()
+         qq.vibrateShort()
       }, 500),
       getAction(key) {
          let { like: { isAgree, agreeCount }, collect: { isCollection, collectionCount } } = this.data
@@ -120,7 +121,7 @@ Component({
             'collect.collectionCount': isCollection ? collectionCount - 1 : collectionCount + 1
          }, () => this.setData({ 'collect.active': true }))
       },
-      handleLoaded({ detail: { data: [index, path] } }) {
+      handleLoaded({ detail: { data: { index, path } } }) {
          this.properties.imagePaths[index] = path
       },
       setRatio({ detail: { data } }) {
