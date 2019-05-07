@@ -128,7 +128,7 @@ Component({
          this.setData({ ratio: data })
       },
       setLazyload() {
-         const shouldLoad = ({ intersectionRatio }) => intersectionRatio > 0 && !this.data.isLoaded
+         const shouldLoad = ({ intersectionRatio }) => (intersectionRatio > 0 && !this.data.isLoaded)
 
          this.createIntersectionObserver()
          .relativeToViewport()

@@ -19,11 +19,14 @@ Component({
             content: '',
             agreeCount: 0,
             isAgree: false,
-            comments: [
+            childComments: [
                {
-                  sender: '',
-                  recipient: '',
-                  content: ''
+                  sender: {
+                     id: '',
+                     nickname: '',
+                     content: ''
+                  },
+                  recipient: ''
                }
             ]
          }

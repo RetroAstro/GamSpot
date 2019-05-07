@@ -4,7 +4,8 @@ const posts = require('./posts')
 const comments = require('./comments')
 const notices = require('./notices')
 const circlePosts = require('./joins/circlePosts')
-const popularIds = require('./joins/popularIds')
+const popularPosts = require('./joins/popularPosts')
+const postComments = require('./joins/postComments')
 
 const rootReducer = combineReducers({
    circles,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
    comments,
    notices,
    circlePosts,
-   popularIds
+   popularPosts,
+   postComments,
 })
 
 module.exports = rootReducer

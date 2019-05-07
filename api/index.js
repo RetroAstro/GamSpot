@@ -13,7 +13,8 @@ const {
 } = require('./urls')
 
 const {
-   alterSinglePosts
+   alterSinglePosts,
+   alterSolePost,
 } = require('./alter')
 
 const setFreshJWT = promisify((resolve) => {
@@ -138,6 +139,18 @@ const sendNewPost = promisify((data, resolve) => {
    })
 })
 
+const getSolePost = promisify((postId, resolve) => {
+   qq.request({
+      ...opts(),
+      url: `${SEND_NEW_POST}/${postId}`,
+      success({ data: { status, data } }) {
+         if (status === 10000) {
+            resolve(alterSolePost(data))
+         }
+      }
+   })
+})
+
 const resetAllData = () => {
    qq.request({
       ...opts(),
@@ -157,5 +170,6 @@ module.exports = {
    sendCircleId,
    uploadImage,
    sendNewPost,
+   getSolePost,
    resetAllData
 }

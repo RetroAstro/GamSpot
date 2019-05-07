@@ -1,4 +1,4 @@
-const notices = (state = [], action) => {
+const notices = (state = {}, action) => {
    switch (action.type) {
       default:
          return state

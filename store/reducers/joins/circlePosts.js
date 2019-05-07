@@ -4,7 +4,7 @@ const {
 } = require('../../constants/index')
 
 const loadCirclePosts = (state, { circleId, cursor, data }) => {
-   const result = {
+   let result = {
       [circleId]: {
          [cursor]: data.map(item => item.id)
       }
@@ -17,7 +17,7 @@ const loadCirclePosts = (state, { circleId, cursor, data }) => {
 }
 
 const addCirclePosts = (state, { circleId, cursor, data }) => {
-   const result = {
+   let result = {
       [circleId]: {
          ...state[circleId],
          [cursor]: data.map(item => item.id)

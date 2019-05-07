@@ -1,6 +1,7 @@
 const {
    RECEIVE_CIRCLES,
    RECEIVE_SINGLE_POSTS,
+   RECEIVE_SOLE_POST,
    ADD_SINGLE_POSTS,
    JOIN_CIRCLE,
    PUBLISH_NEW_POST
@@ -9,7 +10,8 @@ const {
 const {
    getCircles,
    getSinglePosts,
-   sendCircleId
+   sendCircleId,
+   getSolePost,
 } = require('../../api/index')
 
 const receiveCircles = data => ({
@@ -58,9 +60,20 @@ const addNewPost = id => ({
 
 const publishNewPost = id => dispatch => dispatch(addNewPost(id)) && dispatch(fetchSinglePosts(id))
 
+const receiveSolePost = data => ({
+   type: RECEIVE_SOLE_POST,
+   data
+})
+
+const fetchSolePost = id => dispatch => {
+   getSolePost(id)
+   .then(data => dispatch(receiveSolePost(data)))
+}
+
 module.exports = {
    fetchCircles,
    fetchSinglePosts,
    joinCircle,
-   publishNewPost
+   publishNewPost,
+   fetchSolePost
 }
