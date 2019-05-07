@@ -83,6 +83,6 @@ Page({
       }
    },
    noMorePosts(postIds) {
-      return !postIds.length && this.props.pageNum > 1
+      return (!postIds.length && this.props.pageNum > 1)
    }
 })
