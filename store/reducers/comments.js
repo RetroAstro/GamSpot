@@ -7,12 +7,12 @@ const {
 const createCommentId = ({ author: { id }, timestamp }) => (id + timestamp)
 
 const loadSolePostComments = (state, { data: { comments } }) => {
-   let result = comments
+   let middle = comments
       .map(item => ({ [createCommentId(item)]: item })).reduce((prev, next) => ({ ...prev, ...next }), {})
-
+      
    return {
       ...state,
-      ...result
+      ...middle
    }
 }
 

@@ -5,29 +5,25 @@ const {
 
 const loadCirclePosts = (state, { circleId, cursor, data }) => {
    let result = {
+      ...state,
       [circleId]: {
          [cursor]: data.map(item => item.id)
       }
    }
 
-   return {
-      ...state,
-      ...result
-   }
+   return result
 }
 
 const addCirclePosts = (state, { circleId, cursor, data }) => {
    let result = {
+      ...state,
       [circleId]: {
          ...state[circleId],
          [cursor]: data.map(item => item.id)
       }
    }
    
-   return {
-      ...state,
-      ...result
-   }
+   return result
 }
 
 const circlePosts = (state = {}, action) => {

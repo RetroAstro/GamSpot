@@ -131,6 +131,11 @@ page {
    color: #b8b8b8;
 }
 
+.main .loading-box.mask {
+   background: #fff;
+   color: #fff;
+}
+
 .join-box {
    position: fixed;
    bottom: 40rpx;

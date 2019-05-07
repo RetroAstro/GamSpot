@@ -36,7 +36,7 @@
          </block>
       </view>
       <block qq:if="{{loading}}">
-         <view class="loading-box flex-center">{{loadingText}}</view>
+         <view class="loading-box flex-center {{showSkeleton ? 'mask' : ''}}">{{loadingText}}</view>
       </block>
    </view>
    <block qq:if="{{!info.isJoin}}">
@@ -44,12 +44,9 @@
          <image class="join" mode="scaleToFill" src="../../../images/join.png"></image>
       </view>
    </block>
-   <navigator
-      hover-class="none"
-      open-type="navigateTo"
-      class="publish-box {{info.isJoin ? 'active' : ''}}"
-      url="/pages/publish/publish?id={{info.id}}&name={{info.name}}"
-   >
-      <image class="publish" mode="scaleToFill" src="../../../images/publish.png"></image>
-   </navigator>
+   <block qq:if="{{!showSkeleton}}">
+      <navigator hover-class="none" open-type="navigateTo" class="publish-box {{info.isJoin ? 'active' : ''}}" url="/pages/publish/publish?id={{info.id}}&name={{info.name}}">
+         <image class="publish" mode="scaleToFill" src="../../../images/publish.png"></image>
+      </navigator>
+   </block>
 </view>

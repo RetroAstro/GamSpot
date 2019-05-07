@@ -7,12 +7,12 @@ const {
 } = require('../constants/index')
 
 const loadSinglePosts = (state, { data }) => {
-   let result = data
+   let middle = data
       .map(item => ({ [item.id]: item })).reduce((prev, next) => ({ ...prev, ...next }), {})
       
    return {
       ...state,
-      ...result
+      ...middle
    }
 }
 
