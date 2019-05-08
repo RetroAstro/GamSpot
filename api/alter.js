@@ -26,8 +26,9 @@ const normalizeCommit = commit => {
             if (commit.length) recursive(commit, nickname)
          })
       }
-      recursive(commit, recipient)
       
+      recursive(commit, recipient)
+
       return result
    }
 
