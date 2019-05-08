@@ -21,11 +21,8 @@ Component({
             isAgree: false,
             childComments: [
                {
-                  sender: {
-                     id: '',
-                     nickname: '',
-                     content: ''
-                  },
+                  sender: '',
+                  content: '',
                   recipient: ''
                }
             ]

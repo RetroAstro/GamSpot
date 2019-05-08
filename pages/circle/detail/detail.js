@@ -1,10 +1,20 @@
+const { actions, subscribe } = require('../../../store/index')
+
 Page({
+   props: {
+      tag: '',
+      circleId: ''
+   },
    data: {
       isFixed: false,
       showReply: false
    },
-   onLoad({ tag }) {
-      this.handleScroll(tag)
+   onLoad({ params }) {
+      this.connectStore()
+      this.initialize(JSON.parse(params))
+   },
+   onUnload() {
+      this.unsubscribe()
    },
    onNavigate({ detail: { data } }) {
       data === 'comment' ? this.setData({ showReply: true }) : null
@@ -22,8 +32,17 @@ Page({
       
       return { run: actions[key] }
    },
-   handleScroll(tag) {
-      if (tag === 'comment') this.scrollToComment()
+   connectStore() {
+      let self = this
+      this.unsubscribe = subscribe(getState => self.handleState(getState()))
+   },
+   handleState() {
+      
+   },
+   initialize(params) {
+      this.props = { ...params }
+
+      // actions.fetchSolePost()
    },
    scrollToComment() {
       let query = qq.createSelectorQuery()

@@ -17,7 +17,7 @@ Page({
       qq.hideTabBar()
 
       this.connectStore()
-      this.renderCircleInfo(JSON.parse(params))
+      this.initialize(JSON.parse(params))
    },
    onUnload() {
       qq.showTabBar()
@@ -36,13 +36,15 @@ Page({
       this.setData({ mark: 'join' }, () => actions.joinCircle(this.data.info.id))
    },
    onNavigate({ detail: { data } }) {
-      qq.navigateTo({ url: `/pages/circle/detail/detail?tag=${data}` })
+      let params = { tag: data, circleId: this.data.info.id }
+
+      qq.navigateTo({ url: `/pages/circle/detail/detail?params=${JSON.stringify(params)}` })
    },
    connectStore() {
       let self = this
       this.unsubscribe = subscribe(getState => self.handleState(getState()))
    },
-   renderCircleInfo(info) {
+   initialize(info) {
       this.setData({ info }, () => actions.fetchSinglePosts(this.data.info.id))
    },
    addSinglePosts() {

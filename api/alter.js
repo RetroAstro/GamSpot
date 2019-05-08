@@ -17,7 +17,26 @@ const alterPost = post => {
 const alterSinglePosts = data => data.map(alterPost)
 
 const normalizeCommit = commit => {
+   const normalize = (commit, recipient) => {
+      let result = []
 
+      const recursive = (commit, recipient) => {
+         commit.map(({ author: { nickname }, content, commit }) => {
+            result.push({ sender: nickname, content, recipient })
+            if (commit.length) recursive(commit, nickname)
+         })
+      }
+
+      recursive(commit, recipient)
+      return result
+   }
+
+   return commit.map(item => {
+      let childComments = normalize(item.commit, item.author.nickname)
+      delete item.commit
+      
+      return { ...item, childComments }
+   })
 }
 
 const alterSolePost = data => {

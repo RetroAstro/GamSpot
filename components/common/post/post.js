@@ -10,6 +10,7 @@ Component({
       item: {
          type: Object,
          value: {
+            id: '',
             author: {
                id: '',
                gender: '',

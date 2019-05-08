@@ -11,11 +11,13 @@ Page({
    },
    onLoad() {
       this.connectStore()
-
-      actions.fetchCircles()
+      this.initialize()
    },
    onUnload() {
       this.unsubscribe()
+   },
+   initialize() {
+      actions.fetchCircles()
    },
    connectStore() {
       let self = this
