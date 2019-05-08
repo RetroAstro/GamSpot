@@ -36,16 +36,17 @@ Page({
       this.unsubscribe = subscribe(() => this.handleState(getState()))
    },
    handleState() {
-      
+
    },
-   initialize(params) {
-      this.renderPost(params)
+   initialize({ tag, post, circleId }) {
+      this.handleScroll(tag)
+      this.renderPost(post, circleId)
    },
-   renderPost({ tag, post, circleId }) {
-      this.setData({ post: { ...post, circleId } }, () => this.handleScroll(tag))
+   renderPost(post, circleId) {
+      this.setData({ post: { ...post, circleId } })
    },
    handleScroll(tag) {
-      if (tag === 'comment') this.scrollToComment()
+      if (tag === 'comment') setTimeout(this.scrollToComment, 800)
    },
    scrollToComment() {
       let query = qq.createSelectorQuery()
