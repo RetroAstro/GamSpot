@@ -7,7 +7,7 @@ const createCommentId = ({ author: { id }, timestamp }) => (id + timestamp)
 const loadPostComments = (state, { data: { post: { id }, comments } }) => {
    let result = {
       ...state,
-      [id]: comments.map(item => createCommentId(item))
+      [id]: comments.map(createCommentId)
    }
    
    return result

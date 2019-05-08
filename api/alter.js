@@ -14,7 +14,7 @@ const alterPost = post => {
    return result
 }
 
-const alterSinglePosts = data => data.map(item => alterPost(item))
+const alterSinglePosts = data => data.map(alterPost)
 
 const normalizeCommit = commit => {
 
