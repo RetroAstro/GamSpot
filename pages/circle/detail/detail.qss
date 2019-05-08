@@ -1,5 +1,6 @@
 .container {
    background: #f6f6f6;
+   position: relative;
 }
 
 .container.active {
@@ -9,6 +10,7 @@
 
 .post-box {
    width: 100%;
+   position: relative;
 }
 
 .comment-box {

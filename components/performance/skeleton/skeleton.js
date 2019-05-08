@@ -76,7 +76,7 @@ Component({
       getRectList() {
          const exec = promisify((resolve) => {
             qq.createSelectorQuery()
-            .selectAll(`.${this.properties.selector} >>> .${this.properties.selector}-rect`)
+            .selectAll(`.${this.properties.selector} >>> .skeleton-rect`)
             .boundingClientRect()
             .exec(([ rectList ]) => resolve(rectList))
          })
@@ -86,7 +86,7 @@ Component({
       getCircleList() {
          const exec = promisify((resolve) => {
             qq.createSelectorQuery()
-            .selectAll(`.${this.properties.selector} >>> .${this.properties.selector}-radius`)
+            .selectAll(`.${this.properties.selector} >>> .skeleton-radius`)
             .boundingClientRect()
             .exec(([ circleList ]) => resolve(circleList))
          })

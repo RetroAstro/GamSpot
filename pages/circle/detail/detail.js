@@ -1,13 +1,13 @@
-const { actions, subscribe } = require('../../../store/index')
+const { actions, subscribe, getState } = require('../../../store/index')
+const { post, comments } = require('../../../mock/index')
 
 Page({
-   props: {
-      tag: '',
-      circleId: ''
-   },
    data: {
+      post,
+      comments,
       isFixed: false,
-      showReply: false
+      showReply: false,
+      showSkeleton: true
    },
    onLoad({ params }) {
       this.connectStore()
@@ -16,8 +16,8 @@ Page({
    onUnload() {
       this.unsubscribe()
    },
-   onNavigate({ detail: { data } }) {
-      data === 'comment' ? this.setData({ showReply: true }) : null
+   onNavigate({ detail: { data: { tag } } }) {
+      if (tag === 'comment') this.setData({ showReply: true })
    },
    onReply({ detail: { data } }) {
       let action = this.getAction(data)
@@ -33,16 +33,20 @@ Page({
       return { run: actions[key] }
    },
    connectStore() {
-      let self = this
-      this.unsubscribe = subscribe(getState => self.handleState(getState()))
+      this.unsubscribe = subscribe(() => this.handleState(getState()))
    },
    handleState() {
       
    },
-   initialize(params) {
-      this.props = { ...params }
-
-      // actions.fetchSolePost()
+   initialize({ tag, post, circleId }) {
+      this.handleScroll(tag)
+      this.renderPost(post, circleId)
+   },
+   renderPost(post, circleId) {
+      this.setData({ post: { ...post, circleId } })
+   },
+   handleScroll(tag) {
+      if (tag === 'comment') this.scrollToComment()
    },
    scrollToComment() {
       let query = qq.createSelectorQuery()

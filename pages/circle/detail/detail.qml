@@ -1,9 +1,14 @@
 <view class="container {{isFixed ? 'active' : ''}}">
    <view class="post-box">
-
+      <post item="{{post}}" bindnavigate="onNavigate" isSole=true></post>
    </view>
-   <view class="comment-box">
-      
+   <view class="comment-box skeleton">
+      <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}"></skeleton>
+      <block qq:for="{{comments}}" qq:key="commentId">
+         <comment item="{{item}}"></comment>
+      </block>
    </view>
-   <reply showReply={{showReply}} bindreply="onReply">
+   <block qq:if="{{!showSkeleton}}">
+      <reply showReply={{showReply}} bindreply="onReply"></reply>
+   </block>
 </view>

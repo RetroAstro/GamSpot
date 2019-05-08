@@ -9,7 +9,7 @@ Component({
          type: String,
          value: '',
          observer(value) {
-            this.preloadImage(value)
+            this.isCached(value) ? this.setData({ imgUrl: value }) : this.preloadImage(value)
          }
       },
       index: {
@@ -45,6 +45,9 @@ Component({
       }
    },
    methods: {
+      isCached(image) {
+         return image.includes('http://tmp/')
+      },
       preloadImage(value) {
          let self = this
 

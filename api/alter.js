@@ -21,8 +21,8 @@ const normalizeCommit = commit => {
       let result = []
 
       const recursive = (commit, recipient) => {
-         commit.map(({ author: { nickname }, content, commit }) => {
-            result.push({ sender: nickname, content, recipient })
+         commit.map(({ author: { id, nickname }, content, commit }) => {
+            result.push({ sender: nickname, id, content, recipient })
             if (commit.length) recursive(commit, nickname)
          })
       }
@@ -32,11 +32,18 @@ const normalizeCommit = commit => {
       return result
    }
 
+   const createCommentId = ({ author: { id }, timestamp }) => (id + timestamp)
+
    return commit.map(item => {
       let childComments = normalize(item.commit, item.author.nickname)
       delete item.commit
-      
-      return { ...item, childComments }
+
+      return {
+         ...item,
+         childComments,
+         commentId: createCommentId(item),
+         createdTime: timeFromNow(item.timestamp)
+      }
    })
 }
 

@@ -10,9 +10,12 @@ const store = createStore(
 
 const actions = bindActionCreators(actionCreators, store.dispatch)
 
-const subscribe = callback => store.subscribe(callback.bind(null, store.getState))
+const subscribe = callback => store.subscribe(callback)
+
+const getState = store.getState
 
 module.exports = {
    actions,
-   subscribe
+   subscribe,
+   getState
 }

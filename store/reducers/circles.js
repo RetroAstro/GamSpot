@@ -1,34 +1,51 @@
+const { combineReducers } = require('../../lib/redux')
+const { unique } = require('../../utils/index')
+
 const {
    RECEIVE_CIRCLES,
    JOIN_CIRCLE,
    PUBLISH_NEW_POST
 } = require('../constants/index')
 
+const loadCircles = (state, { data }) => {
+   let middle = data
+      .map(item => ({ [item.id]: item })).reduce((prev, next) => ({ ...prev, ...next }), {})
+
+   return {
+      ...state,
+      ...middle
+   }
+}
+
 const addJoinCount = (state, { id }) => {
-   return state.map(
-      item => item.id == id ?
-      {
-         ...item,
+   let result = {
+      ...state,
+      [id]: {
+         ...state[id],
          isJoin: true,
-         joinCount: item.joinCount + 1
-      } : item
-   )
+         joinCount: state[id].joinCount + 1
+      }
+   }
+   
+   return result
 }
 
 const addTalkingCount = (state, { id }) => {
-   return state.map(
-      item => item.id == id ?
-      {
-         ...item,
-         talkingCount: item.talkingCount + 1
-      } : item
-   )
+   let result = {
+      ...state,
+      [id]: {
+         ...state[id],
+         talkingCount: state[id].talkingCount + 1
+      }
+   }
+
+   return result
 }
 
-const circles = (state = [], action) => {
+const circlesById = (state = {}, action) => {
    switch (action.type) {
       case RECEIVE_CIRCLES:
-         return action.data
+         return loadCircles(state, action)
       case JOIN_CIRCLE:
          return addJoinCount(state, action)
       case PUBLISH_NEW_POST:
@@ -38,4 +55,21 @@ const circles = (state = [], action) => {
    }
 }
 
-module.exports = circles
+const loadCirclesIds = (state, { data }) => unique([
+   ...state,
+   ...data.map(item => item.id)
+])
+
+const allCircles = (state = [], action) => {
+   switch (action.type) {
+      case RECEIVE_CIRCLES:
+         return loadCirclesIds(state, action)
+      default:
+         return state
+   }
+}
+
+module.exports = combineReducers({
+   byId: circlesById,
+   allIds: allCircles
+})

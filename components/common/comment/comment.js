@@ -10,17 +10,20 @@ Component({
       item: {
          type: Object,
          value: {
+            id: '',
             author: {
                id: '',
                gender: '',
                nickname: '',
             },
+            commentId: '',
             createdTime: '',
             content: '',
             agreeCount: 0,
             isAgree: false,
             childComments: [
                {
+                  id: '',
                   sender: '',
                   content: '',
                   recipient: ''

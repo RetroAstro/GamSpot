@@ -10,7 +10,7 @@
 
 <template name="single">
    <view class="single-box">
-      <view class="flex-start" bindtap="onNavigate" data-item="{{item}}">
+      <navigator hover-class="none" class="flex-start" open-type="navigateTo" url="/pages/circle/single/single?circleId={{item.id}}">
          <preload class="avatar skeleton-radius" src="{{item.avatarUrl}}" bindloaded="handleLoaded"></preload>
          <view class="info flex-col-between">
             <view class="name skeleton-rect">{{item.name}}</view>
@@ -19,7 +19,7 @@
                <view class="post">{{item.talkingCount}}条邮话</view>
             </view>
          </view>
-      </view>
+      </navigator>
       <view class="gap flex-start">
          <view class="left"></view>
          <view class="right flex-center">

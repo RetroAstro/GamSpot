@@ -1,4 +1,4 @@
-const { actions, subscribe } = require('../../../store/index')
+const { actions, subscribe, getState } = require('../../../store/index')
 const { postItems } = require('../../../mock/index')
 
 Page({
@@ -13,11 +13,11 @@ Page({
       loadingText: '加载中 ...',
       feedList: [postItems]
    },
-   onLoad({ params }) {
+   onLoad({ circleId }) {
       qq.hideTabBar()
 
       this.connectStore()
-      this.initialize(JSON.parse(params))
+      this.initialize(circleId)
    },
    onUnload() {
       qq.showTabBar()
@@ -36,16 +36,17 @@ Page({
       this.setData({ mark: 'join' }, () => actions.joinCircle(this.data.info.id))
    },
    onNavigate({ detail: { data } }) {
-      let params = { tag: data, circleId: this.data.info.id }
-
+      let params = { ...data, circleId: this.data.info.id }
+      
       qq.navigateTo({ url: `/pages/circle/detail/detail?params=${JSON.stringify(params)}` })
    },
    connectStore() {
-      let self = this
-      this.unsubscribe = subscribe(getState => self.handleState(getState()))
+      this.unsubscribe = subscribe(() => this.handleState(getState()))
    },
-   initialize(info) {
-      this.setData({ info }, () => actions.fetchSinglePosts(this.data.info.id))
+   initialize(circleId) {
+      let { circles } = getState()
+
+      this.setData({ info: circles.byId[circleId] }, () => actions.fetchSinglePosts(this.data.info.id))
    },
    addSinglePosts() {
       this.props.pageNum++
@@ -64,9 +65,7 @@ Page({
       this.setData({ showSkeleton: false })
    },
    updateCircleInfo(circles) {
-      let [item] = circles.filter(item => item.id == this.data.info.id)
-
-      return { info: { ...item } }
+      return { info: circles.byId[this.data.info.id] }
    },
    updatePosts(posts, circlePosts) {
       let cursor = this.props.pageNum - 1

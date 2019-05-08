@@ -2,12 +2,10 @@ const {
    RECEIVE_SOLE_POST
 } = require('../../constants/index')
 
-const createCommentId = ({ author: { id }, timestamp }) => (id + timestamp)
-
 const loadPostComments = (state, { data: { post: { id }, comments } }) => {
    let result = {
       ...state,
-      [id]: comments.map(createCommentId)
+      [id]: comments.map(item => item.commentId)
    }
    
    return result

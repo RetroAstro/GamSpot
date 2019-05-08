@@ -17,6 +17,7 @@ Component({
                nickname: '',
             },
             createdTime: '',
+            circleId: '',
             circleName: '',
             content: '',
             images: [],
@@ -28,14 +29,20 @@ Component({
             isTop: false
          },
          observer({ images }) {
+            let show = this.properties.isSole
+            
             this.setData({
-               imageItems: images.map(item => ({ show: false, url: item }))
+               imageItems: images.map(item => ({ show, url: item }))
             })
          }
       },
       imagePaths: {
          type: Array,
          value: []
+      },
+      isSole: {
+         type: Boolean,
+         value: false
       }
    },
    data: {
@@ -58,7 +65,7 @@ Component({
 
       },
       ready() {
-         this.setLazyload()
+         if (!this.properties.isSole) this.setLazyload()
       },
       detached() {
 
@@ -73,14 +80,14 @@ Component({
       }
    },
    methods: {
-      tapPost() {
-         this.triggerEvent('navigate', { data: 'post' })
-      },
       tapCircle() {
          this.triggerEvent('navigate', { data: 'circle' })
       },
+      tapPost() {
+         this.triggerEvent('navigate', { data: { tag: 'post', post: this.createCachedPost() } })
+      },
       tapComment() {
-         this.triggerEvent('navigate', { data: 'comment' })
+         this.triggerEvent('navigate', { data: { tag: 'comment', post: this.createCachedPost() } })
       },
       tapPreload(e) {
          let { imagePaths } = this.properties
@@ -121,6 +128,17 @@ Component({
             'collect.isCollection': !isCollection,
             'collect.collectionCount': isCollection ? collectionCount - 1 : collectionCount + 1
          }, () => this.setData({ 'collect.active': true }))
+      },
+      createCachedPost() {
+         let { item, imagePaths } = this.properties
+         
+         return {
+            ...item,
+            ...(this.isCachedImages(item, imagePaths) ? { images: imagePaths } : {})
+         }
+      },
+      isCachedImages({ images }, imagePaths) {
+         return images.length === imagePaths.length
       },
       handleLoaded({ detail: { data: { index, path } } }) {
          this.properties.imagePaths[index] = path
