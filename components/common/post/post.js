@@ -31,6 +31,8 @@ Component({
          observer({ images }) {
             let show = this.properties.isSole
             
+            this.handleCached(images)
+            
             this.setData({
                imageItems: images.map(item => ({ show, url: item }))
             })
@@ -142,6 +144,11 @@ Component({
       },
       handleLoaded({ detail: { data: { index, path } } }) {
          this.properties.imagePaths[index] = path
+      },
+      handleCached(images) {
+         const isCached = items => items.every(item => item.includes('tmp'))
+         
+         if (isCached(images)) this.properties.imagePaths = [...images]
       },
       setRatio({ detail: { data } }) {
          this.setData({ ratio: data })

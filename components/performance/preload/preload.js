@@ -46,7 +46,7 @@ Component({
    },
    methods: {
       isCached(image) {
-         return image.includes('http://tmp/')
+         return image.includes('tmp')
       },
       preloadImage(value) {
          let self = this

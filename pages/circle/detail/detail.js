@@ -38,12 +38,11 @@ Page({
    handleState() {
       
    },
-   initialize({ tag, post, circleId }) {
-      this.handleScroll(tag)
-      this.renderPost(post, circleId)
+   initialize(params) {
+      this.renderPost(params)
    },
-   renderPost(post, circleId) {
-      this.setData({ post: { ...post, circleId } })
+   renderPost({ tag, post, circleId }) {
+      this.setData({ post: { ...post, circleId } }, () => this.handleScroll(tag))
    },
    handleScroll(tag) {
       if (tag === 'comment') this.scrollToComment()
