@@ -28,7 +28,7 @@ Component({
             isCollection: false,
             isTop: false
          },
-         observer({ images }) {
+         observer({ images = [] }) {
             let show = this.properties.isSole
 
             this.handleCached(images)
@@ -92,10 +92,10 @@ Component({
          this.triggerEvent('navigate', { data: { tag: 'comment', post: this.createCachedPost() } })
       },
       tapPreload(e) {
-         let { item: { images }, imagePaths } = this.properties
+         let { imagePaths } = this.properties
          let index = e.currentTarget.dataset.index
-         
-         if (images.length == imagePaths.length) {
+
+         if (this.isImagesLoaded(imagePaths)) {
             qq.previewImage({
                current: imagePaths[index],
                urls: imagePaths
@@ -150,6 +150,11 @@ Component({
       },
       handleLoaded({ detail: { data: { index, path } } }) {
          this.properties.imagePaths[index] = path
+      },
+      isImagesLoaded(images) {
+         let loadedImages = images.filter((item, index) => index)
+
+         return images.length == loadedImages.length
       },
       setRatio({ detail: { data } }) {
          this.setData({ ratio: data })
