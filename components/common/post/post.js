@@ -150,6 +150,7 @@ Component({
          
          if (isCached(images)) {
             this.properties.imagePaths = [...images]
+            
             this.triggerEvent('scroll')
          }
       },
