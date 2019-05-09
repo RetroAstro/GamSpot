@@ -30,9 +30,9 @@ Component({
          },
          observer({ images }) {
             let show = this.properties.isSole
-            
+
             this.handleCached(images)
-            
+
             this.setData({
                imageItems: images.map(item => ({ show, url: item }))
             })
@@ -92,13 +92,15 @@ Component({
          this.triggerEvent('navigate', { data: { tag: 'comment', post: this.createCachedPost() } })
       },
       tapPreload(e) {
-         let { imagePaths } = this.properties
+         let { item: { images }, imagePaths } = this.properties
          let index = e.currentTarget.dataset.index
-
-         qq.previewImage({
-            current: imagePaths[index],
-            urls: imagePaths
-         })
+         
+         if (images.length == imagePaths.length) {
+            qq.previewImage({
+               current: imagePaths[index],
+               urls: imagePaths
+            })
+         }
       },
       tapInteract: throttle((self, e) => {
          let key = e.currentTarget.dataset.event
@@ -133,22 +135,21 @@ Component({
       },
       createCachedPost() {
          let { item, imagePaths } = this.properties
+         let images = [...item.images]
          
-         return {
-            ...item,
-            ...(this.isCachedImages(item, imagePaths) ? { images: imagePaths } : {})
-         }
+         imagePaths.map((item, index) => index ? (images[index] = item) : null)
+
+         return { ...item, images }
       },
-      isCachedImages({ images }, imagePaths) {
-         return images.length === imagePaths.length
+      handleCached(images) {
+         images.map((item, index) => {
+            if (item.includes('tmp')) {
+               this.properties.imagePaths[index] = item
+            }
+         })
       },
       handleLoaded({ detail: { data: { index, path } } }) {
          this.properties.imagePaths[index] = path
-      },
-      handleCached(images) {
-         const isCached = items => items.every(item => item.includes('tmp'))
-         
-         if (isCached(images)) this.properties.imagePaths = [...images]
       },
       setRatio({ detail: { data } }) {
          this.setData({ ratio: data })

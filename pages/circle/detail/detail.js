@@ -1,5 +1,5 @@
 const { actions, subscribe, getState } = require('../../../store/index')
-const { post, comments } = require('../../../mock/index')
+const { comments } = require('../../../mock/index')
 
 Page({
    props: {
@@ -8,7 +8,7 @@ Page({
       circleId: ''
    },
    data: {
-      post,
+      post: {},
       comments,
       isFixed: false,
       showReply: false,
@@ -57,7 +57,7 @@ Page({
       this.handleScroll()
    },
    handleScroll() {
-      if (this.props.tag === 'comment') setTimeout(this.scrollToComment, 800)
+      if (this.props.tag === 'comment') setTimeout(this.scrollToComment, 1000)
    },
    scrollToComment() {
       let query = qq.createSelectorQuery()
