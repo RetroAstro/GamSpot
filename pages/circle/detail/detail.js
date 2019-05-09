@@ -4,6 +4,7 @@ const { post, comments } = require('../../../mock/index')
 Page({
    props: {
       tag: '',
+      post: {},
       circleId: ''
    },
    data: {
@@ -42,15 +43,18 @@ Page({
    handleState() {
 
    },
-   initialize({ tag, post, circleId }) {
-      this.setProps(tag, circleId)
-      this.renderPost(post)
+   initialize(props) {
+      this.setProps(props)
    },
-   setProps(tag, circleId) {
-      this.props = { tag, circleId }
+   setProps(props) {
+      this.props = { ...props }
    },
-   renderPost(post) {
-      this.setData({ post })
+   renderPost() {
+      this.setData({ post: this.props.post })
+   },
+   handleDrawn() {
+      this.renderPost()
+      this.handleScroll()
    },
    handleScroll() {
       if (this.props.tag === 'comment') setTimeout(this.scrollToComment, 800)

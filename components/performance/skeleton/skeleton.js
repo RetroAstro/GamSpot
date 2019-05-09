@@ -53,7 +53,7 @@ Component({
 
          this.setData({
             rectList: rectList.map(item => ({ ...item, top: item.top - selectorTop }))
-         })
+         }, () => this.triggerEvent('drawn'))
       },
       async drawCircle() {
          let selectorTop = await this.getSelectorTop()
