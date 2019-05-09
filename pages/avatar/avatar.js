@@ -17,6 +17,7 @@ Page({
          .then(({ status }) => {
             if (status === 10000) {
                this.saveGender(gender)
+               
                qq.switchTab({ url: '/pages/popular/popular' })
             }
          })

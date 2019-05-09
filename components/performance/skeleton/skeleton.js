@@ -30,9 +30,13 @@ Component({
       attached() {
 
       },
-      ready() {
-         this.drawRect()
-         this.drawCircle()
+      async ready() {
+         let data = {
+            rectList: await this.drawRect(),
+            circleList: await this.drawCircle()
+         }
+
+         this.setData(data, () => this.triggerEvent('drawn'))
       },
       detached() {
 
@@ -51,17 +55,13 @@ Component({
          let selectorTop = await this.getSelectorTop()
          let rectList = await this.getRectList()
 
-         this.setData({
-            rectList: rectList.map(item => ({ ...item, top: item.top - selectorTop }))
-         }, () => this.triggerEvent('drawn'))
+         return rectList.map(item => ({ ...item, top: item.top - selectorTop }))
       },
       async drawCircle() {
          let selectorTop = await this.getSelectorTop()
          let circleList = await this.getCircleList()
          
-         this.setData({
-            circleList: circleList.map(item => ({ ...item, top: item.top - selectorTop }))
-         })
+         return circleList.map(item => ({ ...item, top: item.top - selectorTop }))
       },
       getSelectorTop() {
          const exec = promisify((resolve) => {
