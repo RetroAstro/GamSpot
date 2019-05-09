@@ -105,6 +105,7 @@ Component({
          let action = self.getAction(key)
 
          action.run()
+         
          qq.vibrateShort()
       }, 500),
       getAction(key) {
