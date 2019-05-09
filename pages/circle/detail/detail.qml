@@ -1,6 +1,6 @@
 <view class="container {{isFixed ? 'active' : ''}}">
    <view class="post-box">
-      <post item="{{post}}" bindnavigate="onNavigate" isSole=true></post>
+      <post item="{{post}}" isSole=true bindnavigate="onNavigate" bindscroll="handleScroll"></post>
    </view>
    <view class="comment-box skeleton">
       <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}"></skeleton>

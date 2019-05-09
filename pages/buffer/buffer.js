@@ -4,7 +4,7 @@ const { setFreshJWT, resetAllData } = require('../../api/index')
 Page({
    onLoad() {
       let userInfo = qq.getStorageSync('userInfo') || {}
-
+      
       this.routeSwitch(userInfo)
    },
    routeSwitch({ exp, sub }) {

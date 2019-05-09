@@ -148,7 +148,10 @@ Component({
       handleCached(images) {
          const isCached = items => items.every(item => item.includes('tmp'))
          
-         if (isCached(images)) this.properties.imagePaths = [...images]
+         if (isCached(images)) {
+            this.properties.imagePaths = [...images]
+            this.triggerEvent('scroll')
+         }
       },
       setRatio({ detail: { data } }) {
          this.setData({ ratio: data })
