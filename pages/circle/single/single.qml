@@ -39,12 +39,12 @@
          <view class="loading-box flex-center {{showSkeleton ? 'mask' : ''}}">{{loadingText}}</view>
       </block>
    </view>
-   <block qq:if="{{!info.isJoin}}">
-      <view class="join-box {{mark === 'join' ? 'disabled' : ''}}" bindtap="onTap">
-         <image class="join" mode="scaleToFill" src="../../../images/join.png"></image>
-      </view>
-   </block>
    <block qq:if="{{!showSkeleton}}">
+      <block qq:if="{{!info.isJoin}}">
+         <view class="join-box {{mark === 'join' ? 'disabled' : ''}}" bindtap="onTap">
+            <image class="join" mode="scaleToFill" src="../../../images/join.png"></image>
+         </view>
+      </block>
       <navigator hover-class="none" open-type="navigateTo" class="publish-box {{info.isJoin ? 'active' : ''}}" url="/pages/publish/publish?id={{info.id}}&name={{info.name}}">
          <image class="publish" mode="scaleToFill" src="../../../images/publish.png"></image>
       </navigator>
