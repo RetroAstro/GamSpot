@@ -137,7 +137,7 @@ Component({
          let { item, imagePaths } = this.properties
          let images = [...item.images]
          
-         imagePaths.map((item, index) => index ? (images[index] = item) : null)
+         imagePaths.map((item, index) => item ? (images[index] = item) : null)
 
          return { ...item, images }
       },
@@ -152,7 +152,7 @@ Component({
          this.properties.imagePaths[index] = path
       },
       isImagesLoaded(images) {
-         let loadedImages = images.filter((item, index) => index)
+         let loadedImages = images.filter(item => item)
 
          return images.length == loadedImages.length
       },

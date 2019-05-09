@@ -49,9 +49,7 @@ Page({
       this.setData({ info: circles.byId[circleId] }, () => actions.fetchSinglePosts(this.data.info.id))
    },
    addSinglePosts() {
-      this.props.pageNum++
-      
-      actions.fetchSinglePosts(this.data.info.id, this.props.pageNum)
+      if (!this.data.showSkeleton) actions.fetchSinglePosts(this.data.info.id, ++this.props.pageNum)
    },
    handleState({ circles, posts, circlePosts }) {
       let data = {
