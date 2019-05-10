@@ -37,8 +37,10 @@ Page({
          ]
       }
    },
-   onNavigate({ detail: { data } }) {
-      data === 'comment' ? this.setData({ showReply: true }) : null
+   onNavigate({ detail: { data: { tag } } }) {
+      if (tag === 'comment') {
+         this.setData({ showReply: true })
+      }
    },
    onReply({ detail: { data } }) {
       let action = this.getAction(data)

@@ -22,7 +22,9 @@ Page({
       this.unsubscribe()
    },
    onNavigate({ detail: { data: { tag } } }) {
-      if (tag === 'comment') this.setData({ showReply: true })
+      if (tag === 'comment') {
+         this.setData({ showReply: true })
+      }
    },
    onReply({ detail: { data } }) {
       let action = this.getAction(data)
@@ -57,7 +59,9 @@ Page({
       this.handleScroll()
    },
    handleScroll() {
-      if (this.props.tag === 'comment') setTimeout(this.scrollToComment, 800)
+      if (this.props.tag === 'comment') {
+         setTimeout(this.scrollToComment, 800)
+      }
    },
    scrollToComment() {
       let query = qq.createSelectorQuery()

@@ -30,7 +30,9 @@ Page({
       actions.fetchSinglePosts(this.data.info.id)
    },
    onReachBottom() {
-      if (!this.data.loading) this.setData({ loading: true }, this.addSinglePosts)
+      if (!this.data.loading) {
+         this.setData({ loading: true }, this.addSinglePosts)
+      }
    },
    onTap() {
       this.setData({ mark: 'join' }, () => actions.joinCircle(this.data.info.id))
@@ -49,7 +51,9 @@ Page({
       this.setData({ info: circles.byId[circleId] }, () => actions.fetchSinglePosts(this.data.info.id))
    },
    addSinglePosts() {
-      if (!this.data.showSkeleton) actions.fetchSinglePosts(this.data.info.id, ++this.props.pageNum)
+      if (!this.data.showSkeleton) {
+         actions.fetchSinglePosts(this.data.info.id, ++this.props.pageNum)
+      }
    },
    handleState({ circles, posts, circlePosts }) {
       let data = {

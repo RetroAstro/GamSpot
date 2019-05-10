@@ -64,7 +64,9 @@ Component({
          this.triggerEvent('loaded', { data: { path, index: this.properties.index } })
       },
       checkRatio(width, height) {
-         if (this.properties.needRatio) this.triggerEvent('setratio', { data: width / height })
+         if (this.properties.needRatio) {
+            this.triggerEvent('setratio', { data: width / height })
+         }
       }
    }
 })

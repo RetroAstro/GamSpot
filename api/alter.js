@@ -23,7 +23,10 @@ const normalizeCommit = commit => {
       const recursive = (commit, recipient) => {
          commit.map(({ author: { id, nickname }, content, commit }) => {
             result.push({ sender: nickname, id, content, recipient })
-            if (commit.length) recursive(commit, nickname)
+            
+            if (commit.length) {
+               recursive(commit, nickname)
+            }
          })
       }
       

@@ -34,8 +34,12 @@ Component({
          this.triggerEvent('reply', { data: 'fixed' })
       },
       handleInput({ detail: { value } }) {
-         if (value.trim() && this.data.disabled) this.setData({ disabled: false })
-         if (!value.trim() && !this.data.disabled) this.setData({ disabled: true })
+         if (value.trim() && this.data.disabled) {
+            this.setData({ disabled: false })
+         }
+         if (!value.trim() && !this.data.disabled) {
+            this.setData({ disabled: true })
+         }
       }
    }
 })

@@ -23,8 +23,12 @@ Page({
       this.props.content = value
    },
    setDisabled(value) {
-      if (value.trim() && this.data.disabled) this.setData({ disabled: false })
-      if (!value.trim() && !this.data.disabled) this.setData({ disabled: true })
+      if (value.trim() && this.data.disabled) {
+         this.setData({ disabled: false })
+      }
+      if (!value.trim() && !this.data.disabled) {
+         this.setData({ disabled: true })
+      }
    },
    chooseImage() {
       let self = this

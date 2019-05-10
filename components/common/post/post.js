@@ -67,7 +67,9 @@ Component({
 
       },
       ready() {
-         if (!this.properties.isSole) this.setLazyload()
+         if (!this.properties.isSole) {
+            this.setLazyload()
+         }
       },
       detached() {
 
