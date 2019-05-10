@@ -31,11 +31,13 @@ Component({
          observer({ images = [] }) {
             let show = this.properties.isSole
 
-            this.handleCached(images)
+            if (!this.isImagesLoaded()) {
+               this.setData({
+                  imageItems: images.map(item => ({ show, url: item }))
+               })
+            }
 
-            this.setData({
-               imageItems: images.map(item => ({ show, url: item }))
-            })
+            this.handleCached(images)
          }
       },
       imagePaths: {
@@ -53,17 +55,17 @@ Component({
       like: {
          active: false,
          isAgree: false,
-         agreeCount: 662
+         agreeCount: 0
       },
       collect: {
          active: false,
          isCollection: false,
-         collectionCount: 662
+         collectionCount: 0
       }
    },
    lifetimes: {
       attached() {
-
+         this.initialize()
       },
       ready() {
          if (!this.properties.isSole) {
@@ -96,7 +98,7 @@ Component({
          let { imagePaths } = this.properties
          let index = e.currentTarget.dataset.index
 
-         if (this.isImagesLoaded(imagePaths)) {
+         if (this.isImagesLoaded()) {
             qq.previewImage({
                current: imagePaths[index],
                urls: imagePaths
@@ -134,6 +136,17 @@ Component({
             'collect.collectionCount': isCollection ? collectionCount - 1 : collectionCount + 1
          }, () => this.setData({ 'collect.active': true }))
       },
+      initialize() {
+         let { item: { isAgree, agreeCount, isCollection, collectionCount } } = this.properties
+
+         this.setData({ like: { isAgree, agreeCount }, collect: { isCollection, collectionCount } })
+      },
+      isImagesLoaded() {
+         let { item: { images }, imagePaths } = this.properties
+         let loadedImages = imagePaths.filter(item => item)
+
+         return images.length === loadedImages.length
+      },
       createCachedPost() {
          let { item, imagePaths } = this.properties
          let images = [...item.images]
@@ -151,11 +164,6 @@ Component({
       },
       handleLoaded({ detail: { data: { index, path } } }) {
          this.properties.imagePaths[index] = path
-      },
-      isImagesLoaded(images) {
-         let loadedImages = images.filter(item => item)
-
-         return images.length == loadedImages.length
       },
       setRatio({ detail: { data } }) {
          this.setData({ ratio: data })

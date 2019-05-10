@@ -21,3 +21,24 @@
 .comment-box comment:last-child > view {
    padding-bottom: 45rpx;
 }
+
+.no-comment {
+   width: 100%;
+   background: #fff;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-start;
+   padding-top: 20rpx;
+   padding-bottom: 40rpx;
+}
+
+.no-comment image {
+   width: 100rpx;
+   height: 100rpx;
+}
+
+.no-comment text {
+   font-size: 28rpx;
+   color: #8d8d8d;
+}

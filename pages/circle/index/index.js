@@ -2,12 +2,9 @@ const { actions, subscribe, getState } = require('../../../store/index')
 const { circles } = require('../../../mock/index')
 
 Page({
-   props: {
-      loadedNum: 0
-   },
    data: {
-      showSkeleton: true,
-      circles
+      circles,
+      showSkeleton: true
    },
    onLoad() {
       this.connectStore()
@@ -28,10 +25,6 @@ Page({
       })
    },
    handleLoaded() {
-      this.props.loadedNum++
-
-      if (this.props.loadedNum == this.data.circles.length) {
-         this.setData({ showSkeleton: false })
-      }
+      this.setData({ showSkeleton: false })
    }
 })

@@ -1,14 +1,22 @@
 <view class="container {{isFixed ? 'active' : ''}}">
    <view class="post-box">
-      <post item="{{post}}" isSole=true bindnavigate="onNavigate"></post>
-   </view>
-   <view class="comment-box skeleton">
-      <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}" binddrawn="handleDrawn"></skeleton>
-      <block qq:for="{{comments}}" qq:key="commentId">
-         <comment item="{{item}}"></comment>
+      <block qq:if="{{post}}">
+         <post item="{{post}}" isSole=true bindnavigate="onNavigate"></post>
       </block>
    </view>
-   <block qq:if="{{!showSkeleton}}">
-      <reply showReply={{showReply}} bindreply="onReply"></reply>
+   <view class="comment-box skeleton">
+      <block qq:if="{{post}}">
+         <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}" setStyle="min-height: 760rpx;"></skeleton>
+         <block qq:for="{{comments}}" qq:key="commentId">
+            <comment item="{{item}}"></comment>
+         </block>
+      </block>
+   </view>
+   <block qq:if="{{!comments.length}}">
+      <view class="no-comment">
+         <image mode="scrollToFill" src="../../../images/no-comment.png"></image>
+         <text>暂无评论</text>
+      </view>
    </block>
+   <reply showReply={{showReply}} bindreply="onReply"></reply>
 </view>

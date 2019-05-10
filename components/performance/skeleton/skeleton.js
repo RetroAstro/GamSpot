@@ -31,12 +31,10 @@ Component({
 
       },
       async ready() {
-         let data = {
+         this.setData({
             rectList: await this.drawRect(),
             circleList: await this.drawCircle()
-         }
-
-         this.setData(data, () => this.triggerEvent('drawn'))
+         })
       },
       detached() {
 

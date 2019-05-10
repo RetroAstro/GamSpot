@@ -101,13 +101,13 @@
 }
 
 .post .interact-box > view {
+   width: 68rpx;
    margin-left: 45rpx;
    padding: 10rpx 0;
 }
 
 .post .interact-box .number {
-   margin-left: 12rpx;
-   font-size: 26rpx;
+   font-size: 30rpx;
    color: #8d8d8d;
 }
 
@@ -119,6 +119,7 @@
 .post .interact-box .comment image {
    width: 40rpx;
    height: 40rpx;
+   transform: translateY(3rpx);
 }
 
 .post .interact-box .like image.active {

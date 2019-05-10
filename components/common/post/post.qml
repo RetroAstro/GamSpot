@@ -36,7 +36,7 @@
       </block>
    </view>
    <view class="interact-box flex-end">
-      <view class="like flex-start skeleton-rect" bindtap="tapInteract" data-event="like">
+      <view class="like flex-between skeleton-rect" bindtap="tapInteract" data-event="like">
          <image
             class="{{like.active ? 'active': ''}}"
             mode="scaleToFill"
@@ -44,11 +44,11 @@
          ></image>
          <view class="number">{{like.agreeCount}}</view>
       </view>
-      <view class="comment flex-start skeleton-rect" bindtap="tapComment">
+      <view class="comment flex-between skeleton-rect" bindtap="tapComment">
          <image mode="scaleToFill" src="../../../images/comment.png"></image>
          <view class="number">{{item.commitCount}}</view>
       </view>
-      <view class="collect flex-start skeleton-rect" bindtap="tapInteract" data-event="collect">
+      <view class="collect flex-between skeleton-rect" bindtap="tapInteract" data-event="collect">
          <image
             class="{{collect.active ? 'active' : ''}}"
             mode="scaleToFill"

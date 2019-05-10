@@ -52,8 +52,8 @@
       "navigationBarBackgroundColor": "#fff"
    },
    "networkTimeout": {
-      "request": 10000,
-      "downloadFile": 10000
+      "request": 15000,
+      "downloadFile": 15000
    },
    "usingComponents": {
       "post": "/components/common/post/post",

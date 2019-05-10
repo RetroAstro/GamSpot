@@ -143,6 +143,7 @@ const getSolePost = promisify((postId, resolve) => {
    qq.request({
       ...opts(),
       url: `${SEND_NEW_POST}/${postId}`,
+      method: 'GET',
       success({ data: { status, data } }) {
          if (status === 10000) {
             resolve(alterSolePost(data))

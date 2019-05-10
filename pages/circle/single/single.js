@@ -39,8 +39,8 @@ Page({
    },
    onNavigate({ detail: { data } }) {
       let params = { ...data, circleId: this.data.info.id }
-      
-      qq.navigateTo({ url: `/pages/circle/detail/detail?params=${JSON.stringify(params)}` })
+
+      qq.navigateTo({ url: `/pages/circle/detail/detail?params=${encodeURIComponent(JSON.stringify(params))}` })
    },
    connectStore() {
       this.unsubscribe = subscribe(() => this.handleState(getState()))

@@ -7,14 +7,7 @@
    </view>
    <block qq:if={{showReply}}>
       <view class="reply-area">
-         <textarea
-            fixed
-            auto-height
-            maxlength="150" 
-            placeholder-class="placeholder" 
-            placeholder="回复想那些阿布：(最多150字)"
-            bindinput="handleInput" 
-         />
+         <textarea fixed auto-height maxlength="150" placeholder-class="placeholder" placeholder="回复想那些阿布：(最多150字)" bindinput="handleInput" />
       </view>
    </block>
 </view>

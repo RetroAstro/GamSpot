@@ -4,11 +4,11 @@ const { comments } = require('../../../mock/index')
 Page({
    props: {
       tag: '',
-      post: {},
+      post: '',
       circleId: ''
    },
    data: {
-      post: {},
+      post: '',
       comments,
       isFixed: false,
       showReply: false,
@@ -16,7 +16,7 @@ Page({
    },
    onLoad({ params }) {
       this.connectStore()
-      this.initialize(JSON.parse(params))
+      this.initialize(JSON.parse(decodeURIComponent(params)))
    },
    onUnload() {
       this.unsubscribe()
@@ -42,25 +42,44 @@ Page({
    connectStore() {
       this.unsubscribe = subscribe(() => this.handleState(getState()))
    },
-   handleState() {
+   handleState({ posts, comments, postComments }) {
+      let data = {
+         ...this.updatePost(posts),
+         ...this.updateComments(comments, postComments)
+      }
 
+      this.setData(data, this.hideSkeleton)
+   },
+   updatePost(posts) {
+      let post = posts.byId[this.props.post.id]
+
+      return {
+         ...post,
+         images: this.props.post.images
+      }
+   },
+   updateComments(comments, postComments) {
+      return {
+         comments: postComments[this.props.post.id].map(id => comments[id])
+      }
+   },
+   hideSkeleton() {
+      this.setData({ showSkeleton: false })
    },
    initialize(props) {
       this.setProps(props)
+      this.renderPost()
+      this.handleScroll()
    },
    setProps(props) {
       this.props = { ...props }
    },
    renderPost() {
-      this.setData({ post: this.props.post })
-   },
-   handleDrawn() {
-      this.renderPost()
-      this.handleScroll()
+      this.setData({ post: this.props.post }, () => actions.fetchSolePost(this.props.post.id))
    },
    handleScroll() {
       if (this.props.tag === 'comment') {
-         setTimeout(this.scrollToComment, 800)
+         setTimeout(this.scrollToComment, 1000)
       }
    },
    scrollToComment() {
