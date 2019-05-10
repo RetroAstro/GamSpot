@@ -49,7 +49,6 @@ Component({
    },
    data: {
       ratio: 1,
-      isLoaded: false,
       imageItems: [],
       like: {
          active: false,
@@ -162,15 +161,16 @@ Component({
          this.setData({ ratio: data })
       },
       setLazyload() {
-         const shouldLoad = ({ intersectionRatio }) => (intersectionRatio > 0 && !this.data.isLoaded)
+         const shouldLoad = ({ intersectionRatio }) => {
+            return intersectionRatio > 0 && !this.data.imageItems.every(item => item.show)
+         }
 
          this.createIntersectionObserver()
          .relativeToViewport()
          .observe('.user-box', (res) => {
             if (shouldLoad(res)) {
                this.setData({
-                  isLoaded: true,
-                  imageItems: this.data.imageItems.map(item => ({ ...item, show: true }))
+                  imageItems: this.data.imageItems.map(item => item.url ? { ...item, show: true } : item)
                })
             }
          })
