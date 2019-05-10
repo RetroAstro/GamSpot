@@ -30,8 +30,6 @@ Page({
    handleLoaded() {
       this.props.loadedNum++
 
-      if (this.props.loadedNum == this.data.circles.length) {
-         this.setData({ showSkeleton: false })
-      }
+      if (this.props.loadedNum == this.data.circles.length) this.setData({ showSkeleton: false })
    }
 })
