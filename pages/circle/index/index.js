@@ -22,9 +22,9 @@ Page({
    handleState({ circles }) {
       this.setData({
          circles: circles.allIds.map(id => circles.byId[id])
-      })
+      }, this.hideSkeleton)
    },
-   handleLoaded() {
+   hideSkeleton() {
       this.setData({ showSkeleton: false })
    }
 })

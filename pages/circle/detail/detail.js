@@ -50,6 +50,9 @@ Page({
 
       this.setData(data, this.hideSkeleton)
    },
+   hideSkeleton() {
+      this.setData({ showSkeleton: false })
+   },
    updatePost(posts) {
       let post = posts.byId[this.props.post.id]
 
@@ -62,9 +65,6 @@ Page({
       return {
          comments: postComments[this.props.post.id].map(id => comments[id])
       }
-   },
-   hideSkeleton() {
-      this.setData({ showSkeleton: false })
    },
    initialize(props) {
       this.setProps(props)
