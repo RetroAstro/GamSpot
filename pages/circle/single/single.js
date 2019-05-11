@@ -75,6 +75,8 @@ Page({
       let postItems = postIds.map(id => posts.byId[id])
       
       if (this.noMorePosts(postIds)) {
+         this.props.pageNum -= 1
+
          return { loadingText: '没有更多啦 ~' }
       } else {
          qq.stopPullDownRefresh()

@@ -19,7 +19,8 @@
 }
 
 .comment-box comment:last-child > view {
-   padding-bottom: 45rpx;
+   padding-bottom: 80rpx;
+   border-bottom: 0rpx;
 }
 
 .no-comment {

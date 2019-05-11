@@ -2,7 +2,7 @@
    width: 100%;
    padding: 45rpx 30rpx 20rpx 30rpx;
    background: #fff;
-   border-bottom: 1rpx solid #f6f6f6;
+   border-bottom: 2rpx solid #f6f6f6;
 }
 
 .comment .header {

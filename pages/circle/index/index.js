@@ -20,9 +20,11 @@ Page({
       this.unsubscribe = subscribe(() => this.handleState(getState()))
    },
    handleState({ circles }) {
-      this.setData({
+      let data = {
          circles: circles.allIds.map(id => circles.byId[id])
-      }, this.hideSkeleton)
+      }
+      
+      this.setData(data, this.hideSkeleton)
    },
    hideSkeleton() {
       this.setData({ showSkeleton: false })
