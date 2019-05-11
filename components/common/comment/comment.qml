@@ -13,27 +13,29 @@
          </view>
       </view>
       <view class="right flex-end" bindtap="tapLike">
-         <image
+         <!-- <image
             class="like {{active ? 'active': ''}}"
             mode="scaleToFill"
             src="{{isAgree ? '../../../images/active-like.png' : '../../../images/like.png'}}"
          ></image>
-         <view class="number">{{agreeCount}}</view>
+         <view class="number">{{agreeCount}}</view> -->
       </view>
    </view>
-   <view class="content">
+   <view class="content" bindtap="onReply" data-recipient="{{item.author.nickname}}">
       <text class="skeleton-rect">{{item.content}}</text>
    </view>
-   <view class="reply">
-      <block qq:for="{{item.childComments}}" qq:key="id">
-         <view class="box skeleton-rect">
-            <view style="float: left;" class="flex-start">
-               <view class="sender user">{{item.sender}}</view>
-               <view class="tiny">回复</view>
-               <view class="recipient user">{{item.recipient}}</view>
+   <block qq:if="{{item.childComments.length}}">
+      <view class="reply">
+         <block qq:for="{{item.childComments}}" qq:key="id">
+            <view class="box skeleton-rect" bindtap="onReply" data-recipient="{{item.sender}}">
+               <view style="float: left;" class="flex-start">
+                  <view class="sender user">{{item.sender}}</view>
+                  <view class="tiny">回复</view>
+                  <view class="recipient user">{{item.recipient}}</view>
+               </view>
+               <view class="words">：{{item.content}}</view>
             </view>
-            <view class="words">：{{item.content}}</view>
-         </view>
-      </block>
-   </view>
+         </block>
+      </view>
+   </block>
 </view>

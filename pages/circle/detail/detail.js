@@ -2,17 +2,15 @@ const { actions, subscribe, getState } = require('../../../store/index')
 const { comments } = require('../../../mock/index')
 
 Page({
-   props: {
+   data: {
       tag: '',
       post: '',
-      circleId: ''
-   },
-   data: {
-      post: '',
-      comments,
+      circleId: '',
+      recipient: '',
       isFixed: false,
       showReply: false,
-      showSkeleton: true
+      showSkeleton: true,
+      comments
    },
    onLoad({ params }) {
       this.connectStore()
@@ -23,7 +21,7 @@ Page({
    },
    onNavigate({ detail: { data: { tag } } }) {
       if (tag === 'comment') {
-         this.setData({ showReply: true })
+         this.setData({ showReply: true, recipient: this.data.post.author.nickname })
       }
    },
    onReply({ detail: { data } }) {
@@ -38,6 +36,9 @@ Page({
       }
       
       return { run: actions[key] }
+   },
+   postComment({ detail: { data } }) {
+      this.setData({ showReply: true, recipient: data })
    },
    connectStore() {
       this.unsubscribe = subscribe(() => this.handleState(getState()))
@@ -54,31 +55,26 @@ Page({
       this.setData({ showSkeleton: false })
    },
    updatePost(posts) {
-      let post = posts.byId[this.props.post.id]
-
+      let post = posts.byId[this.data.post.id]
+      
       return {
-         ...post,
-         images: this.props.post.images
+         post: { ...post, images: this.data.post.images }
       }
    },
    updateComments(comments, postComments) {
       return {
-         comments: postComments[this.props.post.id].map(id => comments[id])
+         comments: postComments[this.data.post.id].map(id => comments.byId[id])
       }
    },
-   initialize(props) {
-      this.setProps(props)
-      this.renderPost()
+   initialize(data) {
+      this.renderSolePost(data)
       this.handleScroll()
    },
-   setProps(props) {
-      this.props = { ...props }
-   },
-   renderPost() {
-      this.setData({ post: this.props.post }, () => actions.fetchSolePost(this.props.post.id))
+   renderSolePost(data) {
+      this.setData(data, () => actions.fetchSolePost(this.data.post.id))
    },
    handleScroll() {
-      if (this.props.tag === 'comment') {
+      if (this.data.tag === 'comment') {
          setTimeout(this.scrollToComment, 1000)
       }
    },

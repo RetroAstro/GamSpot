@@ -35,7 +35,7 @@ Component({
    data: {
       active: false,
       isAgree: false,
-      agreeCount: 62
+      agreeCount: 0
    },
    lifetimes: {
       attached() {
@@ -54,6 +54,11 @@ Component({
       }
    },
    methods: {
+      onReply(e) {
+         let recipient = e.currentTarget.dataset.recipient
+         
+         this.triggerEvent('comment', { data: recipient })
+      },
       tapLike: throttle((self) => {
          let { isAgree, agreeCount } = self.data
 

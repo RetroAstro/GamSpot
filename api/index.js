@@ -9,6 +9,7 @@ const {
    GET_ALL_CIRCLES,
    SEND_NEW_POST,
    UPLOAD_IMAGE,
+   SEND_COMMENT,
    RESET_ALL_DATA
 } = require('./urls')
 
@@ -152,6 +153,19 @@ const getSolePost = promisify((postId, resolve) => {
    })
 })
 
+const sendComment = promisify((data, resolve) => {
+   qq.request({
+      ...opts(),
+      url: SEND_COMMENT,
+      data,
+      success({ data: { status } }) {
+         if (status === 10000) {
+            resolve()
+         }
+      }
+   })
+})
+
 const resetAllData = () => {
    qq.request({
       ...opts(),
@@ -172,5 +186,6 @@ module.exports = {
    uploadImage,
    sendNewPost,
    getSolePost,
+   sendComment,
    resetAllData
 }

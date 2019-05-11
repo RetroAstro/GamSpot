@@ -8,7 +8,7 @@
       <block qq:if="{{post}}">
          <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}" setStyle="min-height: 760rpx;"></skeleton>
          <block qq:for="{{comments}}" qq:key="commentId">
-            <comment item="{{item}}"></comment>
+            <comment item="{{item}}" bindcomment="postComment"></comment>
          </block>
       </block>
    </view>
@@ -18,5 +18,5 @@
          <text>暂无评论</text>
       </view>
    </block>
-   <reply showReply={{showReply}} bindreply="onReply"></reply>
+   <reply showReply={{showReply}} bindreply="onReply" recipient="{{recipient}}" circleId="{{circleId}}" postId="{{post ? post.id : ''}}"></reply>
 </view>
