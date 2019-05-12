@@ -1,3 +1,5 @@
 {
-   "disableScroll": true
+   "navigationBarTextStyle": "white",
+   "navigationBarTitleText": "邮话详情",
+   "navigationBarBackgroundColor": "#6a9ef8"
 }

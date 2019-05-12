@@ -1,4 +1,6 @@
 {
+   "navigationBarTextStyle": "white",
    "navigationBarTitleText": "重邮圈",
+   "navigationBarBackgroundColor": "#6a9ef8",
    "disableScroll": true
 }

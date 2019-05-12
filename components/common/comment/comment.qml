@@ -26,16 +26,18 @@
    </view>
    <block qq:if="{{item.childComments.length}}">
       <view class="reply">
-         <block qq:for="{{item.childComments}}" qq:key="id">
-            <view class="box skeleton-rect" bindtap="onReply" data-pid="{{item.id}}" data-nickname="{{item.sender}}">
-               <view style="float: left;" class="flex-start">
-                  <view class="sender user">{{item.sender}}</view>
-                  <view class="tiny">回复</view>
-                  <view class="recipient user">{{item.recipient}}</view>
+         <view class="layer">
+            <block qq:for="{{item.childComments}}" qq:key="id">
+               <view class="box skeleton-rect" bindtap="onReply" data-pid="{{item.id}}" data-nickname="{{item.sender}}">
+                  <text class="flex-start" style="float: left;">
+                     <text class="sender user">{{item.sender}}</text>
+                     <text class="tiny">回复</text>
+                     <text class="recipient user">{{item.recipient}}</text>
+                  </text>
+                  <text class="words">：{{item.content}}</text>
                </view>
-               <view class="words">：{{item.content}}</view>
-            </view>
-         </block>
+            </block>
+         </view>
       </view>
    </block>
 </view>

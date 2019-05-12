@@ -1,6 +1,6 @@
 .comment {
    width: 100%;
-   padding: 45rpx 30rpx 20rpx 30rpx;
+   padding: 45rpx 30rpx 30rpx 30rpx;
    background: #fff;
    border-bottom: 2rpx solid #f6f6f6;
 }
@@ -69,31 +69,36 @@
    padding-left: 90rpx;
 }
 
-.comment .reply > view {
+.comment .reply .layer {
+   padding: 25rpx 30rpx;
+   border-radius: 6rpx;
+   background: #f6f6f6;
+}
+
+.comment .reply .layer > view {
    margin-bottom: 15rpx;
 }
 
-.comment .reply > view:last-child {
+.comment .reply .layer > view:last-child {
    margin-bottom: 0rpx;
 }
 
-.comment .reply .box {
+.comment .reply .layer .box {
    position: relative;
    overflow: hidden;
+   font-size: 28rpx;
 }
 
-.comment .reply .box .user {
-   font-size: 28rpx;
+.comment .reply .layer .box .user {
    color: #2c5bab;
 }
 
-.comment .reply .box .tiny {
-   font-size: 28rpx;
+.comment .reply .layer .box .tiny {
    color: #8d8d8d;
    padding: 0 12rpx;
 }
 
-.comment .reply .box .words {
-   font-size: 28rpx;
+.comment .reply .layer .box .words {
    color: #585858;
+   line-height: 1;
 }

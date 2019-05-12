@@ -1,6 +1,7 @@
 const regeneratorRuntime = require('../../lib/runtime')
 const { uploadImage, sendNewPost } = require('../../api/index')
 const { actions } = require('../../store/index')
+const { formatText } = require('../../utils/index')
 
 Page({
    props: {
@@ -20,7 +21,7 @@ Page({
       this.setDisabled(value)
    },
    saveContent(value) {
-      this.props.content = value
+      this.props.content = formatText(value)
    },
    setDisabled(value) {
       if (value.trim() && this.data.disabled) {

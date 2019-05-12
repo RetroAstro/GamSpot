@@ -1,3 +1,5 @@
 {
-   "navigationBarTitleText": "重邮圈"
+   "navigationBarTextStyle": "white",
+   "navigationBarTitleText": "重邮圈",
+   "navigationBarBackgroundColor": "#6a9ef8"
 }

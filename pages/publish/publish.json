@@ -1,3 +1,5 @@
 {
-   "navigationBarTitleText": "发布圈话"
+   "navigationBarTextStyle": "white",
+   "navigationBarBackgroundColor": "#6a9ef8",
+   "navigationBarTitleText": "发布邮话"
 }

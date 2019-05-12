@@ -24,17 +24,19 @@
    <view class="content-box" bindtap="tapPost">
       <text class="skeleton-rect">{{item.content}}</text>
    </view>
-   <view class="photo-box">
-      <block qq:if="{{imageItems.length === 1}}">
-         <template is="one" data="{{...imageItems[0]}}" />
-      </block>
-      <block qq:elif="{{imageItems.length >= 2 && imageItems.length <= 4}}">
-         <template is="two" data="{{images: imageItems, type: 'layout-two'}}" />
-      </block>
-      <block qq:else>
-         <template is="two" data="{{images: imageItems, type: 'layout-three'}}" />
-      </block>
-   </view>
+   <block qq:if="{{imageItems.length}}">
+      <view class="photo-box">
+         <block qq:if="{{imageItems.length === 1}}">
+            <template is="one" data="{{...imageItems[0]}}" />
+         </block>
+         <block qq:elif="{{imageItems.length >= 2 && imageItems.length <= 4}}">
+            <template is="two" data="{{images: imageItems, type: 'layout-two'}}" />
+         </block>
+         <block qq:else>
+            <template is="two" data="{{images: imageItems, type: 'layout-three'}}" />
+         </block>
+      </view>
+   </block>
    <view class="interact-box flex-end">
       <view class="like flex-between skeleton-rect" bindtap="tapInteract" data-event="like">
          <image

@@ -1,6 +1,7 @@
 const regeneratorRuntime = require('../../../lib/runtime')
 const { sendComment } = require('../../../api/index')
 const { actions } = require('../../../store/index')
+const { formatText } = require('../../../utils/index')
 
 Component({
    externalClasses: [],
@@ -45,8 +46,8 @@ Component({
          this.saveContent(value)
          this.setDisabled(value)
       },
-      saveContent(value) {
-         this.properties.content = value
+      saveContent(value) {    
+         this.properties.content = formatText(value)
       },
       setDisabled(value) {
          if (value.trim() && this.data.disabled) {
