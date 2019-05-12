@@ -5,14 +5,13 @@
 
 .user-box {
    width: 100%;
-   height: 260rpx;
    background: #fff;
    margin-bottom: 40rpx;
 }
 
 .user-box > view {
    margin: 0 auto;
-   margin-top: 40rpx;
+   padding: 60rpx 0;
 }
 
 .user-box .avatar {
