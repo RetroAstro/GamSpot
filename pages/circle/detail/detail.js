@@ -6,7 +6,7 @@ Page({
       tag: '',
       post: '',
       circleId: '',
-      recipient: '',
+      recipient: {},
       isFixed: false,
       showReply: false,
       showSkeleton: true,
@@ -21,7 +21,10 @@ Page({
    },
    onNavigate({ detail: { data: { tag } } }) {
       if (tag === 'comment') {
-         this.setData({ showReply: true, recipient: this.data.post.author.nickname })
+         this.setData({
+            showReply: true,
+            recipient: { pid: this.data.post.id, nickname: this.data.post.author.nickname }
+         })
       }
    },
    onReply({ detail: { data } }) {

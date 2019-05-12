@@ -21,13 +21,13 @@
          <view class="number">{{agreeCount}}</view> -->
       </view>
    </view>
-   <view class="content" bindtap="onReply" data-recipient="{{item.author.nickname}}">
+   <view class="content" bindtap="onReply" data-pid="{{item.id}}" data-nickname="{{item.author.nickname}}">
       <text class="skeleton-rect">{{item.content}}</text>
    </view>
    <block qq:if="{{item.childComments.length}}">
       <view class="reply">
          <block qq:for="{{item.childComments}}" qq:key="id">
-            <view class="box skeleton-rect" bindtap="onReply" data-recipient="{{item.sender}}">
+            <view class="box skeleton-rect" bindtap="onReply" data-pid="{{item.id}}" data-nickname="{{item.sender}}">
                <view style="float: left;" class="flex-start">
                   <view class="sender user">{{item.sender}}</view>
                   <view class="tiny">回复</view>

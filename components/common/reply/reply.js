@@ -13,7 +13,7 @@ Component({
       circleId: Number,
       postId: Number,
       content: String,
-      recipient: String
+      recipient: Object
    },
    data: {
       disabled: true
@@ -57,8 +57,8 @@ Component({
          }
       },
       async postComment() {
-         let { content, circleId, postId } = this.properties
-         let comment = { content, socialCircleId: circleId, pid: postId }
+         let { content, circleId, postId, recipient: { pid } } = this.properties
+         let comment = { content, pid, socialCircleId: circleId }
 
          qq.showLoading({ title: '等待中', mask: true })
 

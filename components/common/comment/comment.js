@@ -55,9 +55,9 @@ Component({
    },
    methods: {
       onReply(e) {
-         let recipient = e.currentTarget.dataset.recipient
+         let { pid, nickname } = e.currentTarget.dataset
          
-         this.triggerEvent('comment', { data: recipient })
+         this.triggerEvent('comment', { data: { pid, nickname } })
       },
       tapLike: throttle((self) => {
          let { isAgree, agreeCount } = self.data
