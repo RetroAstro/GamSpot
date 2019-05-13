@@ -23,7 +23,7 @@ Page({
          })
       } else {
          qq.showModal({
-            title: '您还未选择性别呢 ～',
+            title: '您还未选择性别呢',
             showCancel: false,
             confirmColor: '#24292E'
          })
