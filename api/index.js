@@ -47,7 +47,7 @@ const getCode = promisify((resolve) => {
 const setFreshJWT = promisify((resolve) => {
    qq.showLoading({ title: '等待中', mask: true })
 
-   getCode().then((code) => {
+   getCode().then(code => {
       qq.request({
          url: GET_FRESH_JWT,
          method: 'POST',
