@@ -26,9 +26,9 @@
    </view>
    <block qq:if="{{item.childComments.length}}">
       <view class="reply">
-         <view class="layer">
+         <view class="layer skeleton-rect">
             <block qq:for="{{item.childComments}}" qq:key="id">
-               <view class="box skeleton-rect" bindtap="onReply" data-pid="{{item.id}}" data-nickname="{{item.sender}}">
+               <view class="box" bindtap="onReply" data-pid="{{item.id}}" data-nickname="{{item.sender}}">
                   <text class="flex-start" style="float: left;">
                      <text class="sender user">{{item.sender}}</text>
                      <text class="tiny">回复</text>

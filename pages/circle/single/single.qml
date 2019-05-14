@@ -35,9 +35,7 @@
             </block>
          </block>
       </view>
-      <block qq:if="{{loading}}">
-         <view class="loading-box flex-center {{showSkeleton ? 'mask' : ''}}">{{loadingText}}</view>
-      </block>
+      <view class="loading-box flex-center {{showSkeleton ? 'mask' : ''}}">{{loading ? loadingText : ''}}</view>
    </view>
    <block qq:if="{{!showSkeleton}}">
       <block qq:if="{{!info.isJoin}}">
