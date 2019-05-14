@@ -63,9 +63,15 @@
 }
 
 .post .content-box {
+  width: 100%;
   padding: 25rpx 0;
   font-size: 28rpx;
   color:#585858;
+}
+
+.post .content-box text {
+   white-space: pre-wrap;
+   word-break: break-all;
 }
 
 .post .photo-box {

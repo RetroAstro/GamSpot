@@ -101,4 +101,6 @@
 .comment .reply .layer .box .words {
    color: #585858;
    line-height: 1;
+   white-space: pre-wrap;
+   word-break: break-all;
 }
