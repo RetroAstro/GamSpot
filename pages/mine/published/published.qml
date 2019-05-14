@@ -1,3 +1,3 @@
 <view class="container">
-   Words Page
+   Published Page
 </view>

@@ -5,5 +5,5 @@
    <view class="comment-box">
       
    </view>
-   <reply showReply={{showReply}} bindreply="onReply">
+   <reply showReply="{{showReply}}" bindreply="onReply">
 </view>

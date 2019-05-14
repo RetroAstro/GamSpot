@@ -18,5 +18,5 @@
          <text>暂无评论</text>
       </view>
    </block>
-   <reply showReply={{showReply}} bindreply="onReply" recipient="{{recipient}}" circleId="{{circleId}}" postId="{{post ? post.id : ''}}"></reply>
+   <reply showReply="{{showReply}}" bindreply="onReply" recipient="{{recipient}}" circleId="{{circleId}}" postId="{{post ? post.id : ''}}"></reply>
 </view>

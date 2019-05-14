@@ -1,3 +1,3 @@
 <view class="container">
-   Like Page
+   Likes Page
 </view>

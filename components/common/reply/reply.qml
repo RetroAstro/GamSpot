@@ -5,7 +5,7 @@
          <view class="send {{disabled ? 'disabled' : ''}}" bindtap="postComment">发送</view>
       </view>
    </view>
-   <block qq:if={{showReply}}>
+   <block qq:if="{{showReply}}">
       <view class="reply-area">
          <textarea fixed auto-height maxlength="150" placeholder-class="placeholder" placeholder="回复: {{recipient.nickname}} (最多150字)" bindinput="handleInput" />
       </view>

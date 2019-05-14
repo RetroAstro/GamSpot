@@ -96,7 +96,7 @@ Component({
       },
       tapPreload(e) {
          let { imagePaths } = this.properties
-         let index = e.currentTarget.dataset.index
+         let { index } = e.currentTarget.dataset
 
          if (this.isImagesLoaded()) {
             qq.previewImage({
