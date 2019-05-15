@@ -196,6 +196,30 @@ const sendComment = promisify((data, resolve) => {
    })
 })
 
+const sendLikeStatus = promisify((postId, isAgree, resolve) => {
+   qq.request({
+      ...opts(),
+      url: `${SEND_NEW_POST}/${postId}/agree/${isAgree ? 'up' : 'down'}`,
+      success({ data: { status } }) {
+         if (status === 10000) {
+            resolve()
+         }
+      }
+   })
+})
+
+const sendCollectStatus = promisify((postId, isCollection, resolve) => {
+   qq.request({
+      ...opts(),
+      url: `${SEND_NEW_POST}/${postId}/collection/${isCollection ? 'up' : 'down'}`,
+      success({ data: { status } }) {
+         if (status === 10000) {
+            resolve()
+         }
+      }
+   })
+})
+
 const resetAllData = () => {
    qq.request({
       ...opts(),
@@ -217,5 +241,7 @@ module.exports = {
    sendNewPost,
    getSolePost,
    sendComment,
+   sendLikeStatus,
+   sendCollectStatus,
    resetAllData
 }

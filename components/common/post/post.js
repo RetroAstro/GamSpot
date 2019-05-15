@@ -1,4 +1,5 @@
 const { throttle } = require('../../../utils/index')
+const { actions } = require('../../../store/index')
 
 Component({
    externalClasses: [],
@@ -28,16 +29,9 @@ Component({
             isCollection: false,
             isTop: false
          },
-         observer({ images = [] }) {
-            let show = this.properties.isSole
-
-            if (!this.isImagesLoaded()) {
-               this.setData({
-                  imageItems: images.map(item => ({ show, url: item }))
-               })
-            }
-
-            this.handleCached(images)
+         observer(newVal, oldVal) {
+            this.observeImages(newVal)
+            this.observeActions(newVal, oldVal)
          }
       },
       imagePaths: {
@@ -65,7 +59,7 @@ Component({
    },
    lifetimes: {
       attached() {
-         this.initialize()
+
       },
       ready() {
          if (!this.properties.isSole) {
@@ -85,6 +79,27 @@ Component({
       }
    },
    methods: {
+      observeImages({ images = [] }) {
+         let show = this.properties.isSole
+
+         if (!this.isImagesLoaded()) {
+            this.setData({
+               imageItems: images.map(item => ({ show, url: item }))
+            })
+         }
+
+         this.handleCached(images)
+      },
+      observeActions(newVal, oldVal) {
+         let { isAgree, agreeCount, isCollection, collectionCount } = newVal
+
+         let data = {
+            like: { isAgree, agreeCount, active: isAgree !== oldVal.isAgree },
+            collect: { isCollection, collectionCount, active: isCollection !== oldVal.isCollection }
+         }
+
+         this.setData(data)
+      },
       tapCircle() {
          this.triggerEvent('navigate', { data: 'circle' })
       },
@@ -111,35 +126,24 @@ Component({
 
          action.run()
          qq.vibrateShort()
-      }, 500),
+      }, 600),
       getAction(key) {
-         let { like: { isAgree, agreeCount }, collect: { isCollection, collectionCount } } = this.data
-
          let actions = {
-            like: () => this.likeAction(isAgree, agreeCount),
-            collect: () => this.collectAction(isCollection, collectionCount)
+            like: () => this.likeAction(),
+            collect: () => this.collectAction()
          }
 
          return { run: actions[key] }
       },
-      likeAction(isAgree, agreeCount) {
-         this.setData({
-            'like.active': false,
-            'like.isAgree': !isAgree,
-            'like.agreeCount': isAgree ? agreeCount - 1 : agreeCount + 1
-         }, () => this.setData({ 'like.active': true }))
+      likeAction() {
+         this.setData({ 'like.active': false }, () => {
+            actions.likeAction(this.properties.item.id, this.data.like.isAgree)
+         })
       },
-      collectAction(isCollection, collectionCount) {
-         this.setData({
-            'collect.active': false,
-            'collect.isCollection': !isCollection,
-            'collect.collectionCount': isCollection ? collectionCount - 1 : collectionCount + 1
-         }, () => this.setData({ 'collect.active': true }))
-      },
-      initialize() {
-         let { item: { isAgree, agreeCount, isCollection, collectionCount } } = this.properties
-
-         this.setData({ like: { isAgree, agreeCount }, collect: { isCollection, collectionCount } })
+      collectAction() {
+         this.setData({ 'collect.active': false }, () => {
+            actions.collectAction(this.properties.item.id, this.data.collect.isCollection)
+         })
       },
       isImagesLoaded() {
          let { item: { images }, imagePaths } = this.properties

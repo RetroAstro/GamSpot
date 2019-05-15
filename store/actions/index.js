@@ -4,7 +4,9 @@ const {
    RECEIVE_SOLE_POST,
    ADD_SINGLE_POSTS,
    JOIN_CIRCLE,
-   PUBLISH_NEW_POST
+   PUBLISH_NEW_POST,
+   LIKE_ACTION,
+   COLLECT_ACTION
 } = require('../constants/index')
 
 const {
@@ -70,10 +72,24 @@ const fetchSolePost = id => dispatch => {
    .then(data => dispatch(receiveSolePost(data)))
 }
 
+const likeAction = (id, isAgree) => dispatch => dispatch({
+   type: LIKE_ACTION,
+   id,
+   isAgree
+})
+
+const collectAction = (id, isCollection) => dispatch => dispatch({
+   type: COLLECT_ACTION,
+   id,
+   isCollection
+})
+
 module.exports = {
    fetchCircles,
    fetchSinglePosts,
    joinCircle,
    publishNewPost,
-   fetchSolePost
+   fetchSolePost,
+   likeAction,
+   collectAction
 }
