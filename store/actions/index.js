@@ -42,7 +42,13 @@ const addSinglePosts = (id, data, page) => ({
 
 const fetchSinglePosts = (id, page = 1) => dispatch => {
    getSinglePosts(id, page)
-   .then(data => page == 1 ? dispatch(receiveSinglePosts(id, data)) : dispatch(addSinglePosts(id, data, page)))
+   .then(data => {
+      if (page == 1) {
+         dispatch(receiveSinglePosts(id, data)) && dispatch(fetchCircles())
+      } else {
+         dispatch(addSinglePosts(id, data, page))
+      }
+   })
 }
 
 const joinSuccess = id => ({
