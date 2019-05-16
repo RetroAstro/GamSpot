@@ -1,6 +1,11 @@
 const { throttle } = require('../../../utils/index')
 const { actions } = require('../../../store/index')
 
+const {
+   sendLikeStatus,
+   sendCollectStatus
+} = require('../../../api/index')
+
 Component({
    externalClasses: [],
    options: {
@@ -138,11 +143,15 @@ Component({
       likeAction() {
          this.setData({ 'like.active': false }, () => {
             actions.likeAction(this.properties.item.id, this.data.like.isAgree)
+
+            sendLikeStatus(this.properties.item.id, this.data.like.isAgree)
          })
       },
       collectAction() {
          this.setData({ 'collect.active': false }, () => {
             actions.collectAction(this.properties.item.id, this.data.collect.isCollection)
+            
+            sendCollectStatus(this.properties.item.id, this.data.collect.isCollection)
          })
       },
       isImagesLoaded() {

@@ -65,8 +65,10 @@ Page({
       }
    },
    updateComments(comments, postComments) {
+      let commentIds = postComments[this.data.post.id]
+
       return {
-         comments: postComments[this.data.post.id].map(id => comments.byId[id])
+         comments: commentIds ? commentIds.map(id => comments.byId[id]) : []
       }
    },
    initialize(data) {
