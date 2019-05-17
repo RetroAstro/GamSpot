@@ -2,14 +2,10 @@ const {
    RECEIVE_SOLE_POST
 } = require('../../constants/index')
 
-const loadPostComments = (state, { data: { post: { id }, comments } }) => {
-   let result = {
-      ...state,
-      [id]: comments.map(item => item.commentId)
-   }
-   
-   return result
-}
+const loadPostComments = (state, { data: { post: { id }, comments } }) => ({
+   ...state,
+   [id]: comments.map(item => item.commentId)
+})
 
 const postComments = (state = {}, action) => {
    switch (action.type) {

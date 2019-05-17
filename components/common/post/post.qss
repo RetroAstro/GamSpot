@@ -54,7 +54,6 @@
 }
 
 .post .user-box .circle-tag .circle {
-   height: 35rpx;
    padding: 5rpx 10rpx;
    color: #fff;
    font-size: 24rpx;
