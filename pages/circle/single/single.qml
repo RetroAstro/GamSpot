@@ -35,7 +35,7 @@
             </block>
          </block>
       </view>
-      <view class="loading-box flex-center {{showSkeleton ? 'mask' : ''}}">{{loading ? loadingText : ''}}</view>
+      <view class="loading-box flex-center {{showSkeleton ? 'mask' : ''}}">{{loadedText ? loadedText : loading ? '加载中 ...' : ''}}</view>
    </view>
    <block qq:if="{{!showSkeleton}}">
       <block qq:if="{{!info.isJoin}}">

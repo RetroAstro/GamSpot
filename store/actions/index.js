@@ -1,16 +1,19 @@
 const {
    RECEIVE_CIRCLES,
+   RECEIVE_POPULAR_POSTS,
+   ADD_POPULAR_POSTS,
    RECEIVE_SINGLE_POSTS,
-   RECEIVE_SOLE_POST,
    ADD_SINGLE_POSTS,
    JOIN_CIRCLE,
    PUBLISH_NEW_POST,
+   RECEIVE_SOLE_POST,
    LIKE_ACTION,
    COLLECT_ACTION
 } = require('../constants/index')
 
 const {
    getCircles,
+   getPopularPosts,
    getSinglePosts,
    sendCircleId,
    getSolePost,
@@ -24,6 +27,23 @@ const receiveCircles = data => ({
 const fetchCircles = () => dispatch => {
    getCircles()
    .then(data => dispatch(receiveCircles(data)))
+}
+
+const receivePopularPosts = data => ({
+   type: RECEIVE_POPULAR_POSTS,
+   cursor: 0,
+   data
+})
+
+const addPopularPosts = (data, page) => ({
+   type: ADD_POPULAR_POSTS,
+   cursor: page - 1,
+   data
+})
+
+const fetchPopularPosts = (page = 1) => dispatch => {
+   getPopularPosts(page)
+   .then(data => page == 1 ? dispatch(receivePopularPosts(data)) : dispatch(addPopularPosts(data, page)))
 }
 
 const receiveSinglePosts = (id, data) => ({
@@ -92,6 +112,7 @@ const collectAction = (id, isCollection) => dispatch => dispatch({
 
 module.exports = {
    fetchCircles,
+   fetchPopularPosts,
    fetchSinglePosts,
    joinCircle,
    publishNewPost,

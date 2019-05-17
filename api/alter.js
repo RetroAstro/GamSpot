@@ -4,7 +4,7 @@ const {
    IMAGE_DOMAIN
 } = require('./urls')
 
-const alterPost = post => {
+const formatPost = post => {
    let result = {
       ...post,
       createdTime: timeFromNow(post.timestamp),
@@ -14,7 +14,7 @@ const alterPost = post => {
    return result
 }
 
-const alterSinglePosts = data => data.map(alterPost)
+const alterPosts = data => data.map(formatPost)
 
 const normalizeCommit = commit => {
    const normalize = (commit, recipient) => {
@@ -55,12 +55,12 @@ const normalizeCommit = commit => {
 const alterSolePost = data => {
    let comments = normalizeCommit(data.commit)
    delete data.commit
-   let post = alterPost(data)
+   let post = formatPost(data)
 
    return { post, comments }
 }
 
 module.exports = {
-   alterSinglePosts,
+   alterPosts,
    alterSolePost
 }

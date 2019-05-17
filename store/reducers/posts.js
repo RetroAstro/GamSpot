@@ -1,14 +1,16 @@
 const { combineReducers } = require('../../lib/redux')
 
 const {
+   RECEIVE_POPULAR_POSTS,
+   ADD_POPULAR_POSTS,
    RECEIVE_SINGLE_POSTS,
-   RECEIVE_SOLE_POST,
    ADD_SINGLE_POSTS,
+   RECEIVE_SOLE_POST,
    LIKE_ACTION,
    COLLECT_ACTION
 } = require('../constants/index')
 
-const loadSinglePosts = (state, { data }) => {
+const loadPosts = (state, { data }) => {
    let middle = data
       .map(item => ({ [item.id]: item })).reduce((prev, next) => ({ ...prev, ...next }), {})
       
@@ -18,7 +20,7 @@ const loadSinglePosts = (state, { data }) => {
    }
 }
 
-const addSolePost = (state, { data: { post } }) => {
+const updateSolePost = (state, { data: { post } }) => {
    let result = {
       ...state,
       [post.id]: {
@@ -58,11 +60,13 @@ const updateCollectStatus = (state, { id, isCollection }) => {
 
 const postsById = (state = {}, action) => {
    switch (action.type) {
+      case RECEIVE_POPULAR_POSTS:
+      case ADD_POPULAR_POSTS:
       case RECEIVE_SINGLE_POSTS:
       case ADD_SINGLE_POSTS:
-         return loadSinglePosts(state, action)
+         return loadPosts(state, action)
       case RECEIVE_SOLE_POST: 
-         return addSolePost(state, action)
+         return updateSolePost(state, action)
       case LIKE_ACTION:
          return updateLikeStatus(state, action)
       case COLLECT_ACTION: 

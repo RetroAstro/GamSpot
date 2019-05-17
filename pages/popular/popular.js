@@ -1,37 +1,74 @@
+const { actions, subscribe, getState } = require('../../store/index')
+const { postItems } = require('../../mock/index')
+
 Page({
+   props: {
+      pageNum: 1
+   },
    data: {
-      postItem: {
-         gender: 1,
-         nickname: '想那些阿布',
-         createdTime: '08:42',
-         circleName: '摄影',
-         content: '拥有交互思维的视觉设计师，拥有了在产品层面讨论问题的能力，更多的交流能弥补信息不对称话语权。',
-         images: [
-            {
-               ratio: 1,
-               url: '../../images/row.jpg'
-            }
-         ],
-         agreeCount: 666,
-         commitCount: 666,
-         collectionCount: 666,
-         isAgree: true,
-         isCollection: true,
-         isTop: false
+      showSkeleton: true,
+      loading: false,
+      loadedText: '',
+      feedList: [postItems]
+   },
+   onLoad() {
+      this.connectStore()
+      this.initialize()
+   },
+   onUnload() {
+      this.unsubscribe()
+   },
+   onPullDownRefresh() {
+      this.props.pageNum = 1
+
+      this.setData({ loadedText: '' }, () => actions.fetchPopularPosts())
+   },
+   onReachBottom() {
+      if (!this.data.loading) {
+         this.setData({ loading: true }, this.addPopularPosts)
       }
    },
    onNavigate({ detail: { data } }) {
-      let route = this.getRoute(data)
       
-      route.navigate()
    },
-   getRoute(key) {
-      let routes = {
-         post: () => qq.navigateTo({ url: '/pages/circle/detail/detail?tag=post' }),
-         comment: () => qq.navigateTo({ url: '/pages/circle/detail/detail?tag=comment' }),
-         circle: () => null
+   connectStore() {
+      this.unsubscribe = subscribe(() => this.handleState(getState()))
+   },
+   initialize() {
+      actions.fetchPopularPosts()
+   },
+   addPopularPosts() {
+      if (!this.data.showSkeleton) {
+         actions.fetchPopularPosts(++this.props.pageNum)
       }
+   },
+   handleState(state) {
+      let data = this.updatePosts(state)
+      
+      this.setData(data, this.hideSkeleton)
+   },
+   hideSkeleton() {
+      this.setData({ showSkeleton: false })
+   },
+   updatePosts({ posts, popularPosts }) {
+      let cursor = this.props.pageNum - 1
+      let postIds = popularPosts[cursor]
+      let postItems = postIds.map(id => posts.byId[id])
 
-      return { navigate: routes[key] }
+      if (this.noMorePosts(postIds)) {
+         this.props.pageNum -= 1
+
+         return { loadedText: '没有更多啦 ~' }
+      } else {
+         qq.stopPullDownRefresh()
+
+         return {
+            loading: false,
+            ...(cursor == 0 ? { feedList: [postItems] } : { [`feedList[${cursor}]`]: postItems })
+         }
+      }
+   },
+   noMorePosts(postIds) {
+      return (!postIds.length && this.props.pageNum > 1)
    }
 })

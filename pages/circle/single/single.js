@@ -10,7 +10,7 @@ Page({
       info: {},
       showSkeleton: true,
       loading: false,
-      loadingText: '加载中 ...',
+      loadedText: '',
       feedList: [postItems]
    },
    onLoad({ circleId }) {
@@ -27,7 +27,7 @@ Page({
    onPullDownRefresh() {
       this.props.pageNum = 1
 
-      actions.fetchSinglePosts(this.data.info.id)
+      this.setData({ loadedText: '' }, () => actions.fetchSinglePosts(this.data.info.id))
    },
    onReachBottom() {
       if (!this.data.loading) {
@@ -77,7 +77,7 @@ Page({
       if (this.noMorePosts(postIds)) {
          this.props.pageNum -= 1
 
-         return { loadingText: '没有更多啦 ~' }
+         return { loadedText: '没有更多啦 ~' }
       } else {
          qq.stopPullDownRefresh()
 

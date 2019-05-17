@@ -5,10 +5,10 @@ const routes = {
    SEND_BIND_DATA: '/app/student',
    SELECT_GENDER: '/app/gender',
    GET_ALL_CIRCLES: '/circles',
-   SEND_NEW_POST: '/talks',
-   SEND_COMMENT: '/talks/comments',
    UPLOAD_IMAGE: '/file',
    IMAGE_DOMAIN: '/talks/picture',
+   SEND_NEW_POST: '/talks',
+   SEND_COMMENT: '/talks/comments',
    RESET_ALL_DATA: '/refreshDB'
 }
 

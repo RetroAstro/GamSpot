@@ -7,14 +7,14 @@ const {
    SEND_BIND_DATA,
    SELECT_GENDER,
    GET_ALL_CIRCLES,
-   SEND_NEW_POST,
    UPLOAD_IMAGE,
+   SEND_NEW_POST,
    SEND_COMMENT,
    RESET_ALL_DATA
 } = require('./urls')
 
 const {
-   alterSinglePosts,
+   alterPosts,
    alterSolePost,
 } = require('./alter')
 
@@ -116,6 +116,19 @@ const getCircles = promisify((resolve) => {
    })
 })
 
+const getPopularPosts = promisify((page, resolve) => {
+   qq.request({
+      ...opts(),
+      url: `${GET_ALL_CIRCLES}/hot?page=${page}`,
+      method: 'GET',
+      success({ data: { status, data } }) {
+         if (status === 10000) {
+            resolve(alterPosts(data))
+         }
+      }
+   })
+})
+
 const getSinglePosts = promisify((circleId, page, resolve) => {
    qq.request({
       ...opts(),
@@ -123,7 +136,7 @@ const getSinglePosts = promisify((circleId, page, resolve) => {
       method: 'GET',
       success({ data: { status, data } }) {
          if (status === 10000) {
-            resolve(alterSinglePosts(data))
+            resolve(alterPosts(data))
          }
       }
    })
@@ -235,6 +248,7 @@ module.exports = {
    sendBindData,
    sendGender,
    getCircles,
+   getPopularPosts,
    getSinglePosts,
    sendCircleId,
    uploadImage,
