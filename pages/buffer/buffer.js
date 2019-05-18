@@ -8,14 +8,11 @@ Page({
       this.routeSwitch(userInfo)
    },
    routeSwitch({ exp, sub, gender }) {
-      if (!exp) {
+      if (!sub || sub === 'guest') {
          setFreshJWT()
          .then(() => qq.redirectTo({ url: '/pages/auth/auth' }))
       }
-      else if (sub === 'guest') {
-         qq.redirectTo({ url: '/pages/bind/bind' })
-      }
-      else if (sub === 'student' && !gender) {
+      else if (!gender && sub === 'student') {
          qq.redirectTo({ url: '/pages/avatar/avatar' })
       }
       else if (exp < moment().unix()) {

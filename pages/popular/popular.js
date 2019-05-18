@@ -29,7 +29,23 @@ Page({
       }
    },
    onNavigate({ detail: { data } }) {
-      
+      let route = this.getRoute(data)
+
+      route.navigate()
+   },
+   getRoute({ tag, post, circleId }) {
+      let routes = {
+         single() {
+            qq.navigateTo({ url: `/pages/circle/single/single?circleId=${circleId}` })
+         },
+         detail() {
+            let params = { post, circleId: post.circleId }
+
+            qq.navigateTo({ url: `/pages/circle/detail/detail?params=${encodeURIComponent(JSON.stringify(params))}` })
+         }
+      }
+
+      return { navigate: routes[tag == 'circle' ? 'single' : 'detail'] }
    },
    connectStore() {
       this.unsubscribe = subscribe(() => this.handleState(getState()))

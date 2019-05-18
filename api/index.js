@@ -116,6 +116,19 @@ const getCircles = promisify((resolve) => {
    })
 })
 
+const getSoleCircle = promisify((circleId, resolve) => {
+   qq.request({
+      ...opts(),
+      url: `${GET_ALL_CIRCLES}/${circleId}/info`,
+      method: 'GET',
+      success({ data: { status, data } }) {
+         if (status === 10000) {
+            resolve(data)
+         }
+      }
+   })
+})
+
 const getPopularPosts = promisify((page, resolve) => {
    qq.request({
       ...opts(),
@@ -248,6 +261,7 @@ module.exports = {
    sendBindData,
    sendGender,
    getCircles,
+   getSoleCircle,
    getPopularPosts,
    getSinglePosts,
    sendCircleId,

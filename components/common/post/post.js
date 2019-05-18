@@ -46,6 +46,10 @@ Component({
       isSole: {
          type: Boolean,
          value: false
+      },
+      isSingle: {
+         type: Boolean,
+         value: false
       }
    },
    data: {
@@ -105,14 +109,14 @@ Component({
 
          this.setData(data)
       },
-      tapCircle() {
-         this.triggerEvent('navigate', { data: 'circle' })
-      },
       tapPost() {
          this.triggerEvent('navigate', { data: { tag: 'post', post: this.createCachedPost() } })
       },
       tapComment() {
          this.triggerEvent('navigate', { data: { tag: 'comment', post: this.createCachedPost() } })
+      },
+      tapCircle() {
+         this.triggerEvent('navigate', { data: { tag: 'circle', circleId: this.properties.item.circleId } })
       },
       tapPreload(e) {
          let { imagePaths } = this.properties

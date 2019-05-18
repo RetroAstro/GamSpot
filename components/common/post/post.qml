@@ -15,7 +15,7 @@
             <view class="upon flex-center">置顶</view>
          </view>
       </block>
-      <block qq:if="{{item.circleName}}">
+      <block qq:if="{{!(isSole || isSingle)}}">
          <view class="circle-tag" bindtap="tapCircle">
             <view class="circle flex-center">#{{item.circleName}}#</view>
          </view>

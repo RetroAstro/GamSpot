@@ -31,7 +31,7 @@
          <view class="top-bar"></view>
          <block qq:for="{{feedList}}" qq:key="{{index}}" qq:for-item="postItems">
             <block qq:for="{{postItems}}" qq:key="id">
-               <post item="{{item}}" bindnavigate="onNavigate"></post>
+               <post item="{{item}}" bindnavigate="onNavigate" isSingle=true></post>
             </block>
          </block>
       </view>

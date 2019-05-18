@@ -45,10 +45,8 @@ Page({
    connectStore() {
       this.unsubscribe = subscribe(() => this.handleState(getState()))
    },
-   initialize(circleId) {
-      let { circles } = getState()
-
-      this.setData({ info: circles.byId[circleId] }, () => actions.fetchSinglePosts(this.data.info.id))
+   initialize(id) {
+      this.setData({ info: { id } }, actions.fetchSinglePosts(id))
    },
    addSinglePosts() {
       if (!this.data.showSkeleton) {
@@ -67,7 +65,9 @@ Page({
       this.setData({ showSkeleton: false })
    },
    updateCircleInfo(circles) {
-      return { info: circles.byId[this.data.info.id] }
+      return {
+         info: circles.byId[this.data.info.id] || this.data.info
+      }
    },
    updatePosts(posts, circlePosts) {
       let cursor = this.props.pageNum - 1

@@ -3,6 +3,7 @@ const { unique } = require('../../utils/index')
 
 const {
    RECEIVE_CIRCLES,
+   RECEIVE_SOLE_CIRCLE,
    JOIN_CIRCLE,
    PUBLISH_NEW_POST
 } = require('../constants/index')
@@ -16,6 +17,11 @@ const loadCircles = (state, { data }) => {
       ...middle
    }
 }
+
+const addSoleCircle = (state, { data }) => ({
+   ...state,
+   [data.id]: data
+})
 
 const addJoinCount = (state, { id }) => {
    let result = {
@@ -46,6 +52,8 @@ const circlesById = (state = {}, action) => {
    switch (action.type) {
       case RECEIVE_CIRCLES:
          return loadCircles(state, action)
+      case RECEIVE_SOLE_CIRCLE:
+         return addSoleCircle(state, action)
       case JOIN_CIRCLE:
          return addJoinCount(state, action)
       case PUBLISH_NEW_POST:
@@ -60,10 +68,17 @@ const loadCirclesIds = (state, { data }) => unique([
    ...data.map(item => item.id)
 ])
 
+const addSoleCircleId = (state, { data: { id } }) => unique([
+   ...state,
+   id
+])
+
 const allCircles = (state = [], action) => {
    switch (action.type) {
       case RECEIVE_CIRCLES:
          return loadCirclesIds(state, action)
+      case RECEIVE_SOLE_CIRCLE:
+         return addSoleCircleId(state, action)
       default:
          return state
    }
