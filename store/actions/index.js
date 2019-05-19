@@ -14,7 +14,7 @@ const {
    addPopularPosts,
    receiveSinglePosts,
    addSinglePosts,
-   joinCircleSuccess,
+   joinSuccess,
    addNewPost,
    receiveSolePost,
    likeSuccess,
@@ -49,7 +49,7 @@ const fetchSinglePosts = (id, page = 1) => dispatch => {
 
 const joinCircle = id => dispatch => {
    sendCircleId(id)
-   .then(() => dispatch(joinCircleSuccess(id)))
+   .then(() => dispatch(joinSuccess(id)))
 }
 
 const publishNewPost = id => dispatch => dispatch(addNewPost(id)) && dispatch(fetchSinglePosts(id))

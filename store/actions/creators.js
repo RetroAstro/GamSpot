@@ -48,7 +48,7 @@ const addSinglePosts = (id, data, page) => ({
    data
 })
 
-const joinCircleSuccess = id => ({
+const joinSuccess = id => ({
    type: JOIN_CIRCLE,
    id
 })
@@ -82,7 +82,7 @@ module.exports = {
    addPopularPosts,
    receiveSinglePosts,
    addSinglePosts,
-   joinCircleSuccess,
+   joinSuccess,
    addNewPost,
    receiveSolePost,
    likeSuccess,
