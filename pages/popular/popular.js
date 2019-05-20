@@ -39,7 +39,7 @@ Page({
             qq.navigateTo({ url: `/pages/circle/single/single?circleId=${circleId}` })
          },
          detail() {
-            let params = { post, circleId: post.circleId }
+            let params = { tag, post, circleId: post.circleId }
 
             qq.navigateTo({ url: `/pages/circle/detail/detail?params=${encodeURIComponent(JSON.stringify(params))}` })
          }

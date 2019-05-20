@@ -53,7 +53,7 @@ Component({
 
          qq.getImageInfo({
             src: value,
-            success({ path, width, height }) {
+            success({ width, height, path }) {
                self.checkRatio(width, height)
                self.loaded(path)
                self.setData({ imgUrl: path })
