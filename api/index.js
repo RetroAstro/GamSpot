@@ -18,50 +18,26 @@ const {
    alterSolePost,
 } = require('./alter')
 
-const getCode = promisify((resolve) => {
-   const setCode = () => {
-      qq.login({
-         success({ code }) {
-            qq.setStorageSync('code', code)
-            resolve(code)
-         }
-      })
-   }
-
-   let code = qq.getStorageSync('code')
-   
-   if (code) {
-      qq.checkSession({
-         success() {
-            resolve(code)
-         },
-         fail() {
-            setCode()
-         }
-      })
-   } else {
-      setCode()
-   }
-})
-
 const setFreshJWT = promisify((resolve) => {
    qq.showLoading({ title: '等待中', mask: true })
 
-   getCode().then(code => {
-      qq.request({
-         url: GET_FRESH_JWT,
-         method: 'POST',
-         data: { code },
-         success({ data: { status, data } }) {
-            if (status === 10000) {
-               let userInfo = JSON.parse(Base64.decode(data.split('.')[1]))
-            
-               qq.setStorageSync('userInfo', { ...userInfo, token: data })
-               qq.hideLoading()
-               resolve()
+   qq.login({
+      success({ code }) {
+         qq.request({
+            url: GET_FRESH_JWT,
+            method: 'POST',
+            data: { code },
+            success({ data: { status, data } }) {
+               if (status === 10000) {
+                  let userInfo = JSON.parse(Base64.decode(data.split('.')[1]))
+               
+                  qq.setStorageSync('userInfo', { ...userInfo, token: data })
+                  qq.hideLoading()
+                  resolve()
+               }
             }
-         }
-      })
+         })
+      }
    })
 })
 
