@@ -14,12 +14,10 @@ Page({
       
       if (gender) {
          sendGender({ gender })
-         .then(({ status }) => {
-            if (status === 10000) {
-               this.saveGender(gender)
-               
-               qq.switchTab({ url: '/pages/popular/popular' })
-            }
+         .then(() => {
+            this.saveGender(gender)
+            
+            qq.switchTab({ url: '/pages/popular/popular' })
          })
       } else {
          qq.showModal({

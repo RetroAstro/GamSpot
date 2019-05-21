@@ -54,8 +54,8 @@ const sendBindData = promisify((data, resolve) => {
                signature,
                student: data
             },
-            success (res) {
-               resolve(res.data)
+            success ({ data: { status } }) {
+               resolve(status)
             }
          })
       }
@@ -67,8 +67,10 @@ const sendGender = promisify((gender, resolve) => {
       ...opts(),
       url: SELECT_GENDER,
       data: gender,
-      success(res) {
-         resolve(res.data)
+      success({ data: { status } }) {
+         if (status === 10000) {
+            resolve()
+         }
       }
    })
 })

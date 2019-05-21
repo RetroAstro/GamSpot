@@ -30,9 +30,9 @@ Page({
       qq.showLoading({ title: '等待中', mask: true })
       
       sendBindData(data)
-      .then(({ status, data }) => {
+      .then(status => {
          qq.hideLoading()
-         
+
          if (status === 10000) {
             let userInfo = JSON.parse(Base64.decode(data.split('.')[1]))
             
