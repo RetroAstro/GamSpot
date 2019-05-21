@@ -58,12 +58,6 @@ const sendBindData = promisify((data, resolve) => {
                resolve(res.data)
             }
          })
-      },
-      fail() {
-         // deal with unexpected user action
-         qq.hideLoading()
-         qq.setStorageSync('userInfo', {})
-         qq.redirectTo({ url: '/pages/buffer/buffer' })
       }
    })
 })
