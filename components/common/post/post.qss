@@ -91,13 +91,13 @@
 }
 
 .post .photo-box .layout-two .photo {
-   width: 340rpx;
-   height: 340rpx;
+   width: 345rpx;
+   height: 345rpx;
 }
 
 .post .photo-box .layout-three .photo {
-   width: 226rpx;
-   height: 226rpx;
+   width: 230rpx;
+   height: 230rpx;
 }
 
 .post .interact-box {

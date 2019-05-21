@@ -51,7 +51,7 @@
    padding: 0 30rpx;
 }
 
-.personal-box > view {
+.personal-box navigator {
    width: 100%;
    padding: 25rpx 30rpx;
    border-radius: 10rpx;
@@ -59,18 +59,18 @@
    margin-bottom: 20rpx;
 }
 
-.personal-box > view .icon {
+.personal-box navigator .icon {
    width: 32rpx;
    height: 32rpx;
    margin-right: 25rpx;
 }
 
-.personal-box > view .name {
+.personal-box navigator .name {
    font-size: 28rpx;
    color: #585858;
 }
 
-.personal-box > view .right image {
+.personal-box navigator .right image {
    width: 14rpx;
    height: 28rpx;
 }

@@ -6,14 +6,14 @@
          </view>
          <view class="flex-center">
             <view class="editable flex-start">
-               <input class="name" maxlength="12" value="{{nickname}}" placeholder="(⊙ˍ⊙)" placeholder-style="placeholder" />
+               <input class="name" maxlength="10" value="{{nickname}}" placeholder="(⊙ˍ⊙)" placeholder-style="placeholder" />
                <image class="pencil" mode="scaleToFill" src="../../../images/pencil.png"></image>
             </view>
          </view>
       </view>
    </view>
    <view class="personal-box">
-      <view class="joined flex-between">
+      <navigator class="joined flex-between" open-type="navigateTo" url="/pages/mine/joined/joined">
          <view class="left">
             <view class="flex-start">
                <image class="icon" mode="scaleToFill" src="../../../images/mine-joined.png"></image>
@@ -23,8 +23,8 @@
          <view class="right">
             <image mode="scaleToFill" src="../../../images/mine-go.png"></image>
          </view>
-      </view>
-      <view class="post flex-between">
+      </navigator>
+      <navigator class="post flex-between" open-type="navigateTo" url="/pages/mine/published/published">
          <view class="left">
             <view class="flex-start">
                <image class="icon" mode="scaleToFill" src="../../../images/mine-post.png"></image>
@@ -34,8 +34,8 @@
          <view class="right">
             <image mode="scaleToFill" src="../../../images/mine-go.png"></image>
          </view>
-      </view>
-      <view class="collect flex-between">
+      </navigator>
+      <navigator class="collect flex-between" open-type="navigateTo" url="/pages/mine/collects/collects">
          <view class="left">
             <view class="flex-start">
                <image class="icon" mode="scaleToFill" src="../../../images/mine-collect.png"></image>
@@ -45,8 +45,8 @@
          <view class="right">
             <image mode="scaleToFill" src="../../../images/mine-go.png"></image>
          </view>
-      </view>
-      <view class="like flex-between">
+      </navigator>
+      <navigator class="like flex-between" open-type="navigateTo" url="/pages/mine/likes/likes">
          <view class="left">
             <view class="flex-start">
                <image class="icon" mode="scaleToFill" src="../../../images/mine-like.png"></image>
@@ -56,6 +56,6 @@
          <view class="right">
             <image mode="scaleToFill" src="../../../images/mine-go.png"></image>
          </view>
-      </view>
+      </navigator>
    </view>
 </view>

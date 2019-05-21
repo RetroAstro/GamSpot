@@ -29,7 +29,7 @@
          <block qq:if="{{imageItems.length === 1}}">
             <template is="one" data="{{...imageItems[0]}}" />
          </block>
-         <block qq:elif="{{imageItems.length >= 2 && imageItems.length <= 4}}">
+         <block qq:elif="{{imageItems.length == 2 || imageItems.length == 4}}">
             <template is="two" data="{{images: imageItems, type: 'layout-two'}}" />
          </block>
          <block qq:else>
