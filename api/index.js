@@ -54,7 +54,7 @@ const sendBindData = promisify((data, resolve) => {
                signature,
                student: data
             },
-            success ({ data: { status } }) {
+            success({ data: { status } }) {
                resolve(status)
             }
          })
