@@ -10,27 +10,27 @@
 
 ### Popular Page
 
-![](./assets/popular.png)
+<img src="./assets/popular.png" style="zoom: 50%;" />
 
 ### Single Page
 
-![](./assets/single.png)
+<img src="./assets/single.png" style="zoom: 50%;" />
 
 ### Publish Page
 
-![](./assets/publish.png)
+<img src="./assets/publish.png" style="zoom: 50%;" />
 
 ### Circle Page
 
-![](./assets/circle.png)
+<img src="./assets/circle.png" style="zoom: 50%;" />
 
 ### Notice Page
 
-![](./assets/notice.png)
+<img src="./assets/notice.png" style="zoom: 50%;" />
 
 ### Mine Page
 
-![](./assets/mine.png)
+<img src="./assets/mine.png" style="zoom: 50%;" />
 
 ## License
 
