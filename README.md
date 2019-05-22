@@ -10,27 +10,27 @@
 
 ### Popular Page
 
-<img src="./assets/popular.png" style="zoom: 50%;" />
+<img src="./assets/popular.png" width="50%;" />
 
 ### Single Page
 
-<img src="./assets/single.png" style="zoom: 50%;" />
+<img src="./assets/single.png" width="50%;" />
 
 ### Publish Page
 
-<img src="./assets/publish.png" style="zoom: 50%;" />
+<img src="./assets/publish.png" width="50%;" />
 
 ### Circle Page
 
-<img src="./assets/circle.png" style="zoom: 50%;" />
+<img src="./assets/circle.png" width="50%;" />
 
 ### Notice Page
 
-<img src="./assets/notice.png" style="zoom: 50%;" />
+<img src="./assets/notice.png" width="50%;" />
 
 ### Mine Page
 
-<img src="./assets/mine.png" style="zoom: 50%;" />
+<img src="./assets/mine.png" width="50%;" />
 
 ## License
 
