@@ -52,7 +52,7 @@ Component({
     async postComment() {
       let { content, circleId, postId, recipient: { pid } } = this.properties
       let comment = { content, pid, socialCircleId: circleId }
-      
+
       qq.showLoading({ title: '等待中', mask: true })
 
       await sendComment(comment)

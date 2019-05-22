@@ -43,10 +43,10 @@ Component({
     async drawSkeleton() {
       let [
         selectorTop,
-        rectList, 
+        rectList,
         circleList
       ] = await Promise.all([this.getSelectorTop(), this.getRectList(), this.getCircleList()])
-      
+
       return {
         rectList: rectList.map(item => ({ ...item, top: item.top - selectorTop })),
         circleList: circleList.map(item => ({ ...item, top: item.top - selectorTop }))
