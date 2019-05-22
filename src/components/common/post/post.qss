@@ -1,0 +1,138 @@
+.post {
+  width: 100%;
+  padding: 35rpx 30rpx 40rpx 30rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.post .user-box {
+  width: 100%;
+  height: 70rpx;
+  position: relative;
+}
+
+.post .user-box .avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+}
+
+.post .user-box .info {
+  margin-left: 20rpx;
+  height: 100%;
+}
+
+.post .user-box .info .name {
+  font-size: 28rpx;
+  color: #585858;
+}
+
+.post .user-box .info .time {
+  font-size: 22rpx;
+  color: #b8b8b8;
+}
+
+.post .user-box .upon-tag {
+  height: 100%;
+  margin-left: 20rpx;
+}
+
+.post .user-box .upon-tag .upon {
+  width: 70rpx;
+  height: 35rpx;
+  border-radius: 6rpx;
+  background-color: #6a9ef8;
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.post .user-box .circle-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.post .user-box .circle-tag .circle {
+  padding: 5rpx 10rpx;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 6rpx;
+  background-color: #6a9ef8;
+}
+
+.post .content-box {
+  width: 100%;
+  padding: 25rpx 0;
+  font-size: 28rpx;
+  color: #585858;
+}
+
+.post .content-box text {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.post .photo-box {
+  margin-bottom: 30rpx;
+}
+
+.post .photo-box image {
+  border-radius: 6rpx;
+  border: 1px solid #fff;
+}
+
+.post .photo-box .layout-one .row {
+  width: 100%;
+}
+
+.post .photo-box .layout-one .column {
+  width: 50%;
+}
+
+.post .photo-box .layout-two .photo {
+  width: 345rpx;
+  height: 345rpx;
+}
+
+.post .photo-box .layout-three .photo {
+  width: 230rpx;
+  height: 230rpx;
+}
+
+.post .interact-box {
+  width: 100%;
+  height: 40rpx;
+}
+
+.post .interact-box > view {
+  margin-left: 45rpx;
+  padding: 10rpx 0;
+}
+
+.post .interact-box .number {
+  font-size: 30rpx;
+  color: #8d8d8d;
+  margin-left: 12rpx;
+  min-width: 20rpx;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+
+.post .interact-box image {
+  width: 38rpx;
+  height: 38rpx;
+}
+
+.post .interact-box .comment image {
+  width: 40rpx;
+  height: 40rpx;
+  transform: translateY(3rpx);
+}
+
+.post .interact-box .like image.active {
+  animation: 1s ease-in-out bounceIn;
+}
+
+.post .interact-box .collect image.active {
+  animation: 1s ease-in-out bounceIn;
+}

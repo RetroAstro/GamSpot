@@ -1,45 +1,37 @@
-> ## 重邮圈
+# GamSpot
 
-**基础功能**
+![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg) &nbsp; ![build](https://img.shields.io/badge/build-passing-brightgreen.svg) &nbsp; ![code-style-standard](https://img.shields.io/badge/code--style-standard-brightgreen.svg) &nbsp; ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) 
 
-- [x] 绑定登录
-- [x] 选择性别
-- [x] 加入圈子
-- [x] 发布邮话
-- [x] 回复评论
-- [x] 点赞与收藏
+> QQ Applet in CQUPT
 
-**性能优化**
+**With your schoolmates, discover the joy of life in GamSpot.** 
 
-- [x] 骨架屏
-- [x] 循环渲染中指定 key 值
-- [x] 图片预加载 ( 提前获取图片尺寸，渐变显示图片 )
-- [x] 图片懒加载 ( Intersection Observer )
-- [x] 邮话局部加载 ( 将数据分批传入视图层，避免一次性 setData 数据过大 )
+## Screen Shots 
 
-**其他**
+### Popular Page
 
-- [x] 图片预览
-- [x] 图片上传
-- [x] 全局状态管理 ( redux )
+![](./assets/popular.png)
 
-**待办清单**
+### Single Page
 
-- [x] 热门页
-- [ ] 通知页
-- [ ] 个人页
-- [ ] 基于 Gulp 搭建前端工作流
-- [ ] 用户体验优化
-- [ ] 渐变更新视图数据
-- [ ] 评论时可添加图片、选择 emoji
-- [ ] 删除评论
-- [ ] 图片上传时可取消已选择的图片
-- [ ] 分包加载
-- [ ] 跨页面通信 ( event bus )
+![](./assets/single.png)
 
-**Bug 修复** 
+### Publish Page
 
-- [x] 重构登录逻辑
-- [x] 安卓端：无法回复评论
-- [x] 显示正常的输出内容
-- [ ] 控制并修正输入内容
+![](./assets/publish.png)
+
+### Circle Page
+
+![](./assets/circle.png)
+
+### Notice Page
+
+![](./assets/notice.png)
+
+### Mine Page
+
+![](./assets/mine.png)
+
+## License
+
+Apache 2.0 © [RetroAstro](https://github.com/RetroAstro)

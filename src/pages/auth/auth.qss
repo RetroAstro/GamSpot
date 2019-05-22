@@ -1,0 +1,25 @@
+.logo {
+  width: 200rpx;
+  margin-top: 250rpx;
+}
+
+.title {
+  text-align: center;
+  color: #585858;
+  margin: 30rpx 0;
+}
+
+.profile {
+  text-align: center;
+  font-size: 28rpx;
+  color: #888;
+  margin-bottom: 50rpx;
+}
+
+.mini-btn {
+  width: 200rpx;
+  height: 80rpx;
+  font-size: 32rpx;
+  color: #585858;
+  background: #f6f6f6;
+}

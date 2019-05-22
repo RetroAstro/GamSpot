@@ -1,0 +1,76 @@
+.container {
+  height: 100vh;
+  background: #f6f6f6;
+}
+
+.user-box {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 40rpx;
+}
+
+.user-box > view {
+  margin: 0 auto;
+  padding: 60rpx 0;
+}
+
+.user-box .avatar {
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  margin-bottom: 15rpx;
+}
+
+.user-box .editable {
+  position: relative;
+}
+
+.user-box .editable .name {
+  width: 500rpx;
+  font-size: 32rpx;
+  color: #585858;
+  text-align: center;
+}
+
+.user-box .editable .placeholder {
+  font-size: 32rpx;
+  color: #c2c2c2;
+}
+
+.user-box .editable .pencil {
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top: 50%;
+  right: 50rpx;
+  transform: translateY(-50%);
+}
+
+.personal-box {
+  width: 100%;
+  padding: 0 30rpx;
+}
+
+.personal-box navigator {
+  width: 100%;
+  padding: 25rpx 30rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.personal-box navigator .icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 25rpx;
+}
+
+.personal-box navigator .name {
+  font-size: 28rpx;
+  color: #585858;
+}
+
+.personal-box navigator .right image {
+  width: 14rpx;
+  height: 28rpx;
+}

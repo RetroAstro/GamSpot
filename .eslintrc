@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["prettier"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "commonjs": true
+  },
+  "rules": {
+     "prettier/prettier": "off",
+     "no-undef": "off",
+     "eqeqeq": "off",
+     "no-unused-vars": "off",
+     "no-return-assign": "off"
+  }
+}

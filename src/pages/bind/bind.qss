@@ -1,0 +1,84 @@
+.banner-box {
+  width: 100%;
+  height: 453rpx;
+}
+
+.banner-box .banner {
+  width: 100%;
+  height: 100%;
+}
+
+.binding-box {
+  width: 590rpx;
+  padding-top: 36rpx;
+}
+
+.binding-box view {
+  width: 100%;
+  height: 120rpx;
+  padding-top: 25rpx;
+}
+
+.binding-box .line-box {
+  width: 590rpx;
+  height: 4rpx;
+  padding-top: 0rpx;
+  position: relative;
+}
+
+.binding-box .line-box .line {
+  width: 590rpx;
+  height: 2rpx;
+  padding-top: 0rpx;
+  background: #e5e5e5;
+}
+
+.binding-box .line-box .zelma {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250rpx;
+  height: 4rpx;
+  padding-top: 0rpx;
+  border-radius: 12rpx;
+}
+
+.binding-box .line-box .zelma.active {
+  width: 590rpx;
+  background: #a6c5fb;
+  transition: all 0.3s ease-out;
+}
+
+.binding-box input {
+  width: 500rpx;
+  height: 20rpx;
+  font-size: 18px;
+  color: #000;
+}
+
+.binding-box .nickname image {
+  width: 50rpx;
+  height: 49rpx;
+  transform: translateY(-3rpx);
+}
+
+.binding-box .stuid image {
+  width: 50rpx;
+  height: 40rpx;
+}
+
+.binding-box .identity image {
+  width: 50rpx;
+  height: 40rpx;
+  transform: translateY(-2rpx);
+}
+
+.binding-btn {
+  background: #6a9ef8;
+  border: none;
+  color: #fff;
+  height: 80rpx;
+  letter-spacing: 10rpx;
+  margin-top: 90rpx;
+}

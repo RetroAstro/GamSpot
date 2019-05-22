@@ -1,7 +1,10 @@
 # files
 .DS_Store
+local.json
+package-lock.json
 project.config.json
 
 # directories
 mock/
-config/
+dist/
+node_modules/
