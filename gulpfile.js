@@ -1,7 +1,6 @@
 const fs = require('fs')
 const gulp = require('gulp')
 const babel = require('gulp-babel')
-const htmlmin = require('gulp-htmlmin')
 const cssmin = require('gulp-clean-css')
 const uglify = require('gulp-uglify')
 const jsonminify = require('gulp-jsonminify')
@@ -19,7 +18,6 @@ const queue = ['qml', 'qss', 'js', 'json']
 gulp.task('qml', () => {
   return gulp
     .src(`${src}/**/*.qml`)
-    .pipe(isProd ? htmlmin() : through.obj())
     .pipe(gulp.dest(dist))
 })
 
@@ -96,7 +94,9 @@ gulp.task('clean', () => {
 })
 
 gulp.task('watch', () => {
-  queue.map(v => gulp.watch(`${src}/**/*.${v}`, gulp.series(v)))
+  queue
+    .map(v => gulp.watch(`${src}/**/*.${v}`, gulp.series(v)))
+
   gulp.watch(`${src}/images/**`, gulp.series('image'))
 })
 
