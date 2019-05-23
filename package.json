@@ -1,7 +1,7 @@
 {
   "name": "GamSpot",
   "version": "1.0.0",
-  "description": "CQUPT GamSpot",
+  "description": "Social Interaction QQ Applet in CQUPT",
   "author": "RetroAstro",
   "license": "Apache License 2.0",
   "scripts": {
