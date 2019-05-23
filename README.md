@@ -2,7 +2,7 @@
 
 ![license](https://img.shields.io/badge/license-Apache--2.0-blue.svg) ![build](https://img.shields.io/badge/build-passing-brightgreen.svg) ![code-style-standard](https://img.shields.io/badge/code--style-standard-brightgreen.svg) ![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) 
 
-> QQ Applet in CQUPT
+> Social Interaction QQ Applet in CQUPT 
 
 **With your schoolmates, discover the joy of life in GamSpot.** 
 
