@@ -2,7 +2,8 @@
   "parser": "babel-eslint",
   "extends": [
     "standard",
-    "plugin:prettier/recommended"
+    "prettier",
+    "prettier/standard"
   ],
   "plugins": ["prettier"],
   "env": {

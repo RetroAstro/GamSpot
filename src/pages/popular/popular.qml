@@ -1,7 +1,7 @@
 <view class="container">
    <view class="post-box skeleton">
       <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}" setStyle="min-height: 1354rpx;"></skeleton>
-      <block qq:for="{{feedList}}" qq:key="{{index}}" qq:for-item="postItems">
+      <block qq:for="{{dataList}}" qq:key="{{index}}" qq:for-item="postItems">
          <block qq:for="{{postItems}}" qq:key="id">
             <post item="{{item}}" bindnavigate="onNavigate"></post>
          </block>
