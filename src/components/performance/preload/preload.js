@@ -9,9 +9,7 @@ Component({
       type: String,
       value: '',
       observer(value) {
-        this.isCached(value)
-          ? this.setData({ imgUrl: value })
-          : this.preloadImage(value)
+        this.isCached(value) ? this.setData({ imgUrl: value }) : this.preloadImage(value)
       }
     },
     index: {

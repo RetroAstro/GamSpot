@@ -35,8 +35,7 @@ const normalizeCommit = commit => {
     return result
   }
 
-  const reorder = data =>
-    data.sort((prev, next) => prev.timestamp - next.timestamp)
+  const reorder = data => data.sort((prev, next) => prev.timestamp - next.timestamp)
 
   const createCommentId = ({ author: { id }, timestamp }) => (id + timestamp)
 

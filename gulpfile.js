@@ -76,7 +76,6 @@ gulp.task('config', () => {
 })
 
 gulp.task('image', () => {
-
   return gulp
     .src(`${src}/images/**`)
     .pipe(
