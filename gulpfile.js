@@ -33,14 +33,7 @@ gulp.task('js', () => {
     .src(`${src}/**/*.js`)
     .pipe(
       babel({
-        presets: ['@babel/preset-env'],
-        plugins: [
-          [
-            '@babel/plugin-proposal-decorators',
-            { decoratorsBeforeExport: true }
-          ],
-          '@babel/plugin-proposal-class-properties'
-        ]
+        presets: ['@babel/preset-env']
       })
     )
     .pipe(
