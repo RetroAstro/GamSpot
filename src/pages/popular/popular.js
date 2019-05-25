@@ -5,7 +5,6 @@ const { INFOLIST } = require('../../enhancer/types')
 
 const popular = {
   data: {
-    showSkeleton: true,
     dataList: [postItems]
   },
   onLoad() {
@@ -43,9 +42,6 @@ const popular = {
     let data = this.updateDataList(postIds, postItems)
 
     this.setData(data, this.hideSkeleton)
-  },
-  hideSkeleton() {
-    this.setData({ showSkeleton: false })
   }
 }
 

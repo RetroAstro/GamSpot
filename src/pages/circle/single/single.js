@@ -7,7 +7,6 @@ const single = {
   data: {
     mark: '',
     info: {},
-    showSkeleton: true,
     dataList: [postItems]
   },
   onLoad({ circleId }) {
@@ -42,9 +41,6 @@ const single = {
     }
 
     this.setData(data, this.hideSkeleton)
-  },
-  hideSkeleton() {
-    this.setData({ showSkeleton: false })
   },
   updateCircleInfo(circles) {
     return {

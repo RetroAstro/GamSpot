@@ -4,6 +4,7 @@ const info = () => {
       pageNum: 1
     },
     data: {
+      showSkeleton: true,
       loading: false,
       loadedText: '',
       dataList: []
@@ -36,6 +37,9 @@ const info = () => {
     },
     noMoreData(dataIds) {
       return (!dataIds.length && this.props.pageNum > 1)
+    },
+    hideSkeleton() {
+      this.setData({ showSkeleton: false })
     }
   }
 
