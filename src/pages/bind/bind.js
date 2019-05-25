@@ -29,7 +29,7 @@ Page({
   sendData(data) {
     qq.showLoading({ title: '等待中', mask: true })
 
-    sendBindData(data).then(status => {
+    sendBindData(data).then(({ status, data }) => {
       qq.hideLoading()
 
       if (status === 10000) {
