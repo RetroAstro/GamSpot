@@ -181,7 +181,7 @@ Component({
       const shouldLoad = ({ intersectionRatio }) => {
         return intersectionRatio > 0 && !this.data.imageItems.every(item => item.show)
       }
-      
+
       this.createIntersectionObserver()
         .relativeToViewport()
         .observe('.user-box', res => {

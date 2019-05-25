@@ -1,23 +1,15 @@
-const { actions, subscribe, getState } = require('../../../store/index')
+const { actions } = require('../../../store/index')
 const { circles } = require('../../../mock/index')
+const { enhance } = require('../../../enhancer/index')
+const { CONNECT } = require('../../../enhancer/types')
 
-Page({
+const index = {
   data: {
     circles,
     showSkeleton: true
   },
   onLoad() {
-    this.connectStore()
-    this.initialize()
-  },
-  onUnload() {
-    this.unsubscribe()
-  },
-  initialize() {
     actions.fetchCircles()
-  },
-  connectStore() {
-    this.unsubscribe = subscribe(() => this.handleState(getState()))
   },
   handleState({ circles }) {
     let data = {
@@ -29,4 +21,6 @@ Page({
   hideSkeleton() {
     this.setData({ showSkeleton: false })
   }
-})
+}
+
+Page(enhance(index, { type: CONNECT }))

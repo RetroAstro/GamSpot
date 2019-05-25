@@ -10,9 +10,9 @@ const {
 const enhance = (origin, { type }) => {
   switch (type) {
     case CONNECT:
-      return compose(connect, origin)
+      return compose(connect(), origin)
     case INFOLIST:
-      return compose(connect, info, origin)
+      return compose(connect(), info(), origin)
     default:
       return origin
   }

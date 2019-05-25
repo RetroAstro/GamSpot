@@ -2,7 +2,7 @@
    <view class="header flex-between">
       <view class="left flex-start">
          <block qq:if="{{item.author.gender == 1}}">
-            <image class="avatar skeleton-radius" mode="scaleToFill" src="../../../../images/boy.png"></image>
+            <image class="avatar skeleton-radius" mode="scaleToFill" src="../../../images/boy.png"></image>
          </block>
          <block qq:else>
             <image class="avatar skeleton-radius" mode="scaleToFill" src="../../../images/girl.png"></image>

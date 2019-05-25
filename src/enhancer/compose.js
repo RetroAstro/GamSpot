@@ -10,7 +10,7 @@ const combine = (prev, next) => {
           result[key] = function () {
             let args = [...arguments]
 
-            prev[key].apply(this, args)
+            prev[key].call(this)
             next[key].apply(this, args)
           }
         } else {

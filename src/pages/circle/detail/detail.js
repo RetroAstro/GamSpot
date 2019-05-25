@@ -1,7 +1,9 @@
-const { actions, subscribe, getState } = require('../../../store/index')
+const { actions } = require('../../../store/index')
 const { comments } = require('../../../mock/index')
+const { enhance } = require('../../../enhancer/index')
+const { CONNECT } = require('../../../enhancer/types')
 
-Page({
+const detail = {
   data: {
     tag: '',
     post: '',
@@ -13,11 +15,7 @@ Page({
     comments
   },
   onLoad({ params }) {
-    this.connectStore()
     this.initialize(JSON.parse(decodeURIComponent(params)))
-  },
-  onUnload() {
-    this.unsubscribe()
   },
   onNavigate({ detail: { data: { tag } } }) {
     if (tag === 'comment') {
@@ -42,9 +40,6 @@ Page({
   },
   postComment({ detail: { data } }) {
     this.setData({ showReply: true, recipient: data })
-  },
-  connectStore() {
-    this.unsubscribe = subscribe(() => this.handleState(getState()))
   },
   handleState({ posts, comments, postComments }) {
     let data = {
@@ -91,4 +86,6 @@ Page({
       .boundingClientRect()
       .exec(([{ height }]) => qq.pageScrollTo({ scrollTop: height }))
   }
-})
+}
+
+Page(enhance(detail, { type: CONNECT }))

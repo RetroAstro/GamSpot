@@ -5,6 +5,7 @@ const { INFOLIST } = require('../../enhancer/types')
 
 const popular = {
   data: {
+    showSkeleton: true,
     dataList: [postItems]
   },
   onLoad() {
