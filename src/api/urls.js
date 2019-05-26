@@ -9,6 +9,10 @@ const routes = {
   IMAGE_DOMAIN: '/talks/picture',
   SEND_NEW_POST: '/talks',
   SEND_COMMENT: '/talks/comments',
+  GET_JOINED_CIRCLES: '/user/joining',
+  GET_MINE_POSTS: '/user/talks',
+  GET_LIKED_POSTS: '/user/agrees',
+  GET_COLLECTED_POSTS: '/user/collections',
   RESET_ALL_DATA: '/refreshDB'
 }
 

@@ -15,7 +15,7 @@
             <view class="upon flex-center">置顶</view>
          </view>
       </block>
-      <block qq:if="{{!(isSole || isSingle)}}">
+      <block qq:if="{{!(isSole || isSingle || isMine)}}">
          <view class="circle-tag" bindtap="tapCircle">
             <view class="circle flex-center">#{{item.circleName}}#</view>
          </view>
@@ -37,28 +37,30 @@
          </block>
       </view>
    </block>
-   <view class="interact-box flex-end">
-      <view class="like flex-between skeleton-rect" bindtap="tapInteract" data-event="like">
-         <image
-            class="{{like.active ? 'active': ''}}"
-            mode="scaleToFill"
-            src="{{like.isAgree ? '../../../images/active-like.png' : '../../../images/like.png'}}"
-         ></image>
-         <view class="number">{{like.agreeCount}}</view>
-      </view>
-      <view class="comment flex-between skeleton-rect" bindtap="tapComment">
-         <image mode="scaleToFill" src="../../../images/comment.png"></image>
-         <view class="number">{{item.commitCount}}</view>
-      </view>
-      <view class="collect flex-between skeleton-rect" bindtap="tapInteract" data-event="collect">
-         <image
-            class="{{collect.active ? 'active' : ''}}"
-            mode="scaleToFill"
-            src="{{collect.isCollection ? '../../../images/active-collect.png' : '../../../images/collect.png'}}"
-         ></image>
-         <view class="number">{{collect.collectionCount}}</view>
-      </view>
-   </view>
+   <block qq:if="{{!isMine}}">
+     <view class="interact-box flex-end">
+        <view class="like flex-between skeleton-rect" bindtap="tapInteract" data-event="like">
+           <image
+              class="{{like.active ? 'active': ''}}"
+              mode="scaleToFill"
+              src="{{like.isAgree ? '../../../images/active-like.png' : '../../../images/like.png'}}"
+           ></image>
+           <view class="number">{{like.agreeCount}}</view>
+        </view>
+        <view class="comment flex-between skeleton-rect" bindtap="tapComment">
+           <image mode="scaleToFill" src="../../../images/comment.png"></image>
+           <view class="number">{{item.commitCount}}</view>
+        </view>
+        <view class="collect flex-between skeleton-rect" bindtap="tapInteract" data-event="collect">
+           <image
+              class="{{collect.active ? 'active' : ''}}"
+              mode="scaleToFill"
+              src="{{collect.isCollection ? '../../../images/active-collect.png' : '../../../images/collect.png'}}"
+           ></image>
+           <view class="number">{{collect.collectionCount}}</view>
+        </view>
+     </view>
+   </block>
 </view>
 
 <template name="one">

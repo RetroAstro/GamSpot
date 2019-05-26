@@ -1,11 +1,11 @@
 const { combineReducers } = require('../../lib/redux')
-const { unique } = require('../../utils/index')
 
 const {
   RECEIVE_CIRCLES,
   RECEIVE_SOLE_CIRCLE,
   JOIN_CIRCLE,
-  PUBLISH_NEW_POST
+  PUBLISH_NEW_POST,
+  RECEIVE_JOINED_CIRCLES
 } = require('../constants/index')
 
 const loadCircles = (state, { data }) => {
@@ -52,6 +52,7 @@ const addTalkingCount = (state, { id }) => {
 const circlesById = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_CIRCLES:
+    case RECEIVE_JOINED_CIRCLES:
       return loadCircles(state, action)
     case RECEIVE_SOLE_CIRCLE:
       return addSoleCircle(state, action)
@@ -64,28 +65,4 @@ const circlesById = (state = {}, action) => {
   }
 }
 
-const loadCirclesIds = (state, { data }) => unique([
-  ...state,
-  ...data.map(item => item.id)
-])
-
-const addSoleCircleId = (state, { data: { id } }) => unique([
-  ...state,
-  id
-])
-
-const allCircles = (state = [], action) => {
-  switch (action.type) {
-    case RECEIVE_CIRCLES:
-      return loadCirclesIds(state, action)
-    case RECEIVE_SOLE_CIRCLE:
-      return addSoleCircleId(state, action)
-    default:
-      return state
-  }
-}
-
-module.exports = combineReducers({
-  byId: circlesById,
-  allIds: allCircles
-})
+module.exports = combineReducers({ byId: circlesById })

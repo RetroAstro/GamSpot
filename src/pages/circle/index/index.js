@@ -11,9 +11,9 @@ const index = {
   onLoad() {
     actions.fetchCircles()
   },
-  handleState({ circles }) {
+  handleState({ circles, popularCircles }) {
     let data = {
-      circles: circles.allIds.map(id => circles.byId[id])
+      circles: popularCircles.map(id => circles.byId[id])
     }
 
     this.setData(data, this.hideSkeleton)

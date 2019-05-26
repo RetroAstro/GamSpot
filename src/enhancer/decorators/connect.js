@@ -5,7 +5,7 @@ const connect = () => {
     onLoad() {
       this.unsubscribe = subscribe(() => this.handleState(getState()))
     },
-    Unload() {
+    onUnload() {
       this.unsubscribe()
     }
   }

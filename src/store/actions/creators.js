@@ -9,7 +9,14 @@ const {
   PUBLISH_NEW_POST,
   RECEIVE_SOLE_POST,
   LIKE_ACTION,
-  COLLECT_ACTION
+  COLLECT_ACTION,
+  RECEIVE_JOINED_CIRCLES,
+  RECEIVE_MINE_POSTS,
+  ADD_MINE_POSTS,
+  RECEIVE_LIKED_POSTS,
+  ADD_LIKED_POSTS,
+  RECEIVE_COLLECTED_POSTS,
+  ADD_COLLECTED_POSTS
 } = require('../constants/index')
 
 const receiveCircles = data => ({
@@ -75,6 +82,47 @@ const collectSuccess = (id, isCollection) => ({
   isCollection
 })
 
+const receiveJoinedCircles = data => ({
+  type: RECEIVE_JOINED_CIRCLES,
+  data
+})
+
+const receiveMinePosts = data => ({
+  type: RECEIVE_MINE_POSTS,
+  cursor: 0,
+  data
+})
+
+const addMinePosts = (data, page) => ({
+  type: ADD_MINE_POSTS,
+  cursor: page - 1,
+  data
+})
+
+const receiveLikedPosts = data => ({
+  type: RECEIVE_LIKED_POSTS,
+  cursor: 0,
+  data
+})
+
+const addLikedPosts = (data, page) => ({
+  type: ADD_LIKED_POSTS,
+  cursor: page - 1,
+  data
+})
+
+const receiveCollectedPosts = data => ({
+  type: RECEIVE_COLLECTED_POSTS,
+  cursor: 0,
+  data
+})
+
+const addCollectedPosts = (data, page) => ({
+  type: ADD_COLLECTED_POSTS,
+  cursor: page - 1,
+  data
+})
+
 module.exports = {
   receiveCircles,
   receiveSoleCircle,
@@ -86,5 +134,12 @@ module.exports = {
   addNewPost,
   receiveSolePost,
   likeSuccess,
-  collectSuccess
+  collectSuccess,
+  receiveJoinedCircles,
+  receiveMinePosts,
+  addMinePosts,
+  receiveLikedPosts,
+  addLikedPosts,
+  receiveCollectedPosts,
+  addCollectedPosts
 }

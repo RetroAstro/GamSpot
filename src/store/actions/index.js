@@ -4,7 +4,11 @@ const {
   getPopularPosts,
   getSinglePosts,
   sendCircleId,
-  getSolePost
+  getSolePost,
+  getJoinedCircles,
+  getMinePosts,
+  getLikedPosts,
+  getCollectedPosts,
 } = require('../../api/index')
 
 const {
@@ -18,7 +22,14 @@ const {
   addNewPost,
   receiveSolePost,
   likeSuccess,
-  collectSuccess
+  collectSuccess,
+  receiveJoinedCircles,
+  receiveMinePosts,
+  addMinePosts,
+  receiveLikedPosts,
+  addLikedPosts,
+  receiveCollectedPosts,
+  addCollectedPosts
 } = require('./creators')
 
 const fetchCircles = () => dispatch => {
@@ -30,11 +41,11 @@ const fetchSoleCircle = id => dispatch => {
 }
 
 const fetchPopularPosts = (page = 1) => dispatch => {
-  getPopularPosts(page).then(data =>
+  getPopularPosts(page).then(data => {
     page == 1
       ? dispatch(receivePopularPosts(data))
       : dispatch(addPopularPosts(data, page))
-  )
+  })
 }
 
 const fetchSinglePosts = (id, page = 1) => dispatch => {
@@ -64,6 +75,34 @@ const likeAction = (id, isAgree) => dispatch =>
 const collectAction = (id, isCollection) => dispatch =>
   dispatch(collectSuccess(id, isCollection))
 
+const fetchJoinedCircles = () => dispatch => {
+  getJoinedCircles().then(data => dispatch(receiveJoinedCircles(data)))
+}
+
+const fetchMinePosts = (page = 1) => dispatch => {
+  getMinePosts(page).then(data => {
+    page == 1
+      ? dispatch(receiveMinePosts(data))
+      : dispatch(addMinePosts(data, page))
+  })
+}
+
+const fetchLikedPosts = (page = 1) => dispatch => {
+  getLikedPosts(page).then(data => {
+    page == 1
+      ? dispatch(receiveLikedPosts(data))
+      : dispatch(addLikedPosts(data, page))
+  })
+}
+
+const fetchCollectedPosts = (page = 1) => dispatch => {
+  getCollectedPosts(page).then(data => {
+    page == 1
+      ? dispatch(receiveCollectedPosts(data))
+      : dispatch(addCollectedPosts(data, page))
+  })
+}
+
 module.exports = {
   fetchCircles,
   fetchPopularPosts,
@@ -72,5 +111,9 @@ module.exports = {
   publishNewPost,
   fetchSolePost,
   likeAction,
-  collectAction
+  collectAction,
+  fetchJoinedCircles,
+  fetchMinePosts,
+  fetchLikedPosts,
+  fetchCollectedPosts
 }

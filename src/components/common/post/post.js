@@ -50,6 +50,10 @@ Component({
     isSingle: {
       type: Boolean,
       value: false
+    },
+    isMine: {
+      type: Boolean,
+      value: false
     }
   },
   data: {

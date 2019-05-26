@@ -1,0 +1,43 @@
+page {
+  background: #f6f6f6;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.circle-box {
+  width: 100%;
+  padding: 30rpx;
+  background: #fff;
+  border-bottom: 1px solid #f6f6f6;
+}
+
+.circle-box .avatar {
+  width: 80rpx;
+  height: 80rpx;
+  overflow: hidden;
+}
+
+.circle-box .avatar image {
+  border-radius: 8rpx;
+}
+
+.circle-box .info {
+  height: 80rpx;
+  margin-left: 15rpx;
+}
+
+.circle-box .info .name {
+  font-size: 28rpx;
+  color: #447de1;
+}
+
+.circle-box .info .data-box view {
+  font-size: 22rpx;
+  color: #585858;
+}
+
+.circle-box .info .data-box .post {
+  margin-left: 30rpx;
+}

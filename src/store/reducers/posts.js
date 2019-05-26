@@ -7,7 +7,13 @@ const {
   ADD_SINGLE_POSTS,
   RECEIVE_SOLE_POST,
   LIKE_ACTION,
-  COLLECT_ACTION
+  COLLECT_ACTION,
+  RECEIVE_MINE_POSTS,
+  ADD_MINE_POSTS,
+  RECEIVE_LIKED_POSTS,
+  ADD_LIKED_POSTS,
+  RECEIVE_COLLECTED_POSTS,
+  ADD_COLLECTED_POSTS
 } = require('../constants/index')
 
 const loadPosts = (state, { data }) => {
@@ -65,6 +71,12 @@ const postsById = (state = {}, action) => {
     case ADD_POPULAR_POSTS:
     case RECEIVE_SINGLE_POSTS:
     case ADD_SINGLE_POSTS:
+    case RECEIVE_MINE_POSTS:
+    case ADD_MINE_POSTS:
+    case RECEIVE_LIKED_POSTS:
+    case ADD_LIKED_POSTS:
+    case RECEIVE_COLLECTED_POSTS:
+    case ADD_COLLECTED_POSTS:
       return loadPosts(state, action)
     case RECEIVE_SOLE_POST:
       return updateSolePost(state, action)

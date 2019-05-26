@@ -10,6 +10,10 @@ const {
   UPLOAD_IMAGE,
   SEND_NEW_POST,
   SEND_COMMENT,
+  GET_JOINED_CIRCLES,
+  GET_MINE_POSTS,
+  GET_LIKED_POSTS,
+  GET_COLLECTED_POSTS,
   RESET_ALL_DATA
 } = require('./urls')
 
@@ -218,6 +222,58 @@ const sendCollectStatus = promisify((postId, isCollection, resolve) => {
   })
 })
 
+const getJoinedCircles = promisify(resolve => {
+  qq.request({
+    ...opts(),
+    url: GET_JOINED_CIRCLES,
+    method: 'GET',
+    success({ data: { status, data } }) {
+      if (status === 10000) {
+        resolve(data)
+      }
+    }
+  })
+})
+
+const getMinePosts = promisify((page, resolve) => {
+  qq.request({
+    ...opts(),
+    url: `${GET_MINE_POSTS}?page=${page}`,
+    method: 'GET',
+    success({ data: { status, data } }) {
+      if (status === 10000) {
+        resolve(alterPosts(data))
+      }
+    }
+  })
+})
+
+const getLikedPosts = promisify((page, resolve) => {
+  qq.request({
+    ...opts(),
+    url: `${GET_LIKED_POSTS}?page=${page}`,
+    method: 'GET',
+    success({ data: { status, data } }) {
+      if (status === 10000) {
+        resolve(alterPosts(data))
+      }
+    }
+  })
+})
+
+const getCollectedPosts = promisify((page, resolve) => {
+  qq.request({
+    ...opts(),
+    url: `${GET_COLLECTED_POSTS}?page=${page}`,
+    method: 'GET',
+    success({ data: { status, data } }) {
+      if (status === 10000) {
+        resolve(alterPosts(data))
+      }
+    }
+  })
+})
+
 const resetAllData = () => {
   qq.request({
     ...opts(),
@@ -243,5 +299,9 @@ module.exports = {
   sendComment,
   sendLikeStatus,
   sendCollectStatus,
+  getJoinedCircles,
+  getMinePosts,
+  getLikedPosts,
+  getCollectedPosts,
   resetAllData
 }
