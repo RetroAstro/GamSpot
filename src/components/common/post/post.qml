@@ -27,7 +27,7 @@
    <block qq:if="{{imageItems.length}}">
       <view class="photo-box">
          <block qq:if="{{imageItems.length === 1}}">
-            <template is="one" data="{{...imageItems[0]}}" />
+            <template is="one" data="{{...imageItems[0], ratio: ratio >= 1 ? 'row' : 'column'}}" />
          </block>
          <block qq:elif="{{imageItems.length == 2 || imageItems.length == 4}}">
             <template is="two" data="{{images: imageItems, type: 'layout-two'}}" />
@@ -64,8 +64,8 @@
 </view>
 
 <template name="one">
-   <view class="layout-one flex-center">
-      <preload class="{{ratio >= 1 ? 'column' : 'row'}}" src="{{show ? url : ''}}" needRatio=true mode="widthFix" data-index="0" bindsetratio="setRatio" bindloaded="handleLoaded" bindtap="tapPreload"></preload>
+   <view class="layout-one flex-start">
+      <preload class="{{ratio}}" src="{{show ? url : ''}}" needRatio=true mode="widthFix" data-index="0" bindsetratio="setRatio" bindloaded="handleLoaded" bindtap="tapPreload"></preload>
    </view>
 </template>
 

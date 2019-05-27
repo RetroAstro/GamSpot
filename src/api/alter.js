@@ -1,8 +1,5 @@
 const { timeFromNow } = require('../utils/index')
-
-const {
-  IMAGE_DOMAIN
-} = require('./urls')
+const { IMAGE_DOMAIN } = require('./urls')
 
 const formatPost = post => {
   let result = {

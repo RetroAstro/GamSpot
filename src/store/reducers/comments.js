@@ -1,8 +1,5 @@
 const { combineReducers } = require('../../lib/redux')
-
-const {
-  RECEIVE_SOLE_POST
-} = require('../constants/index')
+const { RECEIVE_SOLE_POST } = require('../constants/index')
 
 const loadSolePostComments = (state, { data: { comments } }) => {
   let middle = comments

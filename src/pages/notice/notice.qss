@@ -1,17 +1,21 @@
+page {
+  background: #f6f6f6;
+}
+
 .container {
   min-height: 100vh;
-  background: #f6f6f6;
   padding: 30rpx;
 }
 
 .checked-box {
   width: 100%;
-  margin-bottom: 30rpx;
+  margin-top: 10rpx;
+  margin-bottom: 40rpx;
 }
 
 .checked-box .checked {
   padding: 10rpx 20rpx;
-  font-size: 24rpx;
+  font-size: 25rpx;
   color: #6a9ef8;
   background: #fff;
   border-radius: 10rpx;

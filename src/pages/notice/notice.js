@@ -33,5 +33,7 @@ Page({
       }
     ]
   },
-  onLoad() {}
+  onLoad() {
+    
+  }
 })
