@@ -39,12 +39,21 @@ Page({
         if (self.checkImageFormat(tempFilePaths)) {
           let imagePaths = self.data.imagePaths.concat(tempFilePaths)
 
-          imagePaths.length === 9
-            ? self.setData({ imagePaths, showImagePicker: false })
-            : self.setData({ imagePaths })
+          if (imagePaths.length > 9) {
+            qq.showModal({
+              title: '最多只能上传 9 张图片！',
+              showCancel: false,
+              confirmColor: '#24292E'
+            })
+          } else {
+            self.setData({
+              imagePaths,
+              ...(imagePaths.length == 9 ? { showImagePicker: false } : {})
+            })
+          }
         } else {
           qq.showModal({
-            title: '只支持上传 JPG 与 PNG 格式的图片！',
+            title: '暂未支持上传该格式的图片！',
             showCancel: false,
             confirmColor: '#24292E'
           })
