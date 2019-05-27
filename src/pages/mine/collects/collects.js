@@ -32,4 +32,3 @@ const collects = {
 }
 
 Page(enhance(collects, { type: INFOLIST }))
-
