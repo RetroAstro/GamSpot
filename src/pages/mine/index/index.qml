@@ -28,7 +28,7 @@
          <view class="left">
             <view class="flex-start">
                <image class="icon" mode="scaleToFill" src="../../../images/mine-post.png"></image>
-               <view class="name">我发布的圈话</view>
+               <view class="name">我发布的邮话</view>
             </view>
          </view>
          <view class="right">
