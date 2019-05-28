@@ -13,6 +13,7 @@ const routes = {
   GET_MINE_POSTS: '/user/talks',
   GET_LIKED_POSTS: '/user/agrees',
   GET_COLLECTED_POSTS: '/user/collections',
+  GET_USER_NOTICES: '/user/message',
   RESET_ALL_DATA: '/refreshDB'
 }
 

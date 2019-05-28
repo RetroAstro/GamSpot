@@ -11,6 +11,7 @@ const minePosts = require('./joins/minePosts')
 const likedPosts = require('./joins/likedPosts')
 const collectedPosts = require('./joins/collectedPosts')
 const postComments = require('./joins/postComments')
+const userNotices = require('./joins/userNotices')
 
 const rootReducer = combineReducers({
   circles,
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
   minePosts,
   likedPosts,
   collectedPosts,
-  postComments
+  postComments,
+  userNotices
 })
 
 module.exports = rootReducer

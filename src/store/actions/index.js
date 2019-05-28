@@ -9,6 +9,7 @@ const {
   getMinePosts,
   getLikedPosts,
   getCollectedPosts,
+  getUserNotices
 } = require('../../api/index')
 
 const {
@@ -29,7 +30,9 @@ const {
   receiveLikedPosts,
   addLikedPosts,
   receiveCollectedPosts,
-  addCollectedPosts
+  addCollectedPosts,
+  receiveUserNotices,
+  addUserNotices
 } = require('./creators')
 
 const fetchCircles = () => dispatch => {
@@ -103,6 +106,14 @@ const fetchCollectedPosts = (page = 1) => dispatch => {
   })
 }
 
+const fetchUserNotices = (page = 1) => dispatch => {
+  getUserNotices(page).then(data => {
+    page == 1
+      ? dispatch(receiveUserNotices(data))
+      : dispatch(addUserNotices(data, page))
+  })
+}
+
 module.exports = {
   fetchCircles,
   fetchPopularPosts,
@@ -115,5 +126,6 @@ module.exports = {
   fetchJoinedCircles,
   fetchMinePosts,
   fetchLikedPosts,
-  fetchCollectedPosts
+  fetchCollectedPosts,
+  fetchUserNotices
 }

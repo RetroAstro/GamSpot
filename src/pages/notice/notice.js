@@ -1,39 +1,29 @@
-Page({
+const { actions } = require('../../store/index')
+const { messages } = require('../../mock/index')
+const { enhance } = require('../../enhancer/index')
+const { INFOLIST } = require('../../enhancer/types')
+
+const notice = {
   data: {
-    default: {
-      bell: '新增了圈话',
-      like: '赞了你的圈话',
-      replyPost: '评论了你的圈话',
-      replyComment: '回复了你的圈话'
-    },
-    notices: [
-      {
-        type: 'bell',
-        name: '阿布',
-        time: '14:23',
-        checked: false
-      },
-      {
-        type: 'like',
-        name: '阿布',
-        time: '14:23',
-        checked: false
-      },
-      {
-        type: 'replyPost',
-        name: '阿布',
-        time: '14:23',
-        checked: true
-      },
-      {
-        type: 'replyComment',
-        name: '阿布',
-        time: '14:23',
-        checked: true
-      }
-    ]
+    messages
   },
   onLoad() {
-    
+    actions.fetchUserNotices()
+  },
+  fetchDataList() {
+    actions.fetchUserNotices()
+  },
+  appendDataList() {
+    actions.fetchUserNotices(++this.props.pageNum)
+  },
+  handleState({ notices, userNotices }) {
+    let noticeIds = userNotices[this.props.pageNum - 1]
+    let noticeItems = noticeIds.map(id => notices.byId[id])
+
+    let data = this.updateDataList(noticeIds, noticeItems)
+
+    this.setData(data, this.hideSkeleton)
   }
-})
+}
+
+Page(enhance(notice, { type: INFOLIST }))

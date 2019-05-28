@@ -14,12 +14,14 @@ const {
   GET_MINE_POSTS,
   GET_LIKED_POSTS,
   GET_COLLECTED_POSTS,
+  GET_USER_NOTICES,
   RESET_ALL_DATA
 } = require('./urls')
 
 const {
   alterPosts,
-  alterSolePost
+  alterSolePost,
+  alterNotices
 } = require('./alter')
 
 const setFreshJWT = promisify(resolve => {
@@ -274,6 +276,19 @@ const getCollectedPosts = promisify((page, resolve) => {
   })
 })
 
+const getUserNotices = promisify((page, resolve) => {
+  qq.request({
+    ...opts(),
+    url: `${GET_USER_NOTICES}?page=${page}`,
+    method: 'GET',
+    success({ data: { status, data } }) {
+      if (status === 10000) {
+        resolve(alterNotices(data))
+      }
+    }
+  })
+})
+
 const resetAllData = () => {
   qq.request({
     ...opts(),
@@ -303,5 +318,6 @@ module.exports = {
   getMinePosts,
   getLikedPosts,
   getCollectedPosts,
+  getUserNotices,
   resetAllData
 }

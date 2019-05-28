@@ -16,7 +16,9 @@ const {
   RECEIVE_LIKED_POSTS,
   ADD_LIKED_POSTS,
   RECEIVE_COLLECTED_POSTS,
-  ADD_COLLECTED_POSTS
+  ADD_COLLECTED_POSTS,
+  RECEIVE_USER_NOTICES,
+  ADD_USER_NOTICES
 } = require('../constants/index')
 
 const receiveCircles = data => ({
@@ -123,6 +125,18 @@ const addCollectedPosts = (data, page) => ({
   data
 })
 
+const receiveUserNotices = data => ({
+  type: RECEIVE_USER_NOTICES,
+  cursor: 0,
+  data
+})
+
+const addUserNotices = (data, page) => ({
+  type: ADD_USER_NOTICES,
+  cursor: page - 1,
+  data
+})
+
 module.exports = {
   receiveCircles,
   receiveSoleCircle,
@@ -141,5 +155,7 @@ module.exports = {
   receiveLikedPosts,
   addLikedPosts,
   receiveCollectedPosts,
-  addCollectedPosts
+  addCollectedPosts,
+  receiveUserNotices,
+  addUserNotices
 }

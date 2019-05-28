@@ -57,7 +57,18 @@ const alterSolePost = data => {
   return { post, comments }
 }
 
+const alterNotices = data => {
+  let result = data.map(item => ({
+    ...item,
+    noticeId: (item.id + item.timestamp),
+    createdTime: timeFromNow(item.timestamp)
+  }))
+
+  return result
+}
+
 module.exports = {
   alterPosts,
-  alterSolePost
+  alterSolePost,
+  alterNotices
 }
