@@ -1,4 +1,3 @@
-const fs = require('fs')
 const gulp = require('gulp')
 const babel = require('gulp-babel')
 const cssmin = require('gulp-clean-css')
@@ -7,6 +6,8 @@ const jsonminify = require('gulp-jsonminify')
 const imagemin = require('gulp-imagemin')
 const del = require('del')
 const through = require('through2')
+
+require('env2')('./.env')
 
 const src = './src'
 const dist = './dist'
@@ -50,15 +51,13 @@ gulp.task('json', () => {
 })
 
 gulp.task('config', () => {
-  let local = JSON.parse(fs.readFileSync('./config/local.json'))
-
   return gulp
     .src('./config/index.js')
     .pipe(
       through.obj(function (file, enc, callback) {
         let data = file.contents.toString()
 
-        file.contents = Buffer.from(data.replace('$', local.baseUrl))
+        file.contents = Buffer.from(data.replace('$', process.env.BASE_URL))
 
         this.push(file)
 
