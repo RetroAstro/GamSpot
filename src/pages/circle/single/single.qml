@@ -2,7 +2,8 @@
    <view class="header">
       <view class="circle-box flex-start">
          <view class="icon-box">
-            <image class="icon" mode="scaleToFill" src="{{info.avatarUrl}}"></image>
+            <!-- <image class="icon" mode="scaleToFill" src="{{info.avatarUrl}}"></image> -->
+            <image class="icon" mode="scaleToFill" src="../../../images/coffee.jpg"></image>
          </view>
          <view class="content flex-col-between">
             <view class="title">{{info.name}}</view>

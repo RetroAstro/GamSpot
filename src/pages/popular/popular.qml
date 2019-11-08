@@ -1,4 +1,7 @@
 <view class="container">
+   <block qq:if="{{!dataList[0].length}}">
+     <view class="empty">还没有任何邮话发布呢 ～</view>
+   </block>
    <view class="post-box skeleton">
       <skeleton selector="skeleton" showSkeleton="{{showSkeleton}}" setStyle="min-height: 1354rpx;"></skeleton>
       <block qq:for="{{dataList}}" qq:key="{{index}}" qq:for-item="postItems">
