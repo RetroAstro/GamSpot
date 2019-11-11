@@ -1,6 +1,8 @@
 const { timeFromNow } = require('../utils/index')
 const { IMAGE_DOMAIN } = require('./urls')
 
+const reorder = data => data.sort((prev, next) => prev.timestamp - next.timestamp)
+
 const formatPost = post => {
   let result = {
     ...post,
@@ -32,8 +34,6 @@ const normalizeCommit = commit => {
     return result
   }
 
-  const reorder = data => data.sort((prev, next) => prev.timestamp - next.timestamp)
-
   const createCommentId = ({ author: { id }, timestamp }) => (id + timestamp)
 
   return commit.map(item => {
@@ -58,7 +58,7 @@ const alterSolePost = data => {
 }
 
 const alterNotices = data => {
-  let result = data.map(item => ({
+  let result = reorder(data).map(item => ({
     ...item,
     noticeId: (item.id + item.timestamp),
     createdTime: timeFromNow(item.timestamp)
