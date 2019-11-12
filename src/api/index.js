@@ -145,7 +145,7 @@ const sendCircleId = promisify((id, resolve) => {
   })
 })
 
-const uploadImage = promisify((imagePath, resolve) => {
+const uploadImage = promisify((imagePath, resolve, reject) => {
   qq.uploadFile({
     ...opts(),
     url: UPLOAD_IMAGE,
@@ -156,12 +156,14 @@ const uploadImage = promisify((imagePath, resolve) => {
 
       if (status === 10000) {
         resolve(data)
+      } else {
+        reject()
       }
     }
   })
 })
 
-const sendNewPost = promisify((data, resolve) => {
+const sendNewPost = promisify((data, resolve, reject) => {
   qq.request({
     ...opts(),
     url: SEND_NEW_POST,
@@ -169,6 +171,8 @@ const sendNewPost = promisify((data, resolve) => {
     success({ data: { status } }) {
       if (status === 10000) {
         resolve()
+      } else {
+        reject()
       }
     }
   })

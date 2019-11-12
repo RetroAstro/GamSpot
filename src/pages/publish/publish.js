@@ -67,15 +67,23 @@ Page({
   async tapPublish() {
     qq.showLoading({ title: '等待中', mask: true })
 
-    await this.publishNewPost()
+    try {
+      await this.publishNewPost()
 
-    this.handlePrevPage()
+      this.handlePrevPage()
 
-    actions.publishNewPost(this.data.info.id)
+      actions.publishNewPost(this.data.info.id)
+
+      qq.navigateBack({ delta: 1 })
+    } catch (err) {
+      qq.showModal({
+        title: '发布失败',
+        showCancel: false,
+        confirmColor: '#24292E'
+      })
+    }
 
     qq.hideLoading()
-
-    qq.navigateBack({ delta: 1 })
   },
   async publishNewPost() {
     let post = {
