@@ -1,5 +1,5 @@
 const moment = require('../../lib/moment/index')
-const { setFreshJWT, resetAllData } = require('../../api/index')
+const { setFreshJWT } = require('../../api/index')
 
 Page({
   onLoad() {
