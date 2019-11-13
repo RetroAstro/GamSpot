@@ -1,7 +1,7 @@
 const regeneratorRuntime = require('../../lib/runtime')
 const { uploadImage, sendNewPost } = require('../../api/index')
 const { actions } = require('../../store/index')
-const { formatText } = require('../../utils/index')
+const { formatText, showModal } = require('../../utils/index')
 
 Page({
   props: {
@@ -40,11 +40,7 @@ Page({
           let imagePaths = self.data.imagePaths.concat(tempFilePaths)
 
           if (imagePaths.length > 9) {
-            qq.showModal({
-              title: '最多只能上传 9 张图片！',
-              showCancel: false,
-              confirmColor: '#24292E'
-            })
+            showModal({ title: '最多只能上传 9 张图片' })
           } else {
             self.setData({
               imagePaths,
@@ -52,11 +48,7 @@ Page({
             })
           }
         } else {
-          qq.showModal({
-            title: '暂未支持上传该格式的图片！',
-            showCancel: false,
-            confirmColor: '#24292E'
-          })
+          showModal({ title: '暂未支持上传该格式的图片' })
         }
       }
     })
@@ -76,11 +68,7 @@ Page({
 
       qq.navigateBack({ delta: 1 })
     } catch (err) {
-      qq.showModal({
-        title: '发布失败',
-        showCancel: false,
-        confirmColor: '#24292E'
-      })
+      showModal({ title: '发布失败' })
     }
 
     qq.hideLoading()

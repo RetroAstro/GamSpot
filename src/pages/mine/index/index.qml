@@ -6,7 +6,7 @@
          </view>
          <view class="flex-center">
             <view class="editable flex-start">
-               <input class="name" maxlength="10" value="{{nickname}}" placeholder="(⊙ˍ⊙)" placeholder-style="placeholder" />
+               <input class="name" maxlength="10" value="{{nickname}}" placeholder="(⊙ˍ⊙)" placeholder-style="placeholder" bindconfirm="editNickname"/>
                <image class="pencil" mode="scaleToFill" src="../../../images/pencil.png"></image>
             </view>
          </view>

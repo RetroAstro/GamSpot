@@ -15,6 +15,7 @@ const {
   GET_LIKED_POSTS,
   GET_COLLECTED_POSTS,
   GET_USER_NOTICES,
+  EDIT_NICKNAME,
   RESET_ALL_DATA
 } = require('./urls')
 
@@ -293,6 +294,25 @@ const getUserNotices = promisify((page, resolve) => {
   })
 })
 
+const editNickname = promisify((data, resolve, reject) => {
+  qq.request({
+    ...opts(),
+    url: EDIT_NICKNAME,
+    data,
+    success({ data: { status } }) {
+      if (status === 10000) {
+        qq.setStorageSync('userInfo', {
+          ...qq.getStorageSync('userInfo'),
+          nickname: data.nickname
+        })
+        resolve()
+      } else {
+        reject()
+      }
+    }
+  })
+})
+
 const resetAllData = () => {
   qq.request({
     ...opts(),
@@ -323,5 +343,6 @@ module.exports = {
   getLikedPosts,
   getCollectedPosts,
   getUserNotices,
+  editNickname,
   resetAllData
 }

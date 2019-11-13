@@ -1,4 +1,5 @@
 const { sendGender } = require('../../api/index')
+const { showModal } = require('../../utils/index')
 
 Page({
   data: {
@@ -19,11 +20,7 @@ Page({
         qq.switchTab({ url: '/pages/popular/popular' })
       })
     } else {
-      qq.showModal({
-        title: '您还未选择性别呢',
-        showCancel: false,
-        confirmColor: '#24292E'
-      })
+      showModal({ title: '您还未选择性别呢' })
     }
   },
   saveGender(gender) {

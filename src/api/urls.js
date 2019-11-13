@@ -14,6 +14,7 @@ const routes = {
   GET_LIKED_POSTS: '/user/agrees',
   GET_COLLECTED_POSTS: '/user/collections',
   GET_USER_NOTICES: '/user/message',
+  EDIT_NICKNAME: '/user/nickname',
   RESET_ALL_DATA: '/refreshDB'
 }
 

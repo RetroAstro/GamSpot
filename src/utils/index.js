@@ -47,11 +47,16 @@ const debounce = (func, wait) => {
 
 const formatText = str => str.replace(/(^[\r\n])|([\r\n]$)/g, '').trim()
 
+const showModal = ({ title, showCancel = false, confirmColor = '#24292E' }) => {
+  qq.showModal({ title, showCancel, confirmColor })
+}
+
 module.exports = {
   timeFromNow,
   unique,
   promisify,
   throttle,
   debounce,
-  formatText
+  formatText,
+  showModal
 }

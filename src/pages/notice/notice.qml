@@ -7,13 +7,13 @@
         <block qq:for="{{noticeItems}}" qq:key="noticeId">
            <view class="notice flex-start">
               <block qq:if="{{item.type == 'comment' || item.type == 'reply'}}">
-                 <image mode="scaleToFill" src="../../images/notice-comment.png"></image>
+                <image mode="scaleToFill" src="../../images/notice-comment.png"></image>
               </block>
               <block qq:elif="{{item.type == 'agree'}}">
-                 <image mode="scaleToFill" src="../../images/notice-like.png"></image>
+                <image mode="scaleToFill" src="../../images/notice-like.png"></image>
               </block>
               <block qq:else>
-                 <image mode="scaleToFill" src="../../images/notice-bell.png"></image>
+                <image mode="scaleToFill" src="../../images/notice-bell.png"></image>
               </block>
               <view class="info flex-col-between">
                  <view class="message">
@@ -25,6 +25,6 @@
            </view>
         </block>
      </block>
-     <view class="loading-box flex-center {{showSkeleton ? 'mask' : ''}}">{{loadedText ? loadedText : loading ? '加载中 ...' : ''}}</view>
+     <view class="loading-box flex-center">{{loadedText ? loadedText : loading ? '加载中 ...' : ''}}</view>
    </view>
 </view>

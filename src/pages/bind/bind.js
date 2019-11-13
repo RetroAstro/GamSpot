@@ -1,5 +1,6 @@
 const { sendBindData } = require('../../api/index')
 const { Base64 } = require('../../utils/base64')
+const { showModal } = require('../../utils/index')
 
 Page({
   data: {
@@ -16,11 +17,7 @@ Page({
     if (this.isComplete(data)) {
       this.sendData(data)
     } else {
-      qq.showModal({
-        title: '请输入完整的信息',
-        showCancel: false,
-        confirmColor: '#24292E'
-      })
+      showModal({ title: '请输入完整的信息' })
     }
   },
   isComplete(data) {
@@ -38,11 +35,7 @@ Page({
         qq.setStorageSync('userInfo', { ...userInfo, token: data })
         qq.redirectTo({ url: '/pages/avatar/avatar' })
       } else {
-        qq.showModal({
-          title: '输入的信息有误',
-          showCancel: false,
-          confirmColor: '#24292E'
-        })
+        showModal({ title: '输入的信息有误' })
       }
     })
   }
