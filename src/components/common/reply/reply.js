@@ -1,7 +1,7 @@
 const regeneratorRuntime = require('../../../lib/runtime')
 const { sendComment } = require('../../../api/index')
 const { actions } = require('../../../store/index')
-const { formatText } = require('../../../utils/index')
+const { formatText, showModal } = require('../../../utils/index')
 
 Component({
   externalClasses: [],
@@ -55,13 +55,17 @@ Component({
 
       qq.showLoading({ title: '等待中', mask: true })
 
-      await sendComment(comment)
+      try {
+        await sendComment(comment)
 
-      actions.fetchSolePost(postId)
+        actions.fetchSolePost(postId)
+
+        this.hideReplyBox()
+      } catch (err) {
+        showModal({ title: '发送失败' })
+      }
 
       qq.hideLoading()
-
-      this.hideReplyBox()
     }
   }
 })

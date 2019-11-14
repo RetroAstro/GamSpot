@@ -192,7 +192,7 @@ const getSolePost = promisify((postId, resolve) => {
   })
 })
 
-const sendComment = promisify((data, resolve) => {
+const sendComment = promisify((data, resolve, reject) => {
   qq.request({
     ...opts(),
     url: SEND_COMMENT,
@@ -200,6 +200,8 @@ const sendComment = promisify((data, resolve) => {
     success({ data: { status } }) {
       if (status === 10000) {
         resolve()
+      } else {
+        reject()
       }
     }
   })
